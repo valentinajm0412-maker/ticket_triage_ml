@@ -1,0 +1,58 @@
+<!-- Dashboard View with Tickets Table || Vista de Tablero con Tabla de Tickets -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h2>Panel Principal</h2>
+    <p>Rol activo: <strong>{{ current_user.role }}</strong></p>
+    {% if current_user.role in ['Consultor Tecnico', 'Consultor Funcional'] %}
+        <p>Tickets asignados activos: <strong>{{ current_user.workload }}</strong></p>
+    {% endif %}
+</div>
+
+<div class="card">
+    <h3>Listado de Tickets</h3>
+    {% if tickets %}
+        <table style="width: 100%; border-collapse: collapse; text-align: left; margin-top: 15px;">
+            <thead>
+                <tr style="border-bottom: 2px solid #ddd; background-color: #f9f9f9;">
+                    <th style="padding: 10px;">ID</th>
+                    <th style="padding: 10px;">Título</th>
+                    <th style="padding: 10px;">Categoría</th>
+                    <th style="padding: 10px;">Prioridad (ML)</th>
+                    <th style="padding: 10px;">Asignado A</th>
+                    <th style="padding: 10px;">Estado</th>
+                    {% if current_user.role != 'Cliente' %}
+                        <th style="padding: 10px;">Acción</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for t in tickets %}
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 10px;">#{{ t.id }}</td>
+                    <td style="padding: 10px;">{{ t.title }}</td>
+                    <td style="padding: 10px;">{{ t.category }}</td>
+                    <td style="padding: 10px;"><strong>{{ t.priority }}</strong></td>
+                    <td style="padding: 10px;">{{ t.assignee.username if t.assignee else 'Sin asignar' }}</td>
+                    <td style="padding: 10px;">{{ t.status }}</td>
+                    {% if current_user.role != 'Cliente' %}
+                    <td style="padding: 10px;">
+                        {% if t.status == 'Abierto' %}
+                            <a href="{{ url_for('update_ticket', ticket_id=t.id, new_status='En Proceso') }}" style="color: #2980b9; font-weight: bold; text-decoration: none;">[Tomar caso]</a>
+                        {% elif t.status == 'En Proceso' %}
+                            <a href="{{ url_for('update_ticket', ticket_id=t.id, new_status='Resuelto') }}" style="color: #27ae60; font-weight: bold; text-decoration: none;">[Resolver]</a>
+                        {% else %}
+                            <span style="color: gray;">Completado</span>
+                        {% endif %}
+                    </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No hay tickets registrados en esta vista.</p>
+    {% endif %}
+</div>
+{% endblock %}

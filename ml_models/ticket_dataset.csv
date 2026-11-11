@@ -1,0 +1,801 @@
+descripcion,categoria,prioridad
+error al procesar pagos,Incidente,Alto
+módulo contable no funciona,Incidente,Alto
+no hay acceso a producción,Incidente,Critico
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+duda sobre funcionalidad,Requerimiento,Bajo
+falla en proceso específico de facturación,Incidente,Alto
+requerimiento general de interfaz,Requerimiento,Bajo
+lentitud al exportar archivo,Incidente,Medio
+falla crítica en servidor principal,Incidente,Critico
+lentitud al exportar archivo,Requerimiento,Medio
+lentitud al exportar archivo,Requerimiento,Medio
+proceso específico inoperativo,Incidente,Alto
+solicitud para cambiar color del menú,Requerimiento,Bajo
+error de procesamiento de datos,Incidente,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+falla crítica en servidor principal,Incidente,Critico
+duda sobre funcionalidad,Requerimiento,Bajo
+operatividad de todo el sistema detenida,Incidente,Critico
+error al procesar pagos,Incidente,Alto
+falla en proceso específico de facturación,Incidente,Alto
+error de procesamiento de datos,Requerimiento,Medio
+error de procesamiento de datos,Incidente,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+solicitud para cambiar color del menú,Requerimiento,Bajo
+actualizar texto de bienvenida,Requerimiento,Bajo
+requerimiento general de interfaz,Requerimiento,Bajo
+no hay acceso a producción,Incidente,Critico
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+error al procesar pagos,Incidente,Alto
+cálculo incorrecto en reporte,Incidente,Medio
+cálculo incorrecto en reporte,Requerimiento,Medio
+lentitud al exportar archivo,Requerimiento,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+error de procesamiento de datos,Incidente,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+falla en proceso específico de facturación,Incidente,Alto
+error de procesamiento de datos,Incidente,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+falla crítica en servidor principal,Incidente,Critico
+falla en proceso específico de facturación,Incidente,Alto
+error al procesar pagos,Incidente,Alto
+proceso específico inoperativo,Incidente,Alto
+operatividad de todo el sistema detenida,Incidente,Critico
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+sistema completamente caído,Incidente,Critico
+proceso específico inoperativo,Incidente,Alto
+error al procesar pagos,Incidente,Alto
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+solicitud para cambiar color del menú,Requerimiento,Bajo
+sistema completamente caído,Incidente,Critico
+falla en proceso específico de facturación,Incidente,Alto
+error de procesamiento de datos,Requerimiento,Medio
+sistema completamente caído,Incidente,Critico
+cálculo incorrecto en reporte,Incidente,Medio
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+falla crítica en servidor principal,Incidente,Critico
+cálculo incorrecto en reporte,Incidente,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+no hay acceso a producción,Incidente,Critico
+error de procesamiento de datos,Requerimiento,Medio
+sistema completamente caído,Incidente,Critico
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+error de procesamiento de datos,Incidente,Medio
+operatividad de todo el sistema detenida,Incidente,Critico
+no hay acceso a producción,Incidente,Critico
+operatividad de todo el sistema detenida,Incidente,Critico
+error al procesar pagos,Incidente,Alto
+lentitud al exportar archivo,Incidente,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+falla crítica en servidor principal,Incidente,Critico
+no hay acceso a producción,Incidente,Critico
+actualizar texto de bienvenida,Requerimiento,Bajo
+requerimiento general de interfaz,Requerimiento,Bajo
+falla en proceso específico de facturación,Incidente,Alto
+requerimiento general de interfaz,Requerimiento,Bajo
+módulo contable no funciona,Incidente,Alto
+sistema completamente caído,Incidente,Critico
+cálculo incorrecto en reporte,Requerimiento,Medio
+módulo contable no funciona,Incidente,Alto
+falla en proceso específico de facturación,Incidente,Alto
+error al procesar pagos,Incidente,Alto
+operatividad de todo el sistema detenida,Incidente,Critico
+lentitud al exportar archivo,Incidente,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+falla en proceso específico de facturación,Incidente,Alto
+requerimiento general de interfaz,Requerimiento,Bajo
+módulo contable no funciona,Incidente,Alto
+falla crítica en servidor principal,Incidente,Critico
+duda sobre funcionalidad,Requerimiento,Bajo
+error de procesamiento de datos,Requerimiento,Medio
+cálculo incorrecto en reporte,Incidente,Medio
+error de procesamiento de datos,Requerimiento,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+módulo contable no funciona,Incidente,Alto
+error de procesamiento de datos,Incidente,Medio
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+falla crítica en servidor principal,Incidente,Critico
+actualizar texto de bienvenida,Requerimiento,Bajo
+requerimiento general de interfaz,Requerimiento,Bajo
+lentitud al exportar archivo,Requerimiento,Medio
+error de procesamiento de datos,Incidente,Medio
+cálculo incorrecto en reporte,Incidente,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+requerimiento general de interfaz,Requerimiento,Bajo
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+error de procesamiento de datos,Requerimiento,Medio
+módulo contable no funciona,Incidente,Alto
+operatividad de todo el sistema detenida,Incidente,Critico
+falla en proceso específico de facturación,Incidente,Alto
+solicitud para cambiar color del menú,Requerimiento,Bajo
+cálculo incorrecto en reporte,Requerimiento,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+proceso específico inoperativo,Incidente,Alto
+sistema completamente caído,Incidente,Critico
+lentitud al exportar archivo,Incidente,Medio
+cálculo incorrecto en reporte,Incidente,Medio
+proceso específico inoperativo,Incidente,Alto
+solicitud para cambiar color del menú,Requerimiento,Bajo
+actualizar texto de bienvenida,Requerimiento,Bajo
+lentitud al exportar archivo,Requerimiento,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+lentitud al exportar archivo,Requerimiento,Medio
+cálculo incorrecto en reporte,Incidente,Medio
+falla en proceso específico de facturación,Incidente,Alto
+cálculo incorrecto en reporte,Requerimiento,Medio
+no hay acceso a producción,Incidente,Critico
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+módulo contable no funciona,Incidente,Alto
+falla crítica en servidor principal,Incidente,Critico
+actualizar texto de bienvenida,Requerimiento,Bajo
+error de procesamiento de datos,Requerimiento,Medio
+cálculo incorrecto en reporte,Incidente,Medio
+módulo contable no funciona,Incidente,Alto
+duda sobre funcionalidad,Requerimiento,Bajo
+falla en proceso específico de facturación,Incidente,Alto
+solicitud para cambiar color del menú,Requerimiento,Bajo
+no hay acceso a producción,Incidente,Critico
+lentitud al exportar archivo,Incidente,Medio
+no hay acceso a producción,Incidente,Critico
+sistema completamente caído,Incidente,Critico
+error de procesamiento de datos,Incidente,Medio
+error de procesamiento de datos,Requerimiento,Medio
+lentitud al exportar archivo,Incidente,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+error al procesar pagos,Incidente,Alto
+cálculo incorrecto en reporte,Requerimiento,Medio
+error al procesar pagos,Incidente,Alto
+falla crítica en servidor principal,Incidente,Critico
+sistema completamente caído,Incidente,Critico
+duda sobre funcionalidad,Requerimiento,Bajo
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+lentitud al exportar archivo,Incidente,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+error de procesamiento de datos,Requerimiento,Medio
+sistema completamente caído,Incidente,Critico
+error al procesar pagos,Incidente,Alto
+error de procesamiento de datos,Incidente,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+cálculo incorrecto en reporte,Requerimiento,Medio
+cálculo incorrecto en reporte,Incidente,Medio
+duda sobre funcionalidad,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+error de procesamiento de datos,Requerimiento,Medio
+cálculo incorrecto en reporte,Incidente,Medio
+duda sobre funcionalidad,Requerimiento,Bajo
+solicitud para cambiar color del menú,Requerimiento,Bajo
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+proceso específico inoperativo,Incidente,Alto
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+cálculo incorrecto en reporte,Requerimiento,Medio
+lentitud al exportar archivo,Incidente,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+actualizar texto de bienvenida,Requerimiento,Bajo
+cálculo incorrecto en reporte,Requerimiento,Medio
+error de procesamiento de datos,Requerimiento,Medio
+cálculo incorrecto en reporte,Requerimiento,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+proceso específico inoperativo,Incidente,Alto
+lentitud al exportar archivo,Incidente,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+cálculo incorrecto en reporte,Incidente,Medio
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+lentitud al exportar archivo,Incidente,Medio
+no hay acceso a producción,Incidente,Critico
+error al procesar pagos,Incidente,Alto
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+operatividad de todo el sistema detenida,Incidente,Critico
+duda sobre funcionalidad,Requerimiento,Bajo
+solicitud para cambiar color del menú,Requerimiento,Bajo
+módulo contable no funciona,Incidente,Alto
+falla en proceso específico de facturación,Incidente,Alto
+requerimiento general de interfaz,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+error de procesamiento de datos,Incidente,Medio
+error al procesar pagos,Incidente,Alto
+cálculo incorrecto en reporte,Incidente,Medio
+duda sobre funcionalidad,Requerimiento,Bajo
+error de procesamiento de datos,Incidente,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+módulo contable no funciona,Incidente,Alto
+falla en proceso específico de facturación,Incidente,Alto
+solicitud para cambiar color del menú,Requerimiento,Bajo
+error al procesar pagos,Incidente,Alto
+cálculo incorrecto en reporte,Incidente,Medio
+error al procesar pagos,Incidente,Alto
+requerimiento general de interfaz,Requerimiento,Bajo
+sistema completamente caído,Incidente,Critico
+lentitud al exportar archivo,Requerimiento,Medio
+falla en proceso específico de facturación,Incidente,Alto
+sistema completamente caído,Incidente,Critico
+duda sobre funcionalidad,Requerimiento,Bajo
+lentitud al exportar archivo,Requerimiento,Medio
+lentitud al exportar archivo,Incidente,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+requerimiento general de interfaz,Requerimiento,Bajo
+lentitud al exportar archivo,Incidente,Medio
+error de procesamiento de datos,Incidente,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+operatividad de todo el sistema detenida,Incidente,Critico
+proceso específico inoperativo,Incidente,Alto
+cálculo incorrecto en reporte,Incidente,Medio
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+falla en proceso específico de facturación,Incidente,Alto
+módulo contable no funciona,Incidente,Alto
+error de procesamiento de datos,Incidente,Medio
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+error al procesar pagos,Incidente,Alto
+solicitud para cambiar color del menú,Requerimiento,Bajo
+operatividad de todo el sistema detenida,Incidente,Critico
+cálculo incorrecto en reporte,Requerimiento,Medio
+cálculo incorrecto en reporte,Incidente,Medio
+operatividad de todo el sistema detenida,Incidente,Critico
+lentitud al exportar archivo,Requerimiento,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+actualizar texto de bienvenida,Requerimiento,Bajo
+operatividad de todo el sistema detenida,Incidente,Critico
+solicitud para cambiar color del menú,Requerimiento,Bajo
+requerimiento general de interfaz,Requerimiento,Bajo
+requerimiento general de interfaz,Requerimiento,Bajo
+error al procesar pagos,Incidente,Alto
+requerimiento general de interfaz,Requerimiento,Bajo
+requerimiento general de interfaz,Requerimiento,Bajo
+proceso específico inoperativo,Incidente,Alto
+módulo contable no funciona,Incidente,Alto
+sistema completamente caído,Incidente,Critico
+cálculo incorrecto en reporte,Incidente,Medio
+operatividad de todo el sistema detenida,Incidente,Critico
+duda sobre funcionalidad,Requerimiento,Bajo
+falla en proceso específico de facturación,Incidente,Alto
+módulo contable no funciona,Incidente,Alto
+no hay acceso a producción,Incidente,Critico
+falla en proceso específico de facturación,Incidente,Alto
+falla en proceso específico de facturación,Incidente,Alto
+solicitud para cambiar color del menú,Requerimiento,Bajo
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+falla en proceso específico de facturación,Incidente,Alto
+duda sobre funcionalidad,Requerimiento,Bajo
+requerimiento general de interfaz,Requerimiento,Bajo
+requerimiento general de interfaz,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+solicitud para cambiar color del menú,Requerimiento,Bajo
+sistema completamente caído,Incidente,Critico
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+solicitud para cambiar color del menú,Requerimiento,Bajo
+no hay acceso a producción,Incidente,Critico
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+sistema completamente caído,Incidente,Critico
+sistema completamente caído,Incidente,Critico
+solicitud para cambiar color del menú,Requerimiento,Bajo
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+error al procesar pagos,Incidente,Alto
+solicitud para cambiar color del menú,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+cálculo incorrecto en reporte,Incidente,Medio
+cálculo incorrecto en reporte,Incidente,Medio
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+cálculo incorrecto en reporte,Incidente,Medio
+sistema completamente caído,Incidente,Critico
+lentitud al exportar archivo,Incidente,Medio
+cálculo incorrecto en reporte,Incidente,Medio
+duda sobre funcionalidad,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+módulo contable no funciona,Incidente,Alto
+requerimiento general de interfaz,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+sistema completamente caído,Incidente,Critico
+requerimiento general de interfaz,Requerimiento,Bajo
+error de procesamiento de datos,Incidente,Medio
+error de procesamiento de datos,Requerimiento,Medio
+falla en proceso específico de facturación,Incidente,Alto
+error de procesamiento de datos,Incidente,Medio
+falla crítica en servidor principal,Incidente,Critico
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+cálculo incorrecto en reporte,Incidente,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+cálculo incorrecto en reporte,Requerimiento,Medio
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+duda sobre funcionalidad,Requerimiento,Bajo
+sistema completamente caído,Incidente,Critico
+actualizar texto de bienvenida,Requerimiento,Bajo
+lentitud al exportar archivo,Incidente,Medio
+lentitud al exportar archivo,Incidente,Medio
+cálculo incorrecto en reporte,Requerimiento,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+requerimiento general de interfaz,Requerimiento,Bajo
+operatividad de todo el sistema detenida,Incidente,Critico
+módulo contable no funciona,Incidente,Alto
+error al procesar pagos,Incidente,Alto
+cálculo incorrecto en reporte,Incidente,Medio
+cálculo incorrecto en reporte,Incidente,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+no hay acceso a producción,Incidente,Critico
+operatividad de todo el sistema detenida,Incidente,Critico
+módulo contable no funciona,Incidente,Alto
+solicitud para cambiar color del menú,Requerimiento,Bajo
+sistema completamente caído,Incidente,Critico
+cálculo incorrecto en reporte,Requerimiento,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+cálculo incorrecto en reporte,Requerimiento,Medio
+duda sobre funcionalidad,Requerimiento,Bajo
+cálculo incorrecto en reporte,Requerimiento,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+sistema completamente caído,Incidente,Critico
+proceso específico inoperativo,Incidente,Alto
+módulo contable no funciona,Incidente,Alto
+solicitud para cambiar color del menú,Requerimiento,Bajo
+proceso específico inoperativo,Incidente,Alto
+duda sobre funcionalidad,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+sistema completamente caído,Incidente,Critico
+no hay acceso a producción,Incidente,Critico
+requerimiento general de interfaz,Requerimiento,Bajo
+actualizar texto de bienvenida,Requerimiento,Bajo
+solicitud para cambiar color del menú,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+error de procesamiento de datos,Requerimiento,Medio
+lentitud al exportar archivo,Requerimiento,Medio
+sistema completamente caído,Incidente,Critico
+lentitud al exportar archivo,Incidente,Medio
+error de procesamiento de datos,Requerimiento,Medio
+sistema completamente caído,Incidente,Critico
+proceso específico inoperativo,Incidente,Alto
+error de procesamiento de datos,Incidente,Medio
+no hay acceso a producción,Incidente,Critico
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+duda sobre funcionalidad,Requerimiento,Bajo
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+error de procesamiento de datos,Requerimiento,Medio
+lentitud al exportar archivo,Requerimiento,Medio
+falla crítica en servidor principal,Incidente,Critico
+requerimiento general de interfaz,Requerimiento,Bajo
+operatividad de todo el sistema detenida,Incidente,Critico
+lentitud al exportar archivo,Incidente,Medio
+cálculo incorrecto en reporte,Requerimiento,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+proceso específico inoperativo,Incidente,Alto
+lentitud al exportar archivo,Requerimiento,Medio
+lentitud al exportar archivo,Incidente,Medio
+error de procesamiento de datos,Incidente,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+cálculo incorrecto en reporte,Incidente,Medio
+módulo contable no funciona,Incidente,Alto
+sistema completamente caído,Incidente,Critico
+error al procesar pagos,Incidente,Alto
+solicitud para cambiar color del menú,Requerimiento,Bajo
+falla crítica en servidor principal,Incidente,Critico
+cálculo incorrecto en reporte,Requerimiento,Medio
+módulo contable no funciona,Incidente,Alto
+error de procesamiento de datos,Incidente,Medio
+no hay acceso a producción,Incidente,Critico
+error de procesamiento de datos,Incidente,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+módulo contable no funciona,Incidente,Alto
+cálculo incorrecto en reporte,Incidente,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+proceso específico inoperativo,Incidente,Alto
+error de procesamiento de datos,Requerimiento,Medio
+falla crítica en servidor principal,Incidente,Critico
+requerimiento general de interfaz,Requerimiento,Bajo
+cálculo incorrecto en reporte,Requerimiento,Medio
+falla en proceso específico de facturación,Incidente,Alto
+no hay acceso a producción,Incidente,Critico
+cálculo incorrecto en reporte,Requerimiento,Medio
+lentitud al exportar archivo,Requerimiento,Medio
+error de procesamiento de datos,Incidente,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+cálculo incorrecto en reporte,Incidente,Medio
+lentitud al exportar archivo,Requerimiento,Medio
+duda sobre funcionalidad,Requerimiento,Bajo
+operatividad de todo el sistema detenida,Incidente,Critico
+actualizar texto de bienvenida,Requerimiento,Bajo
+proceso específico inoperativo,Incidente,Alto
+cálculo incorrecto en reporte,Requerimiento,Medio
+módulo contable no funciona,Incidente,Alto
+lentitud al exportar archivo,Incidente,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+actualizar texto de bienvenida,Requerimiento,Bajo
+módulo contable no funciona,Incidente,Alto
+lentitud al exportar archivo,Incidente,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+no hay acceso a producción,Incidente,Critico
+error de procesamiento de datos,Requerimiento,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+error de procesamiento de datos,Requerimiento,Medio
+no hay acceso a producción,Incidente,Critico
+falla en proceso específico de facturación,Incidente,Alto
+error al procesar pagos,Incidente,Alto
+error al procesar pagos,Incidente,Alto
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+cálculo incorrecto en reporte,Incidente,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+requerimiento general de interfaz,Requerimiento,Bajo
+actualizar texto de bienvenida,Requerimiento,Bajo
+error de procesamiento de datos,Incidente,Medio
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+cálculo incorrecto en reporte,Incidente,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+proceso específico inoperativo,Incidente,Alto
+no hay acceso a producción,Incidente,Critico
+duda sobre funcionalidad,Requerimiento,Bajo
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+falla en proceso específico de facturación,Incidente,Alto
+solicitud para cambiar color del menú,Requerimiento,Bajo
+solicitud para cambiar color del menú,Requerimiento,Bajo
+requerimiento general de interfaz,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+falla en proceso específico de facturación,Incidente,Alto
+requerimiento general de interfaz,Requerimiento,Bajo
+actualizar texto de bienvenida,Requerimiento,Bajo
+error de procesamiento de datos,Requerimiento,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+falla en proceso específico de facturación,Incidente,Alto
+falla en proceso específico de facturación,Incidente,Alto
+error al procesar pagos,Incidente,Alto
+requerimiento general de interfaz,Requerimiento,Bajo
+no hay acceso a producción,Incidente,Critico
+operatividad de todo el sistema detenida,Incidente,Critico
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+lentitud al exportar archivo,Requerimiento,Medio
+error de procesamiento de datos,Incidente,Medio
+error al procesar pagos,Incidente,Alto
+operatividad de todo el sistema detenida,Incidente,Critico
+módulo contable no funciona,Incidente,Alto
+requerimiento general de interfaz,Requerimiento,Bajo
+falla en proceso específico de facturación,Incidente,Alto
+cálculo incorrecto en reporte,Requerimiento,Medio
+lentitud al exportar archivo,Incidente,Medio
+operatividad de todo el sistema detenida,Incidente,Critico
+error al procesar pagos,Incidente,Alto
+solicitud para cambiar color del menú,Requerimiento,Bajo
+error de procesamiento de datos,Incidente,Medio
+lentitud al exportar archivo,Requerimiento,Medio
+error de procesamiento de datos,Incidente,Medio
+error de procesamiento de datos,Incidente,Medio
+error de procesamiento de datos,Incidente,Medio
+cálculo incorrecto en reporte,Requerimiento,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+cálculo incorrecto en reporte,Incidente,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+no hay acceso a producción,Incidente,Critico
+actualizar texto de bienvenida,Requerimiento,Bajo
+solicitud para cambiar color del menú,Requerimiento,Bajo
+proceso específico inoperativo,Incidente,Alto
+módulo contable no funciona,Incidente,Alto
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+lentitud al exportar archivo,Requerimiento,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+error al procesar pagos,Incidente,Alto
+requerimiento general de interfaz,Requerimiento,Bajo
+falla crítica en servidor principal,Incidente,Critico
+no hay acceso a producción,Incidente,Critico
+solicitud para cambiar color del menú,Requerimiento,Bajo
+falla en proceso específico de facturación,Incidente,Alto
+falla en proceso específico de facturación,Incidente,Alto
+falla crítica en servidor principal,Incidente,Critico
+solicitud para cambiar color del menú,Requerimiento,Bajo
+error al procesar pagos,Incidente,Alto
+cálculo incorrecto en reporte,Incidente,Medio
+duda sobre funcionalidad,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+solicitud para cambiar color del menú,Requerimiento,Bajo
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+solicitud para cambiar color del menú,Requerimiento,Bajo
+no hay acceso a producción,Incidente,Critico
+operatividad de todo el sistema detenida,Incidente,Critico
+error de procesamiento de datos,Requerimiento,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+lentitud al exportar archivo,Incidente,Medio
+no hay acceso a producción,Incidente,Critico
+requerimiento general de interfaz,Requerimiento,Bajo
+proceso específico inoperativo,Incidente,Alto
+falla en proceso específico de facturación,Incidente,Alto
+proceso específico inoperativo,Incidente,Alto
+módulo contable no funciona,Incidente,Alto
+falla en proceso específico de facturación,Incidente,Alto
+falla crítica en servidor principal,Incidente,Critico
+sistema completamente caído,Incidente,Critico
+error de procesamiento de datos,Requerimiento,Medio
+falla crítica en servidor principal,Incidente,Critico
+falla en proceso específico de facturación,Incidente,Alto
+error al procesar pagos,Incidente,Alto
+lentitud al exportar archivo,Requerimiento,Medio
+lentitud al exportar archivo,Requerimiento,Medio
+lentitud al exportar archivo,Incidente,Medio
+proceso específico inoperativo,Incidente,Alto
+actualizar texto de bienvenida,Requerimiento,Bajo
+actualizar texto de bienvenida,Requerimiento,Bajo
+error al procesar pagos,Incidente,Alto
+cálculo incorrecto en reporte,Incidente,Medio
+proceso específico inoperativo,Incidente,Alto
+error de procesamiento de datos,Incidente,Medio
+error de procesamiento de datos,Requerimiento,Medio
+proceso específico inoperativo,Incidente,Alto
+solicitud para cambiar color del menú,Requerimiento,Bajo
+solicitud para cambiar color del menú,Requerimiento,Bajo
+operatividad de todo el sistema detenida,Incidente,Critico
+cálculo incorrecto en reporte,Incidente,Medio
+proceso específico inoperativo,Incidente,Alto
+lentitud al exportar archivo,Incidente,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+lentitud al exportar archivo,Incidente,Medio
+error de procesamiento de datos,Incidente,Medio
+duda sobre funcionalidad,Requerimiento,Bajo
+cálculo incorrecto en reporte,Requerimiento,Medio
+error de procesamiento de datos,Requerimiento,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+error al procesar pagos,Incidente,Alto
+falla crítica en servidor principal,Incidente,Critico
+falla en proceso específico de facturación,Incidente,Alto
+duda sobre funcionalidad,Requerimiento,Bajo
+actualizar texto de bienvenida,Requerimiento,Bajo
+error al procesar pagos,Incidente,Alto
+cálculo incorrecto en reporte,Incidente,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+error de procesamiento de datos,Requerimiento,Medio
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+error de procesamiento de datos,Requerimiento,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+actualizar texto de bienvenida,Requerimiento,Bajo
+error de procesamiento de datos,Incidente,Medio
+no hay acceso a producción,Incidente,Critico
+duda sobre funcionalidad,Requerimiento,Bajo
+lentitud al exportar archivo,Requerimiento,Medio
+error de procesamiento de datos,Requerimiento,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+falla crítica en servidor principal,Incidente,Critico
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+error de procesamiento de datos,Incidente,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+cálculo incorrecto en reporte,Incidente,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+no hay acceso a producción,Incidente,Critico
+actualizar texto de bienvenida,Requerimiento,Bajo
+error de procesamiento de datos,Incidente,Medio
+error al procesar pagos,Incidente,Alto
+módulo contable no funciona,Incidente,Alto
+sistema completamente caído,Incidente,Critico
+requerimiento general de interfaz,Requerimiento,Bajo
+sistema completamente caído,Incidente,Critico
+actualizar texto de bienvenida,Requerimiento,Bajo
+cálculo incorrecto en reporte,Incidente,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+módulo contable no funciona,Incidente,Alto
+lentitud al exportar archivo,Requerimiento,Medio
+error al procesar pagos,Incidente,Alto
+duda sobre funcionalidad,Requerimiento,Bajo
+requerimiento general de interfaz,Requerimiento,Bajo
+error al procesar pagos,Incidente,Alto
+actualizar texto de bienvenida,Requerimiento,Bajo
+solicitud para cambiar color del menú,Requerimiento,Bajo
+módulo contable no funciona,Incidente,Alto
+módulo contable no funciona,Incidente,Alto
+proceso específico inoperativo,Incidente,Alto
+módulo contable no funciona,Incidente,Alto
+actualizar texto de bienvenida,Requerimiento,Bajo
+actualizar texto de bienvenida,Requerimiento,Bajo
+solicitud para cambiar color del menú,Requerimiento,Bajo
+error de procesamiento de datos,Incidente,Medio
+falla en proceso específico de facturación,Incidente,Alto
+cálculo incorrecto en reporte,Requerimiento,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+requerimiento general de interfaz,Requerimiento,Bajo
+requerimiento general de interfaz,Requerimiento,Bajo
+error de procesamiento de datos,Requerimiento,Medio
+cálculo incorrecto en reporte,Requerimiento,Medio
+no hay acceso a producción,Incidente,Critico
+sistema completamente caído,Incidente,Critico
+error de procesamiento de datos,Requerimiento,Medio
+falla en proceso específico de facturación,Incidente,Alto
+proceso específico inoperativo,Incidente,Alto
+módulo contable no funciona,Incidente,Alto
+duda sobre funcionalidad,Requerimiento,Bajo
+no hay acceso a producción,Incidente,Critico
+error de procesamiento de datos,Incidente,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+proceso específico inoperativo,Incidente,Alto
+no hay acceso a producción,Incidente,Critico
+requerimiento general de interfaz,Requerimiento,Bajo
+cálculo incorrecto en reporte,Incidente,Medio
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+actualizar texto de bienvenida,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+requerimiento general de interfaz,Requerimiento,Bajo
+error de procesamiento de datos,Incidente,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+error al procesar pagos,Incidente,Alto
+cálculo incorrecto en reporte,Incidente,Medio
+operatividad de todo el sistema detenida,Incidente,Critico
+no hay acceso a producción,Incidente,Critico
+módulo contable no funciona,Incidente,Alto
+cálculo incorrecto en reporte,Requerimiento,Medio
+error al procesar pagos,Incidente,Alto
+lentitud al exportar archivo,Requerimiento,Medio
+cálculo incorrecto en reporte,Incidente,Medio
+duda sobre funcionalidad,Requerimiento,Bajo
+módulo contable no funciona,Incidente,Alto
+requerimiento general de interfaz,Requerimiento,Bajo
+requerimiento general de interfaz,Requerimiento,Bajo
+cálculo incorrecto en reporte,Requerimiento,Medio
+duda sobre funcionalidad,Requerimiento,Bajo
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+módulo contable no funciona,Incidente,Alto
+falla en proceso específico de facturación,Incidente,Alto
+cálculo incorrecto en reporte,Requerimiento,Medio
+proceso específico inoperativo,Incidente,Alto
+no hay acceso a producción,Incidente,Critico
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+lentitud al exportar archivo,Requerimiento,Medio
+cálculo incorrecto en reporte,Requerimiento,Medio
+error al procesar pagos,Incidente,Alto
+requerimiento general de interfaz,Requerimiento,Bajo
+módulo contable no funciona,Incidente,Alto
+error al procesar pagos,Incidente,Alto
+error de procesamiento de datos,Incidente,Medio
+cálculo incorrecto en reporte,Incidente,Medio
+duda sobre funcionalidad,Requerimiento,Bajo
+solicitud para cambiar color del menú,Requerimiento,Bajo
+operatividad de todo el sistema detenida,Incidente,Critico
+cálculo incorrecto en reporte,Requerimiento,Medio
+cálculo incorrecto en reporte,Incidente,Medio
+proceso específico inoperativo,Incidente,Alto
+duda sobre funcionalidad,Requerimiento,Bajo
+requerimiento general de interfaz,Requerimiento,Bajo
+error de procesamiento de datos,Incidente,Medio
+duda sobre funcionalidad,Requerimiento,Bajo
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+no hay acceso a producción,Incidente,Critico
+error de procesamiento de datos,Requerimiento,Medio
+lentitud al exportar archivo,Incidente,Medio
+cálculo incorrecto en reporte,Incidente,Medio
+error de procesamiento de datos,Incidente,Medio
+proceso específico inoperativo,Incidente,Alto
+solicitud para cambiar color del menú,Requerimiento,Bajo
+lentitud al exportar archivo,Requerimiento,Medio
+proceso específico inoperativo,Incidente,Alto
+error de procesamiento de datos,Requerimiento,Medio
+duda sobre funcionalidad,Requerimiento,Bajo
+solicitud para cambiar color del menú,Requerimiento,Bajo
+no hay acceso a producción,Incidente,Critico
+proceso específico inoperativo,Incidente,Alto
+cálculo incorrecto en reporte,Incidente,Medio
+falla en proceso específico de facturación,Incidente,Alto
+falla en proceso específico de facturación,Incidente,Alto
+lentitud al exportar archivo,Incidente,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+actualizar texto de bienvenida,Requerimiento,Bajo
+cálculo incorrecto en reporte,Incidente,Medio
+falla crítica en servidor principal,Incidente,Critico
+operatividad de todo el sistema detenida,Incidente,Critico
+duda sobre funcionalidad,Requerimiento,Bajo
+error al procesar pagos,Incidente,Alto
+cálculo incorrecto en reporte,Incidente,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+solicitud para cambiar color del menú,Requerimiento,Bajo
+error de procesamiento de datos,Incidente,Medio
+sistema completamente caído,Incidente,Critico
+solicitud para cambiar color del menú,Requerimiento,Bajo
+proceso específico inoperativo,Incidente,Alto
+cálculo incorrecto en reporte,Incidente,Medio
+duda sobre funcionalidad,Requerimiento,Bajo
+lentitud al exportar archivo,Incidente,Medio
+duda sobre funcionalidad,Requerimiento,Bajo
+operatividad de todo el sistema detenida,Incidente,Critico
+requerimiento general de interfaz,Requerimiento,Bajo
+falla en proceso específico de facturación,Incidente,Alto
+duda sobre funcionalidad,Requerimiento,Bajo
+actualizar texto de bienvenida,Requerimiento,Bajo
+lentitud al exportar archivo,Requerimiento,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+actualizar texto de bienvenida,Requerimiento,Bajo
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+cálculo incorrecto en reporte,Incidente,Medio
+lentitud al exportar archivo,Incidente,Medio
+falla crítica en servidor principal,Incidente,Critico
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+lentitud al exportar archivo,Incidente,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+solicitud para cambiar color del menú,Requerimiento,Bajo
+lentitud al exportar archivo,Requerimiento,Medio
+módulo contable no funciona,Incidente,Alto
+requerimiento general de interfaz,Requerimiento,Bajo
+solicitud para cambiar color del menú,Requerimiento,Bajo
+proceso específico inoperativo,Incidente,Alto
+requerimiento general de interfaz,Requerimiento,Bajo
+sistema completamente caído,Incidente,Critico
+duda sobre funcionalidad,Requerimiento,Bajo
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+cálculo incorrecto en reporte,Requerimiento,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+requerimiento general de interfaz,Requerimiento,Bajo
+cálculo incorrecto en reporte,Requerimiento,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+falla en procesamiento sin afectar operatividad,Incidente,Medio
+proceso específico inoperativo,Incidente,Alto
+actualizar texto de bienvenida,Requerimiento,Bajo
+solicitud para cambiar color del menú,Requerimiento,Bajo
+no hay acceso a producción,Incidente,Critico
+lentitud al exportar archivo,Incidente,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+cálculo incorrecto en reporte,Incidente,Medio
+requerimiento general de interfaz,Requerimiento,Bajo
+no hay acceso a producción,Incidente,Critico
+proceso específico inoperativo,Incidente,Alto
+proceso específico inoperativo,Incidente,Alto
+módulo contable no funciona,Incidente,Alto
+solicitud para cambiar color del menú,Requerimiento,Bajo
+módulo contable no funciona,Incidente,Alto
+error de procesamiento de datos,Incidente,Medio
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+error de procesamiento de datos,Requerimiento,Medio
+duda sobre funcionalidad,Requerimiento,Bajo
+duda sobre funcionalidad,Requerimiento,Bajo
+error al procesar pagos,Incidente,Alto
+módulo contable no funciona,Incidente,Alto
+módulo contable no funciona,Incidente,Alto
+operatividad de todo el sistema detenida,Incidente,Critico
+duda sobre funcionalidad,Requerimiento,Bajo
+falla en proceso específico de facturación,Incidente,Alto
+cálculo incorrecto en reporte,Incidente,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+error al procesar pagos,Incidente,Alto
+cálculo incorrecto en reporte,Incidente,Medio
+duda sobre funcionalidad,Requerimiento,Bajo
+falla crítica en servidor principal,Incidente,Critico
+cálculo incorrecto en reporte,Incidente,Medio
+error de procesamiento de datos,Incidente,Medio
+sistema completamente caído,Incidente,Critico
+actualizar texto de bienvenida,Requerimiento,Bajo
+lentitud al exportar archivo,Incidente,Medio
+actualizar texto de bienvenida,Requerimiento,Bajo
+no hay acceso a producción,Incidente,Critico
+módulo contable no funciona,Incidente,Alto
+falla en procesamiento sin afectar operatividad,Requerimiento,Medio
+módulo contable no funciona,Incidente,Alto
+solicitud para cambiar color del menú,Requerimiento,Bajo
+cálculo incorrecto en reporte,Requerimiento,Medio
+lentitud al exportar archivo,Incidente,Medio
+cálculo incorrecto en reporte,Requerimiento,Medio
+error de procesamiento de datos,Incidente,Medio
+lentitud al exportar archivo,Requerimiento,Medio
+lentitud al exportar archivo,Requerimiento,Medio
+lentitud al exportar archivo,Requerimiento,Medio
+solicitud para cambiar color del menú,Requerimiento,Bajo
+operatividad de todo el sistema detenida,Incidente,Critico
+solicitud para cambiar color del menú,Requerimiento,Bajo
+falla en proceso específico de facturación,Incidente,Alto
+falla en proceso específico de facturación,Incidente,Alto
+falla en proceso específico de facturación,Incidente,Alto

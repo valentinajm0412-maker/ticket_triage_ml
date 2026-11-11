@@ -1,0 +1,39 @@
+<!-- Base Template for Minimalist UI || Plantilla Base para UI Minimalista -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>ML Ticket Triage</title>
+    <style>
+        /* Global Styles || Estilos Globales */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f4f7f6; color: #333; }
+        .navbar { background-color: #2c3e50; padding: 15px 20px; color: white; display: flex; justify-content: space-between; align-items: center; }
+        .navbar a { color: white; text-decoration: none; margin-left: 15px; font-weight: bold; }
+        .navbar a:hover { color: #1abc9c; }
+        .container { padding: 20px; max-width: 1200px; margin: auto; }
+        .card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar || Barra de Navegación -->
+    <div class="navbar">
+        <div><strong>Ticket Triage ML</strong></div>
+        <div>
+            <span>{{ current_user.username }} ({{ current_user.role }})</span>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            {% if current_user.role == 'Admin' %}
+                <a href="{{ url_for('admin_users') }}">Gestionar Usuarios</a>
+            {% endif %}
+            {% if current_user.role in ['Cliente', 'Admin'] %}
+                <a href="{{ url_for('create_ticket') }}">Crear Ticket</a>
+            {% endif %}
+            <a href="{{ url_for('logout') }}">Salir</a>
+        </div>
+    </div>
+    
+    <!-- Main Content || Contenido Principal -->
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

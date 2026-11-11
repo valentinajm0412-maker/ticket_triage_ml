@@ -1,0 +1,41 @@
+import joblib
+from models import db, User, Ticket
+
+# Load the trained model and vectorizer || Cargar el modelo entrenado y el vectorizador
+model = joblib.load('ml_models/best_ticket_model.pkl')
+vectorizer = joblib.load('ml_models/tfidf_vectorizer.pkl')
+
+def classify_and_assign_ticket(title, description, category, client_id):
+    # Predict priority using the ML model || Predecir prioridad usando el modelo de ML
+    text_vectorized = vectorizer.transform([description])
+    predicted_priority = model.predict(text_vectorized)[0]
+
+    # Determine required consultant role by category || Determinar el rol de consultor requerido según categoría
+    # Incidents go to Technical Consultants, Requirements go to Functional Consultants
+    # || Incidentes van a Consultores Técnicos, Requerimientos a Consultores Funcionales
+    target_role = "Consultor Tecnico" if category == "Incidente" else "Consultor Funcional"
+
+    # Select the consultant with the lowest workload (load balancing)
+    # || Seleccionar al consultor con menor carga de trabajo (balanceo de carga)
+    available_consultants = User.query.filter_by(role=target_role).order_by(User.workload.asc()).all()
+    
+    assigned_user = available_consultants[0] if available_consultants else None
+
+    # Create the new ticket record || Crear el nuevo registro de ticket
+    new_ticket = Ticket(
+        title=title,
+        description=description,
+        category=category,
+        priority=predicted_priority,
+        client_id=client_id,
+        assigned_to=assigned_user.id if assigned_user else None
+    )
+
+    # Increment workload if assigned || Incrementar carga de trabajo si fue asignado
+    if assigned_user:
+        assigned_user.workload += 1
+
+    db.session.add(new_ticket)
+    db.session.commit()
+
+    return new_ticket

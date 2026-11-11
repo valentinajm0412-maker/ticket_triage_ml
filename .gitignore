@@ -1,0 +1,13 @@
+# Virtual environment || Entorno virtual
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Local database file || Archivo de base de datos local
+instance/
+*.db
+
+# OS generated files || Archivos generados por el sistema operativo
+.DS_Store
+Thumbs.db
