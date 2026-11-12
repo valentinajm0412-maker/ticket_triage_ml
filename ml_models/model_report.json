@@ -1,13 +1,13 @@
 {
-  "fecha": "2026-11-11T22:20:53",
+  "fecha": "2026-11-11T22:46:28",
   "entorno": {
-    "python": "3.14.7",
+    "python": "3.13.18",
     "pandas": "3.0.5",
     "scikit-learn": "1.9.1"
   },
   "semilla": 42,
   "validacion": "StratifiedKFold 5 folds sobre train (2272 filas)",
-  "test_reservado": "569 filas en ml_models\\test_split.csv",
+  "test_reservado": "569 filas en ml_models/test_split.csv",
   "etiqueta_critica": "Critico",
   "prioridad": {
     "candidatos": [
@@ -20,7 +20,7 @@
         "f1_macro": 0.5489,
         "f1_macro_std": 0.0135,
         "accuracy": 0.592,
-        "segundos": 4.9,
+        "segundos": 3.2,
         "soporta_probabilidad": true,
         "recall_critico": 0.9602
       },
@@ -34,7 +34,7 @@
         "f1_macro": 0.8077,
         "f1_macro_std": 0.0136,
         "accuracy": 0.8107,
-        "segundos": 4.6,
+        "segundos": 7.3,
         "soporta_probabilidad": true,
         "recall_critico": 0.8893
       },
@@ -48,7 +48,7 @@
         "f1_macro": 0.7534,
         "f1_macro_std": 0.0252,
         "accuracy": 0.7601,
-        "segundos": 3.4,
+        "segundos": 5.3,
         "soporta_probabilidad": false,
         "recall_critico": 0.9225
       },
@@ -62,12 +62,26 @@
         "f1_macro": 0.8544,
         "f1_macro_std": 0.0322,
         "accuracy": 0.8653,
-        "segundos": 12.4,
+        "segundos": 32.0,
         "soporta_probabilidad": true,
         "recall_critico": 0.8873
+      },
+      {
+        "algoritmo": "Linear Regression (ordinal)",
+        "mejores_parametros": {
+          "corte_critico": "2.02",
+          "svd": "100"
+        },
+        "combinaciones_probadas": 50,
+        "f1_macro": 0.8979,
+        "f1_macro_std": 0.0047,
+        "accuracy": 0.9019,
+        "recall_critico": 0.9535,
+        "segundos": 3.4,
+        "soporta_probabilidad": true
       }
     ],
-    "seleccionado": "Random Forest + umbral Critico 0.27",
+    "seleccionado": "Linear Regression (ordinal) + corte Critico 2.02",
     "criterio": "Cumplir recall en Critico ≥ 95% (KPI Fase 1) con el mejor F1 macro posible, medido en validación cruzada",
     "umbral": {
       "algoritmo": "Random Forest",
@@ -180,10 +194,34 @@
         }
       ]
     },
+    "cv_seleccionado": {
+      "f1_macro": 0.8979,
+      "f1_macro_std": 0.0047,
+      "accuracy": 0.9019,
+      "recall_critico": 0.9535
+    },
+    "ordinal": {
+      "corte": 2.02,
+      "sigma": 0.4513,
+      "antes": {
+        "f1_macro": 0.8674,
+        "f1_macro_std": 0.0212,
+        "accuracy": 0.8785,
+        "recall_critico": 0.7013
+      },
+      "despues": {
+        "f1_macro": 0.8979,
+        "f1_macro_std": 0.0047,
+        "accuracy": 0.9019,
+        "recall_critico": 0.9535
+      },
+      "cumple": true,
+      "segundos": 3.4
+    },
     "test_referencia": {
-      "accuracy": 0.8366,
-      "f1_macro": 0.8169,
-      "recall_critico": 0.9469
+      "accuracy": 0.8998,
+      "f1_macro": 0.8973,
+      "recall_critico": 0.9381
     }
   },
   "categoria": {
@@ -197,7 +235,7 @@
         "f1_macro": 0.9636,
         "f1_macro_std": 0.0073,
         "accuracy": 0.9657,
-        "segundos": 1.4,
+        "segundos": 2.4,
         "soporta_probabilidad": true
       },
       {
@@ -210,7 +248,7 @@
         "f1_macro": 0.9636,
         "f1_macro_std": 0.0073,
         "accuracy": 0.9657,
-        "segundos": 2.2,
+        "segundos": 4.6,
         "soporta_probabilidad": true
       },
       {
@@ -223,7 +261,7 @@
         "f1_macro": 0.9636,
         "f1_macro_std": 0.0073,
         "accuracy": 0.9657,
-        "segundos": 2.2,
+        "segundos": 4.6,
         "soporta_probabilidad": false
       },
       {
@@ -236,7 +274,7 @@
         "f1_macro": 0.9636,
         "f1_macro_std": 0.0073,
         "accuracy": 0.9657,
-        "segundos": 6.9,
+        "segundos": 18.7,
         "soporta_probabilidad": true
       }
     ],
@@ -248,7 +286,7 @@
     }
   },
   "archivos": [
-    "ml_models\\best_ticket_model.pkl",
-    "ml_models\\best_category_model.pkl"
+    "ml_models/best_ticket_model.pkl",
+    "ml_models/best_category_model.pkl"
   ]
 }

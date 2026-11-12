@@ -1,7 +1,7 @@
 {
-  "fecha": "2026-11-11T22:20:53",
+  "fecha": "2026-11-11T22:46:28",
   "entorno": {
-    "python": "3.14.7",
+    "python": "3.13.18",
     "pandas": "3.0.5",
     "scikit-learn": "1.9.1"
   },
@@ -9,13 +9,13 @@
     "fuentes": [
       {
         "fuente": "sintetico",
-        "archivo": "ml_models\\ticket_dataset.csv",
+        "archivo": "ml_models/ticket_dataset.csv",
         "filas": 3000,
-        "sha256": "080718f668b5e863"
+        "sha256": "3ff950d1b422c427"
       },
       {
         "fuente": "real",
-        "archivo": "ml_models\\real_tickets.csv",
+        "archivo": "ml_models/real_tickets.csv",
         "filas": 0,
         "sha256": null
       }
@@ -68,8 +68,8 @@
     ],
     "filas_iniciales": 3000,
     "filas_finales": 2841,
-    "dataset_limpio": "ml_models\\ticket_dataset_clean.csv",
-    "sha256_limpio": "64d3056514412f55"
+    "dataset_limpio": "ml_models/ticket_dataset_clean.csv",
+    "sha256_limpio": "bbe4cbe93acd3b94"
   },
   "transformacion": {
     "entrada": "titulo + \". \" + descripcion",
@@ -136,16 +136,16 @@
   },
   "modelos": {
     "prioridad": {
-      "mejor": "Random Forest + umbral Critico 0.27",
-      "accuracy": 0.8366
+      "mejor": "Linear Regression (ordinal) + corte Critico 2.02",
+      "accuracy": 0.8998
     },
     "categoria": {
       "mejor": "Naive Bayes",
       "accuracy": 0.9684
     },
     "archivos": [
-      "ml_models\\best_ticket_model.pkl",
-      "ml_models\\best_category_model.pkl"
+      "ml_models/best_ticket_model.pkl",
+      "ml_models/best_category_model.pkl"
     ]
   }
 }

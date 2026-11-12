@@ -10,5 +10,17 @@
     "f1_macro": 0.8169,
     "recall_critico": 0.9469,
     "decision": "Apto con condiciones: revisión humana de tickets de baja confianza y monitoreo semanal"
+  },
+  {
+    "fecha": "2026-11-11T22:46:28",
+    "version": "cfbf81b8e5ba",
+    "modelo": "Linear Regression (ordinal) + corte Critico 2.02",
+    "filas_sinteticas": 3000,
+    "filas_reales": 0,
+    "filas_modelado": 2841,
+    "accuracy": 0.8998,
+    "f1_macro": 0.8973,
+    "recall_critico": 0.9381,
+    "decision": "Apto con condiciones: revisión humana de tickets de baja confianza y monitoreo semanal"
   }
 ]

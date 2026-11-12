@@ -1,8 +1,8 @@
 {
-  "fecha": "2026-11-11T22:21:41",
+  "fecha": "2026-11-11T22:48:04",
   "linea_base": {
-    "confianza_media": 0.7176,
-    "baja_confianza_pct": 0.181,
+    "confianza_media": 0.7521,
+    "baja_confianza_pct": 0.007,
     "palabras_desconocidas_pct": 0.0,
     "palabras_promedio": 16.53,
     "distribucion_prioridad": {
@@ -16,48 +16,48 @@
       "Requerimiento": 0.3873
     },
     "distribucion_prediccion": {
-      "Medio": 0.3427,
-      "Critico": 0.2882,
-      "Bajo": 0.239,
-      "Alto": 0.1301
+      "Medio": 0.3849,
+      "Critico": 0.2232,
+      "Bajo": 0.2162,
+      "Alto": 0.1757
     },
-    "exactitud_test": 0.8366
+    "exactitud_test": 0.8998
   },
-  "modelo": "Random Forest + umbral Critico 0.27",
+  "modelo": "Linear Regression (ordinal) + corte Critico 2.02",
   "test_filas": 569,
   "metricas_test": {
-    "accuracy": 0.8366,
-    "f1_macro": 0.8169,
-    "recall_critico": 0.9469,
+    "accuracy": 0.8998,
+    "f1_macro": 0.8973,
+    "recall_critico": 0.9381,
     "n": 569
   },
   "por_clase": [
     {
       "clase": "Critico",
-      "precision": 0.6524,
-      "recall": 0.9469,
-      "f1": 0.7726,
+      "precision": 0.8346,
+      "recall": 0.9381,
+      "f1": 0.8833,
       "soporte": 113
     },
     {
       "clase": "Alto",
-      "precision": 0.8514,
-      "recall": 0.5478,
-      "f1": 0.6667,
+      "precision": 0.96,
+      "recall": 0.8348,
+      "f1": 0.893,
       "soporte": 115
     },
     {
       "clase": "Medio",
-      "precision": 0.8923,
-      "recall": 0.8923,
-      "f1": 0.8923,
+      "precision": 0.863,
+      "recall": 0.9692,
+      "f1": 0.913,
       "soporte": 195
     },
     {
       "clase": "Bajo",
-      "precision": 0.9706,
-      "recall": 0.9041,
-      "f1": 0.9362,
+      "precision": 0.9837,
+      "recall": 0.8288,
+      "f1": 0.8996,
       "soporte": 146
     }
   ],
@@ -70,28 +70,28 @@
     ],
     "valores": [
       [
-        107,
+        106,
         1,
-        3,
+        4,
         2
       ],
       [
-        46,
-        63,
-        6,
+        16,
+        96,
+        3,
         0
       ],
       [
-        10,
-        9,
-        174,
-        2
+        4,
+        2,
+        189,
+        0
       ],
       [
         1,
         1,
-        12,
-        132
+        23,
+        121
       ]
     ]
   },
@@ -101,60 +101,60 @@
   },
   "comparacion": {
     "train": {
-      "accuracy": 0.9943,
-      "f1_macro": 0.9936,
-      "recall_critico": 1.0,
+      "accuracy": 0.919,
+      "f1_macro": 0.916,
+      "recall_critico": 0.9602,
       "n": 2272
     },
     "validacion_cruzada": {
-      "f1_macro": 0.8301,
-      "f1_macro_std": 0.0322,
-      "recall_critico": 0.9513,
-      "accuracy": 0.8653
+      "f1_macro": 0.8979,
+      "f1_macro_std": 0.0047,
+      "recall_critico": 0.9535,
+      "accuracy": 0.9019
     },
     "test": {
-      "accuracy": 0.8366,
-      "f1_macro": 0.8169,
-      "recall_critico": 0.9469,
+      "accuracy": 0.8998,
+      "f1_macro": 0.8973,
+      "recall_critico": 0.9381,
       "n": 569
     }
   },
   "riesgos": [
     {
       "riesgo": "Sobreajuste",
-      "nivel": "Medio",
-      "evidencia": "F1 train 99.4% vs test 81.7% (diferencia 17.7%). CV vs test: diferencia 1.3%.",
-      "mitigacion": "El modelo memoriza train, pero CV y test coinciden: generaliza de forma estable. Si la diferencia CV-test supera 5 puntos, reentrenar con más datos reales."
+      "nivel": "Bajo",
+      "evidencia": "F1 train 91.6% vs test 89.7% (diferencia 1.9%). CV vs test: diferencia 0.1%.",
+      "mitigacion": "Sin acción."
     },
     {
       "riesgo": "Subajuste",
       "nivel": "Bajo",
-      "evidencia": "F1 macro en test 81.7% (mínimo 70%).",
+      "evidencia": "F1 macro en test 89.7% (mínimo 70%).",
       "mitigacion": "Sin acción."
     },
     {
       "riesgo": "Inestabilidad",
-      "nivel": "Medio",
-      "evidencia": "Desviación del F1 entre folds: ±3.2%.",
-      "mitigacion": "Más datos reduce la variación entre particiones."
+      "nivel": "Bajo",
+      "evidencia": "Desviación del F1 entre folds: ±0.5%.",
+      "mitigacion": "Sin acción."
     },
     {
       "riesgo": "Críticos omitidos",
       "nivel": "Alto",
-      "evidencia": "6 de 113 críticos reales no se marcaron como Crítico; 57 falsas alarmas.",
+      "evidencia": "7 de 113 críticos reales no se marcaron como Crítico; 21 falsas alarmas.",
       "mitigacion": "Revisión humana de tickets con baja confianza y botón para corregir la prioridad (Fase 5)."
     },
     {
       "riesgo": "Baja confianza",
-      "nivel": "Medio",
-      "evidencia": "18.1% de las predicciones tienen probabilidad < 50%.",
+      "nivel": "Bajo",
+      "evidencia": "0.7% de las predicciones tienen probabilidad < 50%.",
       "mitigacion": "Esos tickets se marcan para revisión del consultor en producción."
     },
     {
       "riesgo": "Sesgo por subgrupo",
-      "nivel": "Medio",
-      "evidencia": "Diferencia de exactitud > 10 puntos en: Categoría, Longitud",
-      "mitigacion": "Recolectar más ejemplos reales del subgrupo afectado."
+      "nivel": "Bajo",
+      "evidencia": "Ningún subgrupo difiere más de 10 puntos en exactitud.",
+      "mitigacion": "Sin acción."
     }
   ],
   "sesgo": [
@@ -163,41 +163,41 @@
       "grupos": [
         {
           "grupo": "Incidente",
-          "accuracy": 0.7699,
-          "f1_macro": 0.7584,
-          "recall_critico": 0.9722,
+          "accuracy": 0.8693,
+          "f1_macro": 0.8646,
+          "recall_critico": 0.963,
           "n": 352
         },
         {
           "grupo": "Requerimiento",
-          "accuracy": 0.9447,
-          "f1_macro": 0.8221,
+          "accuracy": 0.9493,
+          "f1_macro": 0.8151,
           "recall_critico": 0.4,
           "n": 217
         }
       ],
-      "diferencia": 0.1748,
-      "alerta": true
+      "diferencia": 0.08,
+      "alerta": false
     },
     {
       "variable": "Escritura",
       "grupos": [
         {
           "grupo": "Con tildes",
-          "accuracy": 0.8249,
-          "f1_macro": 0.8057,
-          "recall_critico": 0.9595,
+          "accuracy": 0.8985,
+          "f1_macro": 0.8963,
+          "recall_critico": 0.9459,
           "n": 394
         },
         {
           "grupo": "Sin tildes / informal",
-          "accuracy": 0.8629,
-          "f1_macro": 0.8426,
+          "accuracy": 0.9029,
+          "f1_macro": 0.8993,
           "recall_critico": 0.9231,
           "n": 175
         }
       ],
-      "diferencia": 0.038,
+      "diferencia": 0.0044,
       "alerta": false
     },
     {
@@ -205,21 +205,21 @@
       "grupos": [
         {
           "grupo": "Largo (>12 palabras)",
-          "accuracy": 0.808,
-          "f1_macro": 0.8053,
-          "recall_critico": 0.9626,
+          "accuracy": 0.8839,
+          "f1_macro": 0.8763,
+          "recall_critico": 0.9533,
           "n": 448
         },
         {
           "grupo": "Corto (≤12 palabras)",
-          "accuracy": 0.9421,
-          "f1_macro": 0.633,
+          "accuracy": 0.9587,
+          "f1_macro": 0.8235,
           "recall_critico": 0.6667,
           "n": 121
         }
       ],
-      "diferencia": 0.1341,
-      "alerta": true
+      "diferencia": 0.0748,
+      "alerta": false
     }
   ],
   "criterios": [
@@ -228,15 +228,15 @@
       "nombre": "Exactitud de prioridad",
       "minimo": 0.85,
       "kpi": "Fase 1, objetivo 1",
-      "valor": 0.8366,
-      "cumple": false
+      "valor": 0.8998,
+      "cumple": true
     },
     {
       "id": "recall_critico",
       "nombre": "Recall en Crítico",
       "minimo": 0.95,
       "kpi": "Fase 1, objetivo 1",
-      "valor": 0.9469,
+      "valor": 0.9381,
       "cumple": false
     },
     {
@@ -244,7 +244,7 @@
       "nombre": "F1 macro de prioridad",
       "minimo": 0.8,
       "kpi": "Equilibrio entre clases",
-      "valor": 0.8169,
+      "valor": 0.8973,
       "cumple": true
     },
     {
@@ -263,7 +263,7 @@
       "texto": "Error en compras. Buenas tardes, compras está muy lento desde ayer, le ocurre a un usuario. Quedo atento.",
       "real": "Critico",
       "predicho": "Bajo",
-      "confianza": 0.68,
+      "confianza": 0.815,
       "gravedad": 3
     },
     {
@@ -271,23 +271,23 @@
       "texto": "Consulta sobre correo corporativo. Buenas tardes, propongo agregar un filtro en correo corporativo.",
       "real": "Critico",
       "predicho": "Bajo",
-      "confianza": 0.89,
+      "confianza": 0.88,
       "gravedad": 3
+    },
+    {
+      "key": "a711a6f91f1433e7a0daff43b4f80bea",
+      "texto": "Error en historia clínica. Buenos días, solicito revisar historia clínica porque los totales no cuadran desde hace una hora, varios usuarios de ventas lo reportan.",
+      "real": "Critico",
+      "predicho": "Medio",
+      "confianza": 0.656,
+      "gravedad": 2
     },
     {
       "key": "21026664e457fc346eb8561e035fdce0",
       "texto": "Detalle visual en ERP. El logo no carga en la pantalla de ERP, le ocurre a todos los usuarios. Quedo atento.",
       "real": "Critico",
       "predicho": "Medio",
-      "confianza": 0.71,
-      "gravedad": 2
-    },
-    {
-      "key": "88fddd0830b0ea32fb6c0d1f3cff9902",
-      "texto": "Solicitud sobre reportes gerenciales. Por favor ayuda: solicito crear un usuario en reportes gerenciales. gracias.",
-      "real": "Critico",
-      "predicho": "Medio",
-      "confianza": 0.925,
+      "confianza": 0.772,
       "gravedad": 2
     },
     {
@@ -295,63 +295,31 @@
       "texto": "Solicitud sobre pagos en línea. Buenas tardes, no puedo ver la opción de aprobar en pagos en línea, necesito acceso. Adjunto pantallazo.",
       "real": "Critico",
       "predicho": "Medio",
-      "confianza": 0.94,
+      "confianza": 0.848,
       "gravedad": 2
     },
     {
-      "key": "1e136ed36ed74c8e13141eee12b92d93",
-      "texto": "Error en correo corporativo. Hola equipo, error al procesar transacciones en correo corporativo, solo me pasa a mí y el cierre de mes está bloqueado. Adjunto pantallazo.",
+      "key": "88fddd0830b0ea32fb6c0d1f3cff9902",
+      "texto": "Solicitud sobre reportes gerenciales. Por favor ayuda: solicito crear un usuario en reportes gerenciales. gracias.",
+      "real": "Critico",
+      "predicho": "Medio",
+      "confianza": 0.849,
+      "gravedad": 2
+    },
+    {
+      "key": "05b6f165ea32b7d3dd9e2e105db9a630",
+      "texto": "Caso punto de venta. Punto de venta no responde desde ayer, un compañero lo reportó. Adjunto pantallazo.",
       "real": "Alto",
       "predicho": "Medio",
-      "confianza": 0.365,
+      "confianza": 0.489,
       "gravedad": 1
     },
     {
-      "key": "99f15fea22b31d670332ec26af99d34e",
-      "texto": "Error en punto de venta. No se pueden generar documentos en punto de venta, le ocurre a un grupo de usuarios. Es urgente.",
-      "real": "Alto",
-      "predicho": "Medio",
-      "confianza": 0.4,
-      "gravedad": 1
-    },
-    {
-      "key": "1561bc6c9970877a7af4900ec60a9441",
-      "texto": "Novedad en compras. Compras se bloquea al confirmar, lo vi solo en mi equipo y se detuvieron los despachos.",
-      "real": "Alto",
-      "predicho": "Medio",
-      "confianza": 0.41,
-      "gravedad": 1
-    },
-    {
-      "key": "c77c8829cb3ca077cfdd7a9b94f49f79",
-      "texto": "Error en cartera. Buenos días, los datos de cartera no se están sincronizando, afecta al área de contabilidad.",
-      "real": "Alto",
-      "predicho": "Medio",
-      "confianza": 0.415,
-      "gravedad": 1
-    },
-    {
-      "key": "8ca06e67888d03fe6ee5463dadee6458",
-      "texto": "Caso tesorería. Por favor ayuda: los colores de tesorería se ven raros desde ayer, le ocurre a todos los usuarios. Quedo atento.",
-      "real": "Medio",
-      "predicho": "Bajo",
-      "confianza": 0.42,
-      "gravedad": 1
-    },
-    {
-      "key": "93a6c5ed995bd68bd746ea9ac1c93b54",
-      "texto": "Novedad en VPN. Los colores de VPN se ven raros desde esta mañana, le ocurre a todos los usuarios. Gracias.",
-      "real": "Medio",
-      "predicho": "Bajo",
-      "confianza": 0.44,
-      "gravedad": 1
-    },
-    {
-      "key": "a711a6f91f1433e7a0daff43b4f80bea",
-      "texto": "Error en historia clínica. Buenos días, solicito revisar historia clínica porque los totales no cuadran desde hace una hora, varios usuarios de ventas lo reportan.",
+      "key": "5c2d9b33c660b11152ed7e32443bdb29",
+      "texto": "Revisión de pagos en línea. Buenos días, pagos en línea no responde, afecta al área de admisiones. Es urgente.",
       "real": "Critico",
       "predicho": "Alto",
-      "confianza": 0.485,
+      "confianza": 0.641,
       "gravedad": 1
     },
     {
@@ -359,7 +327,7 @@
       "texto": "Detalle visual en CRM. Por favor ayuda: los colores de CRM se ven raros desde esta mañana, ningún usuario puede trabajar.",
       "real": "Alto",
       "predicho": "Medio",
-      "confianza": 0.84,
+      "confianza": 0.83,
       "gravedad": 1
     },
     {
@@ -371,363 +339,35 @@
       "gravedad": 1
     },
     {
-      "key": "685593f8d7b51258be3075883adfa40f",
-      "texto": "Urgente tesorería. Buenas tardes, tesorería rechaza todas las operaciones desde hace una hora, solo me pasa a mí y estamos sin poder facturar.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.3,
-      "gravedad": -1
-    },
-    {
-      "key": "aeca324513f46bf93f25c8a953802f13",
-      "texto": "Tema tesorería. Buenas tardes, el cálculo de totales en tesorería sale incorrecto desde ayer, lo vi solo en mi equipo y se detuvieron los despachos. Es urgente.",
-      "real": "Medio",
-      "predicho": "Alto",
-      "confianza": 0.3,
-      "gravedad": -1
-    },
-    {
-      "key": "bbf3358c87db5dcef129ac47f8a9680c",
-      "texto": "Revisión de ERP. Buenas tardes, solicito revisar ERP porque los totales no cuadran hace unos minutos, afecta al área de recursos humanos y se detuvieron los despachos. Adjunto pantallazo.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.33,
-      "gravedad": -1
-    },
-    {
-      "key": "a8fbab6896a6ddd28b5557043d3e722f",
-      "texto": "Error en agendamiento de citas. El cálculo de totales en agendamiento de citas sale incorrecto desde ayer, pasa en la sede Cali.",
-      "real": "Medio",
-      "predicho": "Alto",
-      "confianza": 0.33,
-      "gravedad": -1
-    },
-    {
-      "key": "46ff0f19ea85b070040e2a7c4988f78b",
-      "texto": "Novedad en pagos en línea. Buenos días no se pueden generar documentos en pagos en línea desde esta mañana le ocurre a un grupo de usuarios",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.34,
-      "gravedad": -1
-    },
-    {
-      "key": "4e4fc9085b88779c161ead94ba4f0e93",
-      "texto": "Tema tesorería. Buenas tardes, tesoreria no deja guardar los registros, le ocurre a un grupo de usuarios. Quedo atento.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.34,
-      "gravedad": -1
-    },
-    {
-      "key": "2d132281370c745641bbec86ab2ba849",
-      "texto": "Caso historia clínica. Por favor ayuda: los datos de historia clínica no se están sincronizando desde esta mañana, le ocurre a un grupo de usuarios.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.345,
-      "gravedad": -1
-    },
-    {
-      "key": "4ce0c0ead0677fc7546b7f143a8ce4ee",
-      "texto": "Problema con facturación electrónica. Hola equipo, los datos de facturación electrónica no se están sincronizando desde esta mañana, lo vi solo en mi equipo y los clientes no pueden pagar. adjunto pantallazo.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.345,
-      "gravedad": -1
-    },
-    {
-      "key": "1ad501031540507f6ac2e0530781f4fa",
-      "texto": "Problema con módulo de despachos. Por favor ayuda: módulo de despachos muestra error 500 y no carga, solo me pasa a mí.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.345,
-      "gravedad": -1
-    },
-    {
-      "key": "e39e28180c2dd2b132418c711bfd0cb8",
-      "texto": "Caso contabilidad. Buenos dias, error intermitente en contabilidad hace unos minutos, pasa en la sede Bogota y hay pacientes esperando atencion.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.345,
-      "gravedad": -1
-    },
-    {
-      "key": "48932f7d4d6fa968e91d67fbc8fef406",
-      "texto": "Urgente punto de venta. Buenos días, no se pueden generar documentos en punto de venta, varios usuarios de contabilidad lo reportan. Es urgente.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.365,
-      "gravedad": -1
-    },
-    {
-      "key": "aa2c48fb8dd30e7c2a1250ae72386a70",
-      "texto": "Tema inventario. Buenos días, inventario muestra error 500 y no carga desde esta mañana, le ocurre a un usuario. Es urgente.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.37,
-      "gravedad": -1
-    },
-    {
-      "key": "c8970cd93e8e5e2a65cb74d7c80c36ab",
-      "texto": "Error en tesorería. Buenos días, solicito revisar tesorería porque los totales no cuadran desde esta mañana, varios usuarios de contabilidad lo reportan. Gracias.",
-      "real": "Medio",
-      "predicho": "Alto",
-      "confianza": 0.39,
-      "gravedad": -1
-    },
-    {
-      "key": "3424c87e8fad9fab7fd9aa339ba3005a",
-      "texto": "Problema con cartera. Buenos días, a veces cartera cierra la sesión desde ayer, le ocurre a un grupo de usuarios y el cierre de mes está bloqueado. Quedo atento.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.39,
-      "gravedad": -1
-    },
-    {
-      "key": "8abfb8209bd97015f0acb9fff330d19e",
-      "texto": "Tesorería. Hola equipo, no se pueden generar documentos en tesorería, le ocurre a un usuario y hay pacientes esperando atención. Es urgente.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.39,
-      "gravedad": -1
-    },
-    {
-      "key": "dfa07e95fe7cf300347d1711607c2899",
-      "texto": "Error en historia clínica. Hola equipo, los datos de historia clínica no se están sincronizando, un compañero lo reportó y el cierre de mes está bloqueado.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.39,
-      "gravedad": -1
-    },
-    {
-      "key": "a3e7a17120b6ab5ecbc5dc76f14fa2c2",
-      "texto": "Ayuda con inventario. Buenas tardes, inventario se bloquea al confirmar, le ocurre a un grupo de usuarios. Adjunto pantallazo.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.395,
-      "gravedad": -1
-    },
-    {
-      "key": "4f540846fe8c74b88558c7aee843c3f1",
-      "texto": "Caso nómina. No se pueden generar documentos en nómina hace unos minutos, le ocurre a un usuario y los clientes no pueden pagar. Quedo atento.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.42,
-      "gravedad": -1
-    },
-    {
-      "key": "403505f426625089fc2a8c730ce18e2f",
-      "texto": "Caso correo corporativo. Hola equipo, a veces correo corporativo cierra la sesión hace unos minutos, solo me pasa a mí. Quedo atento.",
+      "key": "a6b524c2067936e194c5974632f8b673",
+      "texto": "Detalle visual en compras. Buenos días, un texto en compras aparece cortado desde ayer, pasa en la sede Barranquilla. Es urgente.",
       "real": "Bajo",
       "predicho": "Medio",
-      "confianza": 0.42,
+      "confianza": 0.503,
       "gravedad": -1
     },
     {
-      "key": "d6fb5547937c8a5b8db0c2faccb3460d",
-      "texto": "Error en agendamiento de citas. Por favor ayuda: a veces agendamiento de citas cierra la sesión desde esta mañana, pasa en la sede centro y el cierre de mes está bloqueado.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.425,
-      "gravedad": -1
-    },
-    {
-      "key": "4516f6b60ea6a467f677fa29e496ff2a",
-      "texto": "Caso compras. Por favor ayuda: a veces compras cierra la sesión hace unos minutos, varios usuarios de facturación lo reportan y estamos sin poder facturar.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.425,
-      "gravedad": -1
-    },
-    {
-      "key": "2d09e2a06c662529ca12a6273168e9a0",
-      "texto": "Revisión de nómina. Buenos días, nómina está muy lento, varios usuarios de contabilidad lo reportan y los clientes no pueden pagar. Es urgente.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.425,
-      "gravedad": -1
-    },
-    {
-      "key": "86d108a29034fcfa85825932e5de7256",
-      "texto": "Error en historia clínica. Solicito revisar historia clínica porque los totales no cuadran hace unos minutos, pasa en la sede Barranquilla. Quedo atento.",
-      "real": "Medio",
-      "predicho": "Alto",
-      "confianza": 0.425,
-      "gravedad": -1
-    },
-    {
-      "key": "d071d2e72a9d13688e0e12e0de90d7e2",
-      "texto": "Revisión de tesorería. El cálculo de totales en tesorería sale incorrecto desde hace una hora, afecta al área de ventas y los clientes no pueden pagar. Adjunto pantallazo.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.425,
-      "gravedad": -1
-    },
-    {
-      "key": "5b18fb3030c21f3404e0acbfe9c99cb2",
-      "texto": "Ayuda con punto de venta. Por favor ayuda: necesito que revisen punto de venta, no está enviando los correos hace unos minutos, le ocurre a un usuario. gracias.",
+      "key": "69cfff499ff376468cffffff97f57950",
+      "texto": "Tema contabilidad. Un boton de contabilidad se ve desalineado desde esta mañana, pasa en la sede norte.",
       "real": "Bajo",
       "predicho": "Medio",
-      "confianza": 0.43,
+      "confianza": 0.508,
       "gravedad": -1
     },
     {
-      "key": "efc85d631f14d159d18600586228ad9f",
-      "texto": "Urgente cartera. Cartera se bloquea al confirmar hace unos minutos, lo vi solo en mi equipo y hay pacientes esperando atención. Quedo atento.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.43,
+      "key": "d4a964ca0cbcf42ebea1c7a2848e157a",
+      "texto": "Error en tesorería. Buenas tardes, la exportación a excel desde tesorería falla de vez en cuando desde hace una hora, lo vi solo en mi equipo. quedo atento.",
+      "real": "Bajo",
+      "predicho": "Medio",
+      "confianza": 0.544,
       "gravedad": -1
     },
     {
-      "key": "8a69ab586624bca1123991d2cd578e98",
-      "texto": "Revisión de correo corporativo. Por favor ayuda: el sistema de correo corporativo está completamente caído, solo me pasa a mí. es urgente.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.44,
-      "gravedad": -1
-    },
-    {
-      "key": "a1e1281ad474b2534d0f2c258b48a808",
-      "texto": "ERP. Buenas tardes, ERP se bloquea al confirmar, le ocurre a un grupo de usuarios.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.445,
-      "gravedad": -1
-    },
-    {
-      "key": "93db56bbf5bc63850fb320f825f60cbf",
-      "texto": "Error en portal de clientes. Solicito revisar portal de clientes porque los totales no cuadran, varios usuarios de contabilidad lo reportan. Gracias.",
-      "real": "Medio",
-      "predicho": "Alto",
-      "confianza": 0.445,
-      "gravedad": -1
-    },
-    {
-      "key": "1d8b2e806711686507aa45b60dcca7ef",
-      "texto": "Error en agendamiento de citas. Buenos días, a veces agendamiento de citas cierra la sesión desde ayer, le ocurre a un grupo de usuarios y se detuvieron los despachos. gracias.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.45,
-      "gravedad": -1
-    },
-    {
-      "key": "662d94fbc338186ee3471a8893edacad",
-      "texto": "Error en reportes gerenciales. Reportes gerenciales no deja guardar los registros desde ayer, lo vi solo en mi equipo. Adjunto pantallazo.",
-      "real": "Medio",
-      "predicho": "Alto",
-      "confianza": 0.45,
-      "gravedad": -1
-    },
-    {
-      "key": "3590f0462117431eb87b40fd9eadc980",
-      "texto": "Ayuda con agendamiento de citas. A veces agendamiento de citas cierra la sesión desde esta mañana, varios usuarios de recursos humanos lo reportan.",
-      "real": "Medio",
-      "predicho": "Alto",
-      "confianza": 0.45,
-      "gravedad": -1
-    },
-    {
-      "key": "66b108968d60fc60a5f59c628526d760",
-      "texto": "Error en nómina. Por favor ayuda: las notificaciones de nómina llegan tarde, le ocurre a un grupo de usuarios y los clientes no pueden pagar. Es urgente.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.455,
-      "gravedad": -1
-    },
-    {
-      "key": "c074ad03f2c9811411934ae592080826",
-      "texto": "Revisión de contabilidad. El servidor de contabilidad se cayó, solo me pasa a mí. Gracias.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.46,
-      "gravedad": -1
-    },
-    {
-      "key": "3b968f07a3fbdb26f0bc93c7d52c6ad2",
-      "texto": "Revisión de agendamiento de citas. Hola equipo, las notificaciones de agendamiento de citas llegan tarde, varios usuarios de facturación lo reportan y los clientes no pueden pagar. gracias.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.46,
-      "gravedad": -1
-    },
-    {
-      "key": "7622d107d25542737e97b5d0fced4834",
-      "texto": "Error en historia clínica. Buenos días, la exportación a Excel desde historia clínica falla de vez en cuando, varios usuarios de admisiones lo reportan y los clientes no pueden pagar. Quedo atento.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.46,
-      "gravedad": -1
-    },
-    {
-      "key": "0542bd0e4f8f75cfecccd5c89314bffd",
-      "texto": "Caso portal de clientes. Buenos días, error intermitente en portal de clientes desde esta mañana, pasa en todas las sedes. quedo atento.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.465,
-      "gravedad": -1
-    },
-    {
-      "key": "f8616f29f1b316071518e10057e15f5a",
-      "texto": "Error en contabilidad. A veces contabilidad cierra la sesión desde ayer, pasa en todas las sedes. quedo atento.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.47,
-      "gravedad": -1
-    },
-    {
-      "key": "50a385b10ad21c64e17381e0cc32c24f",
-      "texto": "Error en inventario. Solicito revisar inventario porque los totales no cuadran, varios usuarios de recursos humanos lo reportan.",
-      "real": "Medio",
-      "predicho": "Alto",
-      "confianza": 0.48,
-      "gravedad": -1
-    },
-    {
-      "key": "4a4d1db155685c4b4d29dd39cc9f004a",
-      "texto": "Error en cartera. Por favor ayuda: no se pueden generar documentos en cartera desde esta mañana, varios usuarios de admisiones lo reportan. quedo atento.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.48,
-      "gravedad": -1
-    },
-    {
-      "key": "585e3ddea2db4c365cd8fc8926cadb9e",
-      "texto": "Tema inventario. Error intermitente en inventario desde hace una hora, ningún usuario puede trabajar. adjunto pantallazo.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.48,
-      "gravedad": -1
-    },
-    {
-      "key": "cfea7538e827c252f7e81e1e892f16b8",
-      "texto": "Error en módulo de despachos. Buenas tardes, los datos de módulo de despachos no se están sincronizando desde hace una hora, varios usuarios de admisiones lo reportan. Es urgente.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.485,
-      "gravedad": -1
-    },
-    {
-      "key": "3acda87d84435b9ceb49ef3770bfa42c",
-      "texto": "Novedad en facturación electrónica. Las notificaciones de facturacion electronica llegan tarde, afecta a toda la empresa. Adjunto pantallazo.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.49,
-      "gravedad": -1
-    },
-    {
-      "key": "1b88a55b96761703ec4a6d6ec4b596ba",
-      "texto": "Error en historia clínica. Historia clínica está muy lento desde esta mañana, pasa en la sede Bogotá y los clientes no pueden pagar.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.49,
-      "gravedad": -1
-    },
-    {
-      "key": "ad8c24430d63ff11c30c4ba98b70274b",
-      "texto": "Caída en facturación electrónica. Facturación electrónica no responde desde esta mañana, afecta a toda la empresa. Adjunto pantallazo.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.505,
+      "key": "f18492424a74b245e0c80ed9196ad75f",
+      "texto": "Urgente módulo de despachos. El logo no carga en la pantalla de módulo de despachos desde hace una hora, pasa en la sede Barranquilla. Adjunto pantallazo.",
+      "real": "Bajo",
+      "predicho": "Medio",
+      "confianza": 0.545,
       "gravedad": -1
     },
     {
@@ -735,143 +375,7 @@
       "texto": "Error en ERP. ERP está muy lento, le ocurre a todos los usuarios.",
       "real": "Alto",
       "predicho": "Critico",
-      "confianza": 0.51,
-      "gravedad": -1
-    },
-    {
-      "key": "f1c4b3da55d591e5821bd292878d8d7c",
-      "texto": "VPN. Hola equipo la exportación a Excel desde VPN falla de vez en cuando ningún usuario puede trabajar",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.515,
-      "gravedad": -1
-    },
-    {
-      "key": "77f7079267b9a56e1d0927b652ee6e7c",
-      "texto": "Ayuda con punto de venta. Propongo agregar un filtro en punto de venta, lo necesitamos para un cliente nuevo que entra mañana. Adjunto pantallazo.",
-      "real": "Bajo",
-      "predicho": "Medio",
-      "confianza": 0.52,
-      "gravedad": -1
-    },
-    {
-      "key": "13101ea30ef7f1d50301a83693010656",
-      "texto": "VPN. No se pueden generar documentos en VPN le ocurre a un grupo de usuarios",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.525,
-      "gravedad": -1
-    },
-    {
-      "key": "26551e159793f94c1eae903aa8367456",
-      "texto": "Caída en pagos en línea. Hola equipo el servidor de pagos en línea se cayó hace unos minutos solo me pasa a mí Gracias",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.53,
-      "gravedad": -1
-    },
-    {
-      "key": "e6672943deb39666e4656c20be6913b7",
-      "texto": "Urgente punto de venta. Buenos días, necesito que revisen punto de venta, no está enviando los correos, lo vi solo en mi equipo. Quedo atento.",
-      "real": "Bajo",
-      "predicho": "Medio",
-      "confianza": 0.53,
-      "gravedad": -1
-    },
-    {
-      "key": "57204e50c7a33e6a244d6f34dd4985c8",
-      "texto": "Caso correo corporativo. Correo corporativo rechaza todas las operaciones, le ocurre a un usuario y los clientes no pueden pagar.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.535,
-      "gravedad": -1
-    },
-    {
-      "key": "7cbd36ea2b6465dece5331135a0f27df",
-      "texto": "Caída en correo corporativo. Buenas tardes, el sistema de correo corporativo está completamente caído desde hace una hora, le ocurre a un usuario.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.545,
-      "gravedad": -1
-    },
-    {
-      "key": "856cc34c7cffb908ef963cde5649b940",
-      "texto": "Novedad en pagos en línea. Hola equipo, error intermitente en pagos en linea desde esta mañana, le ocurre a un usuario. Adjunto pantallazo.",
-      "real": "Bajo",
-      "predicho": "Medio",
-      "confianza": 0.55,
-      "gravedad": -1
-    },
-    {
-      "key": "78779339cc2446aa78db44368fd4c1e4",
-      "texto": "Caída en contabilidad. Buenos días contabilidad muestra error 500 y no carga desde ayer solo me pasa a mí Adjunto pantallazo",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.56,
-      "gravedad": -1
-    },
-    {
-      "key": "369dc213f620467bf18db7bfcde3aca7",
-      "texto": "Error en nómina. Buenas tardes, nomina esta muy lento desde ayer, pasa en todas las sedes.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.565,
-      "gravedad": -1
-    },
-    {
-      "key": "d4abcc857533734bd5d8b14f6c23d247",
-      "texto": "Urgente punto de venta. Necesito que revisen punto de venta, no está enviando los correos desde esta mañana, un compañero lo reportó. Adjunto pantallazo.",
-      "real": "Bajo",
-      "predicho": "Medio",
-      "confianza": 0.565,
-      "gravedad": -1
-    },
-    {
-      "key": "d02b6cb37f1674376c634de33241c2d7",
-      "texto": "Error en agendamiento de citas. Buenos días, necesito que revisen agendamiento de citas, no está enviando los correos desde hace una hora, le ocurre a un usuario.",
-      "real": "Bajo",
-      "predicho": "Medio",
-      "confianza": 0.57,
-      "gravedad": -1
-    },
-    {
-      "key": "03fb8f40cb61d96fbdf033f20de3b634",
-      "texto": "Error en pagos en línea. Error intermitente en pagos en línea, ningún usuario puede trabajar. adjunto pantallazo.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.57,
-      "gravedad": -1
-    },
-    {
-      "key": "b6c86f4a37cfc584662d25e2e106a964",
-      "texto": "Problema con compras. Buenas tardes, las notificaciones de compras llegan tarde, pasa en todas las sedes. es urgente.",
-      "real": "Alto",
-      "predicho": "Critico",
-      "confianza": 0.59,
-      "gravedad": -1
-    },
-    {
-      "key": "7ae0ffec56da6200ddeec27ee9264521",
-      "texto": "Correo corporativo. Buenos días, ¿dónde encuentro el manual de correo corporativo?, lo pide auditoría con fecha límite. gracias.",
-      "real": "Bajo",
-      "predicho": "Medio",
-      "confianza": 0.605,
-      "gravedad": -1
-    },
-    {
-      "key": "97fb5ee90d5f4da92e84fde0fe872a63",
-      "texto": "Caso tesorería. Por favor ayuda: las notificaciones de tesorería llegan tarde, pasa en todas las sedes. Adjunto pantallazo.",
-      "real": "Medio",
-      "predicho": "Alto",
-      "confianza": 0.625,
-      "gravedad": -1
-    },
-    {
-      "key": "a20e9d1d18a1262144c602bab3c9503e",
-      "texto": "Error en agendamiento de citas. Por favor ayuda: necesito que revisen agendamiento de citas, no está enviando los correos, un compañero lo reportó. Quedo atento.",
-      "real": "Bajo",
-      "predicho": "Medio",
-      "confianza": 0.63,
+      "confianza": 0.547,
       "gravedad": -1
     },
     {
@@ -879,7 +383,159 @@
       "texto": "Ayuda con contabilidad. Hola equipo, necesito que revisen contabilidad, no está enviando los correos hace unos minutos, lo vi solo en mi equipo.",
       "real": "Bajo",
       "predicho": "Medio",
-      "confianza": 0.645,
+      "confianza": 0.55,
+      "gravedad": -1
+    },
+    {
+      "key": "bfd6381acbbde411a710329a50884262",
+      "texto": "Error en pagos en línea. Por favor ayuda: a veces pagos en línea cierra la sesión hace unos minutos, lo vi solo en mi equipo.",
+      "real": "Bajo",
+      "predicho": "Medio",
+      "confianza": 0.554,
+      "gravedad": -1
+    },
+    {
+      "key": "aa5380be0db7eec1aa1346b73622b612",
+      "texto": "Caso CRM. Buenos días, solicito revisar crm porque los totales no cuadran desde hace una hora, un compañero lo reportó. quedo atento.",
+      "real": "Bajo",
+      "predicho": "Medio",
+      "confianza": 0.555,
+      "gravedad": -1
+    },
+    {
+      "key": "be522abc16fe0c009451e46b19dac482",
+      "texto": "Detalle visual en punto de venta. Por favor ayuda: los colores de punto de venta se ven raros, pasa en la sede Barranquilla. Quedo atento.",
+      "real": "Bajo",
+      "predicho": "Medio",
+      "confianza": 0.556,
+      "gravedad": -1
+    },
+    {
+      "key": "3922f786399f98681ae4fad0a1711e4d",
+      "texto": "Error en compras. El calculo de totales en compras sale incorrecto hace unos minutos, le ocurre a un usuario.",
+      "real": "Bajo",
+      "predicho": "Medio",
+      "confianza": 0.565,
+      "gravedad": -1
+    },
+    {
+      "key": "b04ca9f3e6eaca094aa3a33eeee1586a",
+      "texto": "Caso compras. El cálculo de totales en compras sale incorrecto desde esta mañana, le ocurre a un usuario. Gracias.",
+      "real": "Bajo",
+      "predicho": "Medio",
+      "confianza": 0.567,
+      "gravedad": -1
+    },
+    {
+      "key": "13101ea30ef7f1d50301a83693010656",
+      "texto": "VPN. No se pueden generar documentos en VPN le ocurre a un grupo de usuarios",
+      "real": "Alto",
+      "predicho": "Critico",
+      "confianza": 0.575,
+      "gravedad": -1
+    },
+    {
+      "key": "1561bc6c9970877a7af4900ec60a9441",
+      "texto": "Novedad en compras. Compras se bloquea al confirmar, lo vi solo en mi equipo y se detuvieron los despachos.",
+      "real": "Alto",
+      "predicho": "Critico",
+      "confianza": 0.579,
+      "gravedad": -1
+    },
+    {
+      "key": "4516f6b60ea6a467f677fa29e496ff2a",
+      "texto": "Caso compras. Por favor ayuda: a veces compras cierra la sesión hace unos minutos, varios usuarios de facturación lo reportan y estamos sin poder facturar.",
+      "real": "Alto",
+      "predicho": "Critico",
+      "confianza": 0.583,
+      "gravedad": -1
+    },
+    {
+      "key": "8abfb8209bd97015f0acb9fff330d19e",
+      "texto": "Tesorería. Hola equipo, no se pueden generar documentos en tesorería, le ocurre a un usuario y hay pacientes esperando atención. Es urgente.",
+      "real": "Alto",
+      "predicho": "Critico",
+      "confianza": 0.586,
+      "gravedad": -1
+    },
+    {
+      "key": "a0dee729789eef49cfa118a8ef7230c0",
+      "texto": "VPN. No se pueden generar documentos en vpn desde hace una hora, varios usuarios de contabilidad lo reportan.",
+      "real": "Alto",
+      "predicho": "Critico",
+      "confianza": 0.587,
+      "gravedad": -1
+    },
+    {
+      "key": "f929ef7d3c1f07031d6d9b123b678fab",
+      "texto": "Caso nómina. Por favor ayuda: no se pueden generar documentos en nómina desde hace una hora, pasa en la sede norte. Gracias.",
+      "real": "Alto",
+      "predicho": "Critico",
+      "confianza": 0.593,
+      "gravedad": -1
+    },
+    {
+      "key": "19a01118d77b4371604884a5f2ca27f9",
+      "texto": "Problema con CRM. Buenas tardes, el servidor de CRM se cayó hace unos minutos, lo vi solo en mi equipo. Adjunto pantallazo.",
+      "real": "Alto",
+      "predicho": "Critico",
+      "confianza": 0.594,
+      "gravedad": -1
+    },
+    {
+      "key": "f5a0213978b8f1e9432e756b300e5bae",
+      "texto": "Tema VPN. Error al procesar transacciones en VPN desde esta mañana, afecta al área de contabilidad. Gracias.",
+      "real": "Alto",
+      "predicho": "Critico",
+      "confianza": 0.603,
+      "gravedad": -1
+    },
+    {
+      "key": "78779339cc2446aa78db44368fd4c1e4",
+      "texto": "Caída en contabilidad. Buenos días contabilidad muestra error 500 y no carga desde ayer solo me pasa a mí Adjunto pantallazo",
+      "real": "Alto",
+      "predicho": "Critico",
+      "confianza": 0.603,
+      "gravedad": -1
+    },
+    {
+      "key": "a1e1281ad474b2534d0f2c258b48a808",
+      "texto": "ERP. Buenas tardes, ERP se bloquea al confirmar, le ocurre a un grupo de usuarios.",
+      "real": "Alto",
+      "predicho": "Critico",
+      "confianza": 0.606,
+      "gravedad": -1
+    },
+    {
+      "key": "3894e827a5cc70d7776476ae31c10868",
+      "texto": "Urgente inventario. Por favor ayuda: necesito un reporte nuevo en inventario, es para el cierre de esta semana. adjunto pantallazo.",
+      "real": "Alto",
+      "predicho": "Critico",
+      "confianza": 0.607,
+      "gravedad": -1
+    },
+    {
+      "key": "4e4fc9085b88779c161ead94ba4f0e93",
+      "texto": "Tema tesorería. Buenas tardes, tesoreria no deja guardar los registros, le ocurre a un grupo de usuarios. Quedo atento.",
+      "real": "Alto",
+      "predicho": "Critico",
+      "confianza": 0.607,
+      "gravedad": -1
+    },
+    {
+      "key": "efc85d631f14d159d18600586228ad9f",
+      "texto": "Urgente cartera. Cartera se bloquea al confirmar hace unos minutos, lo vi solo en mi equipo y hay pacientes esperando atención. Quedo atento.",
+      "real": "Alto",
+      "predicho": "Critico",
+      "confianza": 0.609,
+      "gravedad": -1
+    },
+    {
+      "key": "9441758ec356859a65f62ad7206ce98c",
+      "texto": "Ayuda con reportes gerenciales. Hay un error de ortografía en reportes gerenciales desde ayer, le ocurre a un grupo de usuarios. Quedo atento.",
+      "real": "Bajo",
+      "predicho": "Medio",
+      "confianza": 0.609,
       "gravedad": -1
     },
     {
@@ -887,7 +543,103 @@
       "texto": "Novedad en facturación electrónica. Facturación electrónica rechaza todas las operaciones desde ayer, lo vi solo en mi equipo y hay pacientes esperando atención. quedo atento.",
       "real": "Alto",
       "predicho": "Critico",
-      "confianza": 0.745,
+      "confianza": 0.612,
+      "gravedad": -1
+    },
+    {
+      "key": "9fcb32761784d8a830779d5c804d9ae4",
+      "texto": "Urgente módulo de despachos. Buenas tardes, los colores de módulo de despachos se ven raros desde hace una hora, pasa en la sede Barranquilla.",
+      "real": "Bajo",
+      "predicho": "Medio",
+      "confianza": 0.617,
+      "gravedad": -1
+    },
+    {
+      "key": "cbce5873ea6a5a281735ac01017ecd3b",
+      "texto": "Detalle visual en nómina. Un botón de nómina se ve desalineado desde esta mañana, varios usuarios de admisiones lo reportan. Es urgente.",
+      "real": "Bajo",
+      "predicho": "Medio",
+      "confianza": 0.623,
+      "gravedad": -1
+    },
+    {
+      "key": "0212f825c168a0b7faf0b2111296d30b",
+      "texto": "Error en reportes gerenciales. Por favor ayuda: a veces reportes gerenciales cierra la sesión, lo vi solo en mi equipo. gracias.",
+      "real": "Bajo",
+      "predicho": "Medio",
+      "confianza": 0.63,
+      "gravedad": -1
+    },
+    {
+      "key": "3321fe32c68beffda93a21166095f39f",
+      "texto": "Detalle visual en reportes gerenciales. Un texto en reportes gerenciales aparece cortado desde ayer, pasa en la sede Barranquilla.",
+      "real": "Bajo",
+      "predicho": "Medio",
+      "confianza": 0.63,
+      "gravedad": -1
+    },
+    {
+      "key": "97fb5ee90d5f4da92e84fde0fe872a63",
+      "texto": "Caso tesorería. Por favor ayuda: las notificaciones de tesorería llegan tarde, pasa en todas las sedes. Adjunto pantallazo.",
+      "real": "Medio",
+      "predicho": "Alto",
+      "confianza": 0.637,
+      "gravedad": -1
+    },
+    {
+      "key": "543f373510acbdd038faaa00bb4fc106",
+      "texto": "Error en punto de venta. Buenos días, solicito revisar punto de venta porque los totales no cuadran, le ocurre a un usuario.",
+      "real": "Bajo",
+      "predicho": "Medio",
+      "confianza": 0.645,
+      "gravedad": -1
+    },
+    {
+      "key": "60af9796c713aa94e5ec35a1b6232e1a",
+      "texto": "Problema con tesorería. Por favor ayuda: tesorería se bloquea al confirmar hace unos minutos, le ocurre a un grupo de usuarios.",
+      "real": "Medio",
+      "predicho": "Alto",
+      "confianza": 0.653,
+      "gravedad": -1
+    },
+    {
+      "key": "c83e0639435c1b1c79fafad244b4a1c4",
+      "texto": "Detalle visual en contabilidad. Buenos días, hay un error de ortografía en contabilidad, varios usuarios de facturación lo reportan.",
+      "real": "Bajo",
+      "predicho": "Medio",
+      "confianza": 0.678,
+      "gravedad": -1
+    },
+    {
+      "key": "337c2454d05a5f3a83f15004afcb753d",
+      "texto": "Tema portal de clientes. Los colores de portal de clientes se ven raros desde ayer, varios usuarios de ventas lo reportan. Es urgente.",
+      "real": "Bajo",
+      "predicho": "Medio",
+      "confianza": 0.705,
+      "gravedad": -1
+    },
+    {
+      "key": "06daf3671c337145ed2b52933fb498f2",
+      "texto": "Problema con CRM. Por favor ayuda: un texto en CRM aparece cortado desde esta mañana, varios usuarios de facturación lo reportan. Es urgente.",
+      "real": "Bajo",
+      "predicho": "Medio",
+      "confianza": 0.731,
+      "gravedad": -1
+    },
+    {
+      "key": "77f7079267b9a56e1d0927b652ee6e7c",
+      "texto": "Ayuda con punto de venta. Propongo agregar un filtro en punto de venta, lo necesitamos para un cliente nuevo que entra mañana. Adjunto pantallazo.",
+      "real": "Bajo",
+      "predicho": "Medio",
+      "confianza": 0.795,
+      "gravedad": -1
+    },
+    {
+      "key": "ad8c24430d63ff11c30c4ba98b70274b",
+      "texto": "Caída en facturación electrónica. Facturación electrónica no responde desde esta mañana, afecta a toda la empresa. Adjunto pantallazo.",
+      "real": "Alto",
+      "predicho": "Critico",
+      "confianza": 0.826,
       "gravedad": -1
     },
     {
@@ -895,7 +647,7 @@
       "texto": "Consulta sobre tesorería. Buenas tardes, propongo agregar un filtro en tesorería, lo pide auditoría con fecha límite.",
       "real": "Bajo",
       "predicho": "Medio",
-      "confianza": 0.775,
+      "confianza": 0.846,
       "gravedad": -1
     },
     {
@@ -903,55 +655,23 @@
       "texto": "Detalle visual en módulo de despachos. Hola equipo, un texto en módulo de despachos aparece cortado desde hace una hora, pasa en todas las sedes.",
       "real": "Bajo",
       "predicho": "Medio",
-      "confianza": 0.845,
+      "confianza": 0.846,
       "gravedad": -1
     },
     {
-      "key": "c8352d948f099d6536a538c47a526c08",
-      "texto": "Problema con cartera. Solicito revisar cartera porque los totales no cuadran, un compañero lo reportó y estamos sin poder facturar. Gracias.",
-      "real": "Medio",
-      "predicho": "Critico",
-      "confianza": 0.375,
-      "gravedad": -2
+      "key": "7ae0ffec56da6200ddeec27ee9264521",
+      "texto": "Correo corporativo. Buenos días, ¿dónde encuentro el manual de correo corporativo?, lo pide auditoría con fecha límite. gracias.",
+      "real": "Bajo",
+      "predicho": "Medio",
+      "confianza": 0.85,
+      "gravedad": -1
     },
     {
-      "key": "60108dba8fac8fbc565a9a89ae582a38",
-      "texto": "Ayuda con contabilidad. Los colores de contabilidad se ven raros desde esta mañana, pasa en todas las sedes. Quedo atento.",
+      "key": "353a9911a517f46de7c9997db36099da",
+      "texto": "Novedad en contabilidad. Contabilidad rechaza todas las operaciones, pasa en todas las sedes. Quedo atento.",
       "real": "Medio",
       "predicho": "Critico",
-      "confianza": 0.395,
-      "gravedad": -2
-    },
-    {
-      "key": "e6087de55651f41ae20fa5eb03f7e3ed",
-      "texto": "Caso VPN. Hay un error de ortografía en VPN desde hace una hora, ningún usuario puede trabajar. Es urgente.",
-      "real": "Medio",
-      "predicho": "Critico",
-      "confianza": 0.4,
-      "gravedad": -2
-    },
-    {
-      "key": "60af9796c713aa94e5ec35a1b6232e1a",
-      "texto": "Problema con tesorería. Por favor ayuda: tesorería se bloquea al confirmar hace unos minutos, le ocurre a un grupo de usuarios.",
-      "real": "Medio",
-      "predicho": "Critico",
-      "confianza": 0.4,
-      "gravedad": -2
-    },
-    {
-      "key": "3d85584987bac8bb38a941e0e3ccd8f4",
-      "texto": "Novedad en historia clínica. El logo no carga en la pantalla de historia clínica desde ayer ningún usuario puede trabajar Es urgente",
-      "real": "Medio",
-      "predicho": "Critico",
-      "confianza": 0.48,
-      "gravedad": -2
-    },
-    {
-      "key": "b4b459b8ae7ea0b6f9b3ba5dbfda7f9d",
-      "texto": "Problema con portal de clientes. Por favor ayuda: hay un error de ortografía en portal de clientes desde esta mañana, le ocurre a todos los usuarios. Adjunto pantallazo.",
-      "real": "Medio",
-      "predicho": "Critico",
-      "confianza": 0.49,
+      "confianza": 0.587,
       "gravedad": -2
     },
     {
@@ -959,23 +679,7 @@
       "texto": "Error en cartera. Necesito que revisen cartera, no está enviando los correos desde hace una hora, ningún usuario puede trabajar. adjunto pantallazo.",
       "real": "Bajo",
       "predicho": "Alto",
-      "confianza": 0.535,
-      "gravedad": -2
-    },
-    {
-      "key": "4d8c3a65dc12d12f3275e238202fea12",
-      "texto": "Urgente tesorería. Por favor ayuda: tesorería rechaza todas las operaciones desde hace una hora, varios usuarios de facturación lo reportan y estamos sin poder facturar.",
-      "real": "Medio",
-      "predicho": "Critico",
-      "confianza": 0.695,
-      "gravedad": -2
-    },
-    {
-      "key": "353a9911a517f46de7c9997db36099da",
-      "texto": "Novedad en contabilidad. Contabilidad rechaza todas las operaciones, pasa en todas las sedes. Quedo atento.",
-      "real": "Medio",
-      "predicho": "Critico",
-      "confianza": 0.7,
+      "confianza": 0.619,
       "gravedad": -2
     },
     {
@@ -983,7 +687,15 @@
       "texto": "Ayuda con contabilidad. Hola equipo, los datos de contabilidad no se están sincronizando, pasa en todas las sedes.",
       "real": "Medio",
       "predicho": "Critico",
-      "confianza": 0.835,
+      "confianza": 0.699,
+      "gravedad": -2
+    },
+    {
+      "key": "4d8c3a65dc12d12f3275e238202fea12",
+      "texto": "Urgente tesorería. Por favor ayuda: tesorería rechaza todas las operaciones desde hace una hora, varios usuarios de facturación lo reportan y estamos sin poder facturar.",
+      "real": "Medio",
+      "predicho": "Critico",
+      "confianza": 0.739,
       "gravedad": -2
     },
     {
@@ -991,7 +703,7 @@
       "texto": "Error en inventario. Buenas tardes, inventario no deja guardar los registros, afecta a toda la empresa.",
       "real": "Medio",
       "predicho": "Critico",
-      "confianza": 0.84,
+      "confianza": 0.752,
       "gravedad": -2
     },
     {
@@ -999,7 +711,7 @@
       "texto": "Error en inventario. Inventario no deja guardar los registros, pasa en la sede Bogotá y el cierre de mes está bloqueado. Es urgente.",
       "real": "Bajo",
       "predicho": "Critico",
-      "confianza": 0.62,
+      "confianza": 0.652,
       "gravedad": -3
     }
   ],

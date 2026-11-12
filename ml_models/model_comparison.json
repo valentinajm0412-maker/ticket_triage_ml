@@ -1,0 +1,463 @@
+{
+  "fecha": "2026-11-11T22:48:23",
+  "train": 2272,
+  "test": 569,
+  "ranking_prioridad": [
+    {
+      "modelo": "Linear Regression (puntaje 0-3) + corte Crítico 2.02",
+      "clave": "linear_regression",
+      "cv_f1_macro": 0.8979,
+      "cv_recall_critico": 0.9535,
+      "en_produccion": true,
+      "accuracy": 0.8998,
+      "f1_macro": 0.8973,
+      "recall_critico": 0.9381
+    },
+    {
+      "modelo": "Random Forest + umbral Crítico 0.27",
+      "clave": "random_forest",
+      "cv_f1_macro": 0.8301,
+      "cv_recall_critico": 0.9513,
+      "en_produccion": false,
+      "accuracy": 0.8436,
+      "f1_macro": 0.8244,
+      "recall_critico": 0.9381
+    },
+    {
+      "modelo": "Logistic Regression",
+      "clave": "logistic_regression",
+      "cv_f1_macro": 0.8027,
+      "cv_recall_critico": null,
+      "en_produccion": false,
+      "accuracy": 0.7926,
+      "f1_macro": 0.7858,
+      "recall_critico": 0.9027
+    },
+    {
+      "modelo": "KNN",
+      "clave": "knn",
+      "cv_f1_macro": 0.6328,
+      "cv_recall_critico": null,
+      "en_produccion": false,
+      "accuracy": 0.6221,
+      "f1_macro": 0.6072,
+      "recall_critico": 0.7168
+    },
+    {
+      "modelo": "K-Means (grupo → prioridad mayoritaria)",
+      "clave": "kmeans",
+      "cv_f1_macro": null,
+      "cv_recall_critico": null,
+      "en_produccion": false,
+      "accuracy": 0.3322,
+      "f1_macro": 0.1463,
+      "recall_critico": 0.0
+    }
+  ],
+  "mejor_por_cv": "linear_regression",
+  "en_produccion": "Linear Regression (ordinal) + corte Critico 2.02",
+  "random_forest": {
+    "algoritmo": "Random Forest",
+    "umbral": 0.27,
+    "cv_f1_macro": 0.8301,
+    "cv_recall_critico": 0.9513,
+    "test": {
+      "accuracy": 0.8436,
+      "f1_macro": 0.8244,
+      "recall_critico": 0.9381
+    }
+  },
+  "logistic_regression": {
+    "cv_f1_macro": 0.8027,
+    "parametros": {
+      "C": "10",
+      "class_weight": "None"
+    },
+    "test": {
+      "accuracy": 0.7926,
+      "f1_macro": 0.7858,
+      "recall_critico": 0.9027
+    },
+    "test_con_umbral": {
+      "accuracy": 0.7909,
+      "f1_macro": 0.7821,
+      "recall_critico": 0.9204,
+      "umbral": 0.27
+    }
+  },
+  "knn": {
+    "cv_f1_macro": 0.6328,
+    "parametros": {
+      "n_neighbors": "9",
+      "weights": "uniform"
+    },
+    "test": {
+      "accuracy": 0.6221,
+      "f1_macro": 0.6072,
+      "recall_critico": 0.7168
+    }
+  },
+  "linear_regression": {
+    "r2": 0.8331,
+    "mae": 0.275,
+    "corte_critico": 2.02,
+    "cv_redondeado": {
+      "f1_macro": 0.8674,
+      "f1_macro_std": 0.0212,
+      "accuracy": 0.8785,
+      "recall_critico": 0.7013
+    },
+    "cv_con_corte": {
+      "f1_macro": 0.8979,
+      "f1_macro_std": 0.0047,
+      "accuracy": 0.9019,
+      "recall_critico": 0.9535
+    },
+    "cv_f1_macro": 0.8979,
+    "test_redondeado": {
+      "accuracy": 0.8699,
+      "f1_macro": 0.8569,
+      "recall_critico": 0.6549
+    },
+    "test": {
+      "accuracy": 0.8998,
+      "f1_macro": 0.8973,
+      "recall_critico": 0.9381
+    }
+  },
+  "kmeans": {
+    "k": 12,
+    "silueta_por_k": {
+      "4": 0.0457,
+      "6": 0.0754,
+      "8": 0.0962,
+      "10": 0.1192,
+      "12": 0.1387
+    },
+    "silueta": 0.1387,
+    "ari_prioridad": 0.0091,
+    "ari_categoria": -0.0032,
+    "como_clasificador": {
+      "accuracy": 0.3322,
+      "f1_macro": 0.1463,
+      "recall_critico": 0.0
+    },
+    "grupos": [
+      {
+        "grupo": 1,
+        "tickets": 119,
+        "palabras": [
+          "historia",
+          "clinica",
+          "no",
+          "urgente",
+          "error",
+          "sobre"
+        ],
+        "prioridad_dominante": "Medio",
+        "pct_prioridad": 0.303,
+        "categoria_dominante": "Incidente",
+        "pct_categoria": 0.571
+      },
+      {
+        "grupo": 2,
+        "tickets": 862,
+        "palabras": [
+          "crm",
+          "erp",
+          "vpn",
+          "cartera",
+          "tesoreria",
+          "nomina"
+        ],
+        "prioridad_dominante": "Medio",
+        "pct_prioridad": 0.335,
+        "categoria_dominante": "Incidente",
+        "pct_categoria": 0.606
+      },
+      {
+        "grupo": 3,
+        "tickets": 133,
+        "palabras": [
+          "corporativo",
+          "correo",
+          "no",
+          "urgente",
+          "hace",
+          "error"
+        ],
+        "prioridad_dominante": "Medio",
+        "pct_prioridad": 0.323,
+        "categoria_dominante": "Incidente",
+        "pct_categoria": 0.594
+      },
+      {
+        "grupo": 4,
+        "tickets": 117,
+        "palabras": [
+          "gerenciales",
+          "reportes",
+          "no",
+          "hace",
+          "error",
+          "ocurre"
+        ],
+        "prioridad_dominante": "Medio",
+        "pct_prioridad": 0.333,
+        "categoria_dominante": "Incidente",
+        "pct_categoria": 0.641
+      },
+      {
+        "grupo": 5,
+        "tickets": 128,
+        "palabras": [
+          "linea",
+          "pagos",
+          "no",
+          "error",
+          "urgente",
+          "usuario"
+        ],
+        "prioridad_dominante": "Medio",
+        "pct_prioridad": 0.445,
+        "categoria_dominante": "Incidente",
+        "pct_categoria": 0.641
+      },
+      {
+        "grupo": 6,
+        "tickets": 155,
+        "palabras": [
+          "citas",
+          "agendamiento",
+          "no",
+          "urgente",
+          "error",
+          "sobre"
+        ],
+        "prioridad_dominante": "Medio",
+        "pct_prioridad": 0.329,
+        "categoria_dominante": "Incidente",
+        "pct_categoria": 0.626
+      },
+      {
+        "grupo": 7,
+        "tickets": 115,
+        "palabras": [
+          "electronica",
+          "facturacion",
+          "no",
+          "urgente",
+          "ocurre",
+          "error"
+        ],
+        "prioridad_dominante": "Medio",
+        "pct_prioridad": 0.348,
+        "categoria_dominante": "Incidente",
+        "pct_categoria": 0.565
+      },
+      {
+        "grupo": 8,
+        "tickets": 113,
+        "palabras": [
+          "venta",
+          "punto",
+          "urgente",
+          "error",
+          "no",
+          "pasa"
+        ],
+        "prioridad_dominante": "Medio",
+        "pct_prioridad": 0.363,
+        "categoria_dominante": "Incidente",
+        "pct_categoria": 0.593
+      },
+      {
+        "grupo": 9,
+        "tickets": 111,
+        "palabras": [
+          "compras",
+          "sobre",
+          "urgente",
+          "no",
+          "error",
+          "afecta"
+        ],
+        "prioridad_dominante": "Medio",
+        "pct_prioridad": 0.378,
+        "categoria_dominante": "Incidente",
+        "pct_categoria": 0.586
+      },
+      {
+        "grupo": 10,
+        "tickets": 131,
+        "palabras": [
+          "inventario",
+          "no",
+          "error",
+          "pasa",
+          "hace",
+          "urgente"
+        ],
+        "prioridad_dominante": "Bajo",
+        "pct_prioridad": 0.282,
+        "categoria_dominante": "Incidente",
+        "pct_categoria": 0.641
+      },
+      {
+        "grupo": 11,
+        "tickets": 150,
+        "palabras": [
+          "contabilidad",
+          "error",
+          "no",
+          "hace",
+          "urgente",
+          "sobre"
+        ],
+        "prioridad_dominante": "Medio",
+        "pct_prioridad": 0.38,
+        "categoria_dominante": "Incidente",
+        "pct_categoria": 0.653
+      },
+      {
+        "grupo": 12,
+        "tickets": 138,
+        "palabras": [
+          "modulo",
+          "despachos",
+          "error",
+          "urgente",
+          "hace",
+          "no"
+        ],
+        "prioridad_dominante": "Medio",
+        "pct_prioridad": 0.333,
+        "categoria_dominante": "Incidente",
+        "pct_categoria": 0.652
+      }
+    ]
+  },
+  "q_learning": {
+    "politica": [
+      {
+        "estado": "Alto · alta confianza",
+        "tickets": 99,
+        "accion": "Revisión humana",
+        "q": {
+          "Atender de inmediato": 2.74,
+          "Cola normal": -2.82,
+          "Revisión humana": 2.88
+        }
+      },
+      {
+        "estado": "Alto · baja confianza",
+        "tickets": 1,
+        "accion": "Revisión humana",
+        "q": {
+          "Atender de inmediato": 1.98,
+          "Cola normal": -1.61,
+          "Revisión humana": 3.0
+        }
+      },
+      {
+        "estado": "Bajo · alta confianza",
+        "tickets": 123,
+        "accion": "Cola normal",
+        "q": {
+          "Atender de inmediato": -3.0,
+          "Cola normal": 1.89,
+          "Revisión humana": -1.0
+        }
+      },
+      {
+        "estado": "Critico · alta confianza",
+        "tickets": 126,
+        "accion": "Atender de inmediato",
+        "q": {
+          "Atender de inmediato": 8.23,
+          "Cola normal": -13.97,
+          "Revisión humana": 5.43
+        }
+      },
+      {
+        "estado": "Critico · baja confianza",
+        "tickets": 1,
+        "accion": "Atender de inmediato",
+        "q": {
+          "Atender de inmediato": 10.0,
+          "Cola normal": -12.83,
+          "Revisión humana": 3.62
+        }
+      },
+      {
+        "estado": "Medio · alta confianza",
+        "tickets": 217,
+        "accion": "Cola normal",
+        "q": {
+          "Atender de inmediato": -2.42,
+          "Cola normal": 1.61,
+          "Revisión humana": -0.9
+        }
+      },
+      {
+        "estado": "Medio · baja confianza",
+        "tickets": 2,
+        "accion": "Cola normal",
+        "q": {
+          "Atender de inmediato": -2.12,
+          "Cola normal": 2.0,
+          "Revisión humana": -0.68
+        }
+      }
+    ],
+    "comparacion": {
+      "Q-Learning (política aprendida)": {
+        "recompensa_media": 3.726,
+        "criticos_en_cola": 2,
+        "criticos": 66
+      },
+      "Regla fija: Crítico inmediato, resto en cola": {
+        "recompensa_media": 2.751,
+        "criticos_en_cola": 3,
+        "criticos": 66
+      },
+      "Todo a revisión humana": {
+        "recompensa_media": 1.337,
+        "criticos_en_cola": 0,
+        "criticos": 66
+      },
+      "Todo en cola normal": {
+        "recompensa_media": -3.989,
+        "criticos_en_cola": 66,
+        "criticos": 66
+      }
+    },
+    "recompensas": {
+      "Critico": {
+        "Atender de inmediato": 10,
+        "Cola normal": -20,
+        "Revisión humana": 6
+      },
+      "Alto": {
+        "Atender de inmediato": 3,
+        "Cola normal": -3,
+        "Revisión humana": 3
+      },
+      "Medio": {
+        "Atender de inmediato": -3,
+        "Cola normal": 2,
+        "Revisión humana": -1
+      },
+      "Bajo": {
+        "Atender de inmediato": -3,
+        "Cola normal": 2,
+        "Revisión humana": -1
+      }
+    },
+    "episodios": 400,
+    "alpha": 0.05,
+    "gamma": 0.0,
+    "tickets_aprendizaje": 284,
+    "tickets_evaluacion": 285
+  }
+}

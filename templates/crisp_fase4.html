@@ -53,6 +53,13 @@
     </div>
 </div>
 
+{% if not cmp %}
+<div class="card">
+    <h3><span class="step">0</span>Modelos evaluados: ¿cuál escogimos y por qué?</h3>
+    <p class="ko">Aún no existe la comparación de modelos (ml_models/model_comparison.json).</p>
+    <p>Ejecuta <code>py train_models.py</code> (2 a 4 minutos) y recarga esta página.</p>
+</div>
+{% endif %}
 {% if cmp %}
 <div class="card">
     <h3><span class="step">0</span>Modelos evaluados: ¿cuál escogimos y por qué?</h3>
