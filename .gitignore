@@ -14,3 +14,6 @@ Thumbs.db
 
 # Prediction logs || Bitácora de predicciones
 logs/
+
+# Model backups created by retrain.py || Respaldos de modelos de retrain.py
+ml_models/backup/

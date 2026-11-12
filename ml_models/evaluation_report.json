@@ -1,5 +1,28 @@
 {
-  "fecha": "2026-11-11T21:55:46",
+  "fecha": "2026-11-11T22:21:41",
+  "linea_base": {
+    "confianza_media": 0.7176,
+    "baja_confianza_pct": 0.181,
+    "palabras_desconocidas_pct": 0.0,
+    "palabras_promedio": 16.53,
+    "distribucion_prioridad": {
+      "Medio": 0.3415,
+      "Bajo": 0.2575,
+      "Alto": 0.202,
+      "Critico": 0.1989
+    },
+    "distribucion_categoria": {
+      "Incidente": 0.6127,
+      "Requerimiento": 0.3873
+    },
+    "distribucion_prediccion": {
+      "Medio": 0.3427,
+      "Critico": 0.2882,
+      "Bajo": 0.239,
+      "Alto": 0.1301
+    },
+    "exactitud_test": 0.8366
+  },
   "modelo": "Random Forest + umbral Critico 0.27",
   "test_filas": 569,
   "metricas_test": {

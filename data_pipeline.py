@@ -209,3 +209,28 @@ def load_report(path=REPORT_PATH):
         return None
     with open(path, encoding='utf-8') as f:
         return json.load(f)
+
+
+# ---------------------------------------------------------------- Fase 6: apoyo al monitoreo
+def word_vocabulary(model):
+    """Vocabulario de palabras que aprendió el modelo (para detectar palabras nuevas)."""
+    pipe = getattr(model, 'pipeline', model)
+    feats = pipe.named_steps['caracteristicas']
+    vectorizer = dict(feats.transformer_list)['palabras']
+    return {term for term in vectorizer.vocabulary_ if ' ' not in term}
+
+
+def oov_stats(texts, vocabulary, top=10):
+    """% de palabras desconocidas para el modelo y las más frecuentes (fuera de vocabulario)."""
+    stop = set(STOPWORDS_ES)
+    total, unknown, counts = 0, 0, {}
+    for t in texts:
+        for w in normalize_text(t).split():
+            if w in stop or len(w) < 3 or w.isdigit():
+                continue
+            total += 1
+            if w not in vocabulary:
+                unknown += 1
+                counts[w] = counts.get(w, 0) + 1
+    top_words = sorted(counts.items(), key=lambda kv: -kv[1])[:top]
+    return {'tasa': round(unknown / total, 4) if total else 0.0, 'palabras': total, 'top': top_words}

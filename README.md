@@ -44,13 +44,22 @@ py run_production.py        # servidor waitress en http://0.0.0.0:8000
 Monitoreo: `GET /health` devuelve el estado de la base de datos y del modelo (200 ok / 503 degradado).
 Cada predicción se registra en `logs/predictions.log`.
 
-## Ciclo de mejora continua
+## Ciclo de mejora continua (Fase 6: Monitoreo y Mantenimiento)
 
 1. El modelo asigna prioridad y marca con ⚠ los tickets de baja confianza.
 2. El consultor confirma o corrige la prioridad desde el Dashboard.
-3. El Admin exporta la retroalimentación (hoja Despliegue o `py export_feedback.py`) → `ml_models/real_tickets.csv`.
-4. `py train_models.py` reentrena usando datos sintéticos + reales y regenera los reportes.
-5. Revisar la hoja Evaluación antes de subir el modelo nuevo.
+3. La hoja **Monitoreo y Mantenimiento** compara los últimos 30 días contra la línea base de la Evaluación:
+   acuerdo modelo-consultor, confianza, drift (PSI y palabras nuevas) y KPI de negocio.
+4. Cuando se cumple un criterio de reentrenamiento: `py retrain.py`
+   - exporta la retroalimentación a `ml_models/real_tickets.csv`,
+   - respalda el modelo actual en `ml_models/backup/`,
+   - reentrena y compara; si el nuevo empeora (recall de Crítico o F1 bajan más de 2 puntos), restaura el anterior.
+5. Reiniciar la app para cargar el modelo nuevo. Cada versión queda en `ml_models/model_history.json`.
+
+Para probar el monitoreo sin datos reales: `py simulate_production.py` (o `--drift` para simular
+sistemas nuevos; `--reset` borra lo simulado). No usar en producción.
+
+Rutina: **semanal** revisar Monitoreo y los tickets ⚠ · **mensual** `py retrain.py` · **trimestral** revisar KPI y umbrales.
 
 ## Estructura
 
@@ -63,9 +72,10 @@ Cada predicción se registra en `logs/predictions.log`.
 | `train_models.py` | 2-3-4 | Orquesta el entrenamiento completo |
 | `evaluation.py`, `evaluate_model.py` | 4. Evaluación | Métricas en test, riesgos, sesgos, errores para expertos |
 | `config.py`, `deployment.py`, `run_production.py`, `export_feedback.py` | 5. Despliegue | Configuración, verificación, retroalimentación |
+| `monitoring.py`, `retrain.py`, `simulate_production.py` | 6. Monitoreo y mantenimiento | Supervisión, drift, reentrenamiento seguro, simulación |
 | `app.py`, `triage_service.py`, `models.py` | App | Rutas, predicción + asignación, base de datos |
 
-Reportes generados en `ml_models/`: `data_report.json`, `model_report.json`, `evaluation_report.json`.
+Reportes generados en `ml_models/`: `data_report.json`, `model_report.json`, `evaluation_report.json`, `model_history.json`.
 
 ## Roles
 

@@ -15,6 +15,7 @@ from crisp_fase2 import build_context as crisp_fase2_context
 from crisp_fase3 import build_context as crisp_fase3_context
 from crisp_fase4 import build_context as crisp_fase4_context
 from evaluation import load_evaluation
+from monitoring import build_context as crisp_fase6_context
 from deployment import (deployment_checklist, feedback_stats, export_feedback,
                         TRAINING_GUIDE, INCIDENT_PROTOCOL)
 
@@ -129,6 +130,13 @@ def update_ticket(ticket_id):
         if ticket.assignee:
             ticket.assignee.workload += 1
 
+    # Response times for Phase 6 KPIs || Tiempos de atención para los KPI de la Fase 6
+    if new_status == 'En Proceso' and not ticket.started_at:
+        ticket.started_at = datetime.now()
+    if new_status == 'Resuelto':
+        ticket.resolved_at = datetime.now()
+        ticket.started_at = ticket.started_at or ticket.resolved_at
+
     ticket.status = new_status
     db.session.commit()
     return redirect(url_for('dashboard'))
@@ -233,6 +241,12 @@ def crisp_fase5_export():
     flash(f'{n} tickets exportados a {path}. Ejecuta py train_models.py para reentrenar.'
           if n else 'No hay tickets revisados por consultores todavía.')
     return redirect(url_for('crisp_fase5'))
+
+# CRISP-ML Phase 6 page || Hoja Fase 6 CRISP-ML
+@app.route('/crisp/fase6')
+@admin_required
+def crisp_fase6():
+    return render_template('crisp_fase6.html', **crisp_fase6_context(Ticket, User, triage_model, MODEL_VERSION))
 
 # Health check for monitoring (no login) || Verificación de salud para monitoreo (sin login)
 @app.route('/health')

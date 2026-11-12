@@ -1,0 +1,14 @@
+[
+  {
+    "fecha": "2026-11-11T22:20:53",
+    "version": "4db630cf2731",
+    "modelo": "Random Forest + umbral Critico 0.27",
+    "filas_sinteticas": 3000,
+    "filas_reales": 0,
+    "filas_modelado": 2841,
+    "accuracy": 0.8366,
+    "f1_macro": 0.8169,
+    "recall_critico": 0.9469,
+    "decision": "Apto con condiciones: revisión humana de tickets de baja confianza y monitoreo semanal"
+  }
+]

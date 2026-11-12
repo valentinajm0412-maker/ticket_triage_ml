@@ -89,3 +89,25 @@ from evaluation import EVALUATION_REPORT_PATH, run_evaluation  # noqa: E402
 
 evaluation = run_evaluation()
 print(f"Evaluación (Fase 4): {evaluation['decision']}. Reporte: {EVALUATION_REPORT_PATH}")
+
+# Fase 6: historial de versiones del modelo (registro para mantenimiento)
+import hashlib  # noqa: E402
+
+HISTORY_PATH = os.path.join(ML_DIR, 'model_history.json')
+history = []
+if os.path.exists(HISTORY_PATH):
+    with open(HISTORY_PATH, encoding='utf-8') as f:
+        history = json.load(f)
+with open(PRIORITY_MODEL_PATH, 'rb') as f:
+    version = hashlib.sha256(f.read()).hexdigest()[:12]  # misma versión que muestra la app
+fuentes = {s['fuente']: s['filas'] for s in report['seleccion']['fuentes']}
+history.append({
+    'fecha': report['fecha'], 'version': version, 'modelo': priority_summary['seleccionado'],
+    'filas_sinteticas': fuentes.get('sintetico', 0), 'filas_reales': fuentes.get('real', 0),
+    'filas_modelado': report['limpieza']['filas_finales'],
+    'accuracy': evaluation['metricas_test']['accuracy'], 'f1_macro': evaluation['metricas_test']['f1_macro'],
+    'recall_critico': evaluation['metricas_test']['recall_critico'], 'decision': evaluation['decision'],
+})
+with open(HISTORY_PATH, 'w', encoding='utf-8') as f:
+    json.dump(history, f, ensure_ascii=False, indent=2)
+print(f'Versión {version} registrada en {HISTORY_PATH}')

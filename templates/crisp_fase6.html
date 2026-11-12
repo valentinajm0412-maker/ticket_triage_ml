@@ -1,0 +1,152 @@
+<!-- CRISP-ML Phase 6: Monitoring and Maintenance || Fase 6 CRISP-ML: Monitoreo y Mantenimiento -->
+{% extends "base.html" %}
+
+{% macro val(v, fmt) -%}
+    {%- if v is none -%}—{%- elif fmt == '%' -%}{{ '%.1f' | format(v * 100) }}%{%- else -%}{{ v }}{%- endif -%}
+{%- endmacro %}
+{% macro badge(estado) -%}
+    <span class="st st-{{ estado }}">{{ {'ok': 'OK', 'atencion': 'Atención', 'alerta': 'Alerta'}[estado] }}</span>
+{%- endmacro %}
+
+{% block content %}
+<style>
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+    .stat { background: #f9f9f9; border-radius: 6px; padding: 12px; text-align: center; }
+    .stat b { display: block; font-size: 1.5em; color: #2c3e50; }
+    table.t { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    table.t th, table.t td { padding: 8px 10px; border-bottom: 1px solid #eee; text-align: left; vertical-align: top; }
+    table.t th { background: #f9f9f9; border-bottom: 2px solid #ddd; }
+    .step { color: #1abc9c; font-weight: bold; margin-right: 6px; }
+    code, pre { background: #f4f4f4; padding: 1px 5px; border-radius: 3px; }
+    pre { padding: 12px; }
+    .muted { color: #777; }
+    .st { padding: 2px 9px; border-radius: 10px; font-size: .85em; font-weight: bold; white-space: nowrap; }
+    .st-ok { background: #eafaf1; color: #1e8449; } .st-atencion { background: #fef5e7; color: #b9770e; } .st-alerta { background: #fdedec; color: #c0392b; }
+    .banner { padding: 14px 18px; border-radius: 6px; font-weight: bold; font-size: 1.1em; }
+    .banner.l0 { background: #eafaf1; color: #1e8449; } .banner.l1 { background: #fef5e7; color: #b9770e; } .banner.l2 { background: #fdedec; color: #c0392b; }
+    .bar { background: #ecf0f1; border-radius: 3px; height: 9px; width: 90px; display: inline-block; vertical-align: middle; margin-right: 6px; }
+    .bar span { display: block; height: 9px; border-radius: 3px; background: #1abc9c; }
+    .vol span { background: #2c3e50; }
+    .word { display: inline-block; background: #fdedec; color: #922b21; padding: 2px 8px; border-radius: 10px; margin: 2px; font-size: .9em; }
+</style>
+
+<div class="card">
+    <h2>Fase 6 · Monitoreo y Mantenimiento</h2>
+    <p>Fase continua: vigilar que el modelo mantenga su desempeño en producción, detectar a tiempo la degradación
+       por cambios en los datos o en el negocio, y decidir cuándo reentrenar (Schmid et al., 2020).
+       Se compara la operación de los últimos {{ window_days }} días contra la línea base medida en la Evaluación (Fase 4).</p>
+    {% if not has_baseline %}
+        <p class="st st-alerta">No hay línea base: ejecuta <code>py train_models.py</code> para generarla.</p>
+    {% endif %}
+    <div class="banner l{{ status_level }}">Estado del modelo: {{ status }}
+        {% if retrain %} · Se recomienda reentrenar{% endif %}</div>
+    {% if window_n < min_tickets %}
+        <p class="muted">Solo hay {{ window_n }} tickets en la ventana (mínimo {{ min_tickets }} para sacar conclusiones).
+           Para probar la hoja: <code>py simulate_production.py</code>.</p>
+    {% endif %}
+</div>
+
+<div class="card">
+    <h3><span class="step">1</span>Supervisión continua</h3>
+    <table class="t">
+        <thead><tr><th>Indicador</th><th>Actual</th><th>Línea base</th><th>Estado</th><th>Nota</th></tr></thead>
+        <tbody>
+        {% for m in metrics %}
+            <tr><td>{{ m.indicador }}</td><td><strong>{{ val(m.actual, m.formato) }}</strong></td>
+                <td class="muted">{{ val(m.base, m.formato) }}</td><td>{{ badge(m.estado) }}</td>
+                <td class="muted">{{ m.nota }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h4>Evolución semanal</h4>
+    {% set max_t = (weeks | map(attribute='tickets') | max) or 1 %}
+    <table class="t">
+        <thead><tr><th>Semana</th><th>Tickets</th><th>Críticos</th><th>Revisados</th><th>Acuerdo</th><th>Confianza media</th><th>Baja confianza</th></tr></thead>
+        <tbody>
+        {% for w in weeks %}
+            <tr><td>{{ w.semana }}</td>
+                <td><span class="bar vol"><span style="width: {{ (w.tickets / max_t * 100) | int }}%"></span></span>{{ w.tickets }}</td>
+                <td>{{ w.criticos }}</td><td>{{ w.revisados }}</td>
+                <td>{% if w.acuerdo is not none %}<span class="bar"><span style="width: {{ (w.acuerdo * 100) | int }}%; background: {{ '#c0392b' if base.exactitud_test and w.acuerdo < base.exactitud_test - 0.1 else '#1abc9c' }}"></span></span>{{ '%.0f' | format(w.acuerdo * 100) }}%{% else %}—{% endif %}</td>
+                <td>{% if w.confianza is not none %}<span class="bar"><span style="width: {{ (w.confianza * 100) | int }}%"></span></span>{{ '%.0f' | format(w.confianza * 100) }}%{% else %}—{% endif %}</td>
+                <td>{{ val(w.baja_confianza, '%') }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p class="muted">Acuerdo en rojo: más de 10 puntos por debajo de la exactitud del test ({{ val(base.exactitud_test, '%') }}).</p>
+</div>
+
+<div class="card">
+    <h3><span class="step">2</span>Detección de degradación (drift)</h3>
+    <table class="t">
+        <thead><tr><th>Señal</th><th>Medida</th><th>Estado</th><th>Qué significa</th></tr></thead>
+        <tbody>
+        {% for d in drift %}
+            <tr><td>{{ d.senal }}</td><td>{{ d.metrica }}</td><td>{{ badge(d.estado) }}</td><td class="muted">{{ d.detalle }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p class="muted">PSI (índice de estabilidad): menor a {{ psi_warn }} estable · {{ psi_warn }}–{{ psi_alert }} cambio moderado · mayor a {{ psi_alert }} cambio fuerte.</p>
+    {% if top_words %}
+        <h4>Palabras frecuentes que el modelo no conoce</h4>
+        <p>{% for w, n in top_words %}<span class="word">{{ w }} ({{ n }})</span>{% endfor %}</p>
+        <p class="muted">Si aparecen sistemas o términos nuevos del negocio, el modelo no sabe qué tan graves son: hay que reentrenar con tickets reales que los incluyan.</p>
+    {% endif %}
+</div>
+
+<div class="card">
+    <h3><span class="step">3</span>Actualización del modelo</h3>
+    <p>Modelo en uso: <code>{{ model_version or 'no cargado' }}</code> · Revisiones nuevas desde el último entrenamiento: <strong>{{ new_feedback }}</strong></p>
+    <table class="t">
+        <thead><tr><th>Criterio para reentrenar</th><th>Valor actual</th><th>¿Se cumple?</th></tr></thead>
+        <tbody>
+        {% for t in triggers %}
+            <tr><td>{{ t.criterio }}</td><td class="muted">{{ t.valor }}</td>
+                <td>{{ badge('atencion' if t.activo else 'ok') if not t.activo else '<span class="st st-atencion">Sí</span>' | safe }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <h4>Reentrenamiento seguro</h4>
+<pre>py retrain.py</pre>
+    <p class="muted">Exporta las revisiones de los consultores, respalda el modelo actual, reentrena y compara.
+       Si el nuevo detecta menos críticos o baja su F1 más de 2 puntos, restaura el anterior automáticamente.</p>
+
+    <h4>Historial de versiones</h4>
+    {% if history %}
+    <table class="t">
+        <thead><tr><th>Fecha</th><th>Versión</th><th>Datos (sint. + reales)</th><th>Exactitud</th><th>F1 macro</th><th>Recall Crítico</th><th>Resultado</th></tr></thead>
+        <tbody>
+        {% for h in history %}
+            <tr><td class="muted">{{ h.fecha | replace('T', ' ') }}</td>
+                <td><code>{{ h.version }}</code>{% if h.version == model_version %} <span class="st st-ok">en uso</span>{% endif %}</td>
+                <td>{{ h.filas_sinteticas }} + {{ h.filas_reales }}</td>
+                <td>{{ val(h.accuracy, '%') }}</td><td>{{ val(h.f1_macro, '%') }}</td><td>{{ val(h.recall_critico, '%') }}</td>
+                <td class="muted">{{ h.decision }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p class="muted">Aún no hay historial. Se crea con el próximo <code>py train_models.py</code>.</p>
+    {% endif %}
+</div>
+
+<div class="card">
+    <h3><span class="step">4</span>Revisión de riesgos</h3>
+    <p>Los riesgos de la Fase 4 y los KPI de negocio de la Fase 1, medidos ahora con la operación real:</p>
+    <table class="t">
+        <thead><tr><th>Riesgo / KPI</th><th>Evidencia actual</th><th>Estado</th><th>Acción</th></tr></thead>
+        <tbody>
+        {% for r in risks %}
+            <tr><td>{{ r.riesgo }}</td><td>{{ r.evidencia }}</td><td>{{ badge(r.estado) }}</td><td class="muted">{{ r.accion }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <h4>Rutina de mantenimiento recomendada</h4>
+    <ul>
+        <li><strong>Semanal:</strong> revisar esta hoja; confirmar o corregir los tickets ⚠ en el Dashboard.</li>
+        <li><strong>Mensual</strong> (o cuando un criterio de la sección 3 se cumpla): <code>py retrain.py</code> y revisar la hoja de Evaluación.</li>
+        <li><strong>Trimestral:</strong> revisar con el negocio los KPI y umbrales de la Fase 1 (meta de críticos, tiempos de respuesta).</li>
+    </ul>
+</div>
+{% endblock %}

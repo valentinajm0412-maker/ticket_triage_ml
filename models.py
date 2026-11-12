@@ -29,7 +29,10 @@ class Ticket(db.Model):
     
     # Open, In Progress, Resolved || Abierto, En Proceso, Resuelto
     status = db.Column(db.String(20), default='Abierto') 
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime, default=datetime.now)  # local time || hora local
+    # Phase 6: response times for business KPIs || Fase 6: tiempos de atención para los KPI de negocio
+    started_at = db.Column(db.DateTime, nullable=True)   # Abierto -> En Proceso
+    resolved_at = db.Column(db.DateTime, nullable=True)  # -> Resuelto
     
     # Relationships with the User table || Relaciones con la tabla User
     client_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
@@ -81,6 +84,7 @@ def ensure_schema():
         'priority_predicted': 'VARCHAR(20)', 'priority_confidence': 'FLOAT',
         'model_version': 'VARCHAR(40)', 'needs_review': 'BOOLEAN DEFAULT 0',
         'priority_reviewed_by': 'INTEGER', 'priority_reviewed_at': 'DATETIME',
+        'started_at': 'DATETIME', 'resolved_at': 'DATETIME',
     }
     with db.engine.begin() as conn:
         for name, sql_type in new_columns.items():

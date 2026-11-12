@@ -21,7 +21,7 @@ from sklearn.metrics import (accuracy_score, classification_report, confusion_ma
 
 import data_pipeline  # noqa: F401  (para cargar los .pkl)
 import model_engineering  # noqa: F401
-from data_pipeline import CLEAN_PATH, ML_DIR, VALID_PRIORITIES
+from data_pipeline import CLEAN_PATH, ML_DIR, VALID_PRIORITIES, oov_stats, word_vocabulary
 
 PRIORITY_MODEL_PATH = os.path.join(ML_DIR, 'best_ticket_model.pkl')
 CATEGORY_MODEL_PATH = os.path.join(ML_DIR, 'best_category_model.pkl')
@@ -189,8 +189,25 @@ def run_evaluation():
     else:
         decision = 'No apto: no cumple la detección mínima de críticos'
 
+    # Línea base para el monitoreo de la Fase 6 (cómo se comporta el modelo con datos "normales")
+    vocab = word_vocabulary(priority_model)
+    baseline = {
+        'confianza_media': round(float(confidence.mean()), 4),
+        'baja_confianza_pct': round(low_conf, 4),
+        'palabras_desconocidas_pct': oov_stats(X, vocab)['tasa'],
+        'palabras_promedio': round(float(train['descripcion'].str.split().str.len().mean()), 2),
+        'distribucion_prioridad': {k: round(v, 4) for k, v in
+                                   train['prioridad'].value_counts(normalize=True).items()},
+        'distribucion_categoria': {k: round(v, 4) for k, v in
+                                   train['categoria'].value_counts(normalize=True).items()},
+        'distribucion_prediccion': {k: round(v, 4) for k, v in
+                                    pd.Series(y_pred).value_counts(normalize=True).items()},
+        'exactitud_test': test_metrics['accuracy'],
+    }
+
     report = {
         'fecha': datetime.now().isoformat(timespec='seconds'),
+        'linea_base': baseline,
         'modelo': selected, 'test_filas': int(len(test)),
         'metricas_test': test_metrics, 'por_clase': per_class,
         'matriz_confusion': {'etiquetas': LABELS, 'valores': cm},
