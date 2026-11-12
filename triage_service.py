@@ -7,7 +7,8 @@ vectorizer = joblib.load('ml_models/tfidf_vectorizer.pkl')
 
 def classify_and_assign_ticket(title, description, category, client_id):
     # Predict priority using the ML model || Predecir prioridad usando el modelo de ML
-    text_vectorized = vectorizer.transform([description])
+    # Same input as training: title + description || Mismo texto que en el entrenamiento
+    text_vectorized = vectorizer.transform([f'{title}. {description}'])
     predicted_priority = model.predict(text_vectorized)[0]
 
     # Determine required consultant role by category || Determinar el rol de consultor requerido según categoría

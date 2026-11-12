@@ -3,6 +3,7 @@ from flask_login import LoginManager, login_user, login_required, logout_user, c
 from flask_bcrypt import Bcrypt
 from models import db, User, Ticket
 from triage_service import classify_and_assign_ticket
+from crisp_fase1 import build_context as crisp_fase1_context
 
 app = Flask(__name__)
 
@@ -119,6 +120,14 @@ def admin_users():
 
     users = User.query.all()
     return render_template('admin_users.html', users=users)
+
+# CRISP-ML Phase 1 page (Admin only) || Hoja Fase 1 CRISP-ML (solo Admin)
+@app.route('/crisp/fase1')
+@login_required
+def crisp_fase1():
+    if current_user.role != 'Admin':
+        return redirect(url_for('dashboard'))
+    return render_template('crisp_fase1.html', **crisp_fase1_context(Ticket))
 
 # Logout Route || Ruta de Cerrar Sesión
 @app.route('/logout')

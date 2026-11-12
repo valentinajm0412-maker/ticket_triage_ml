@@ -1,0 +1,104 @@
+<!-- CRISP-ML Phase 1: Business and Data Understanding || Fase 1 CRISP-ML: Entendimiento del Negocio y los Datos -->
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+    .stat { background: #f9f9f9; border-radius: 6px; padding: 12px; text-align: center; }
+    .stat b { display: block; font-size: 1.6em; color: #2c3e50; }
+    table.t { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    table.t th, table.t td { padding: 8px 10px; border-bottom: 1px solid #eee; text-align: left; vertical-align: top; }
+    table.t th { background: #f9f9f9; border-bottom: 2px solid #ddd; }
+    .ok { color: #27ae60; font-weight: bold; }
+    .ko { color: #c0392b; font-weight: bold; }
+    .badge { padding: 2px 8px; border-radius: 10px; font-size: .85em; background: #ecf0f1; }
+    .step { color: #1abc9c; font-weight: bold; margin-right: 6px; }
+</style>
+
+<div class="card">
+    <h2>Fase 1 · Entendimiento del Negocio y los Datos</h2>
+    <p>Primera fase de CRISP-ML: traducir las necesidades del negocio en metas concretas para el modelo
+       y verificar que los datos disponibles permiten alcanzarlas (Schmid, Wurst &amp; Wirth, 2020).</p>
+</div>
+
+<div class="card">
+    <h3><span class="step">1</span>Objetivos de Negocio</h3>
+    <table class="t">
+        <thead><tr><th>Necesidad</th><th>Meta del proyecto ML</th><th>Criterio de éxito (KPI)</th></tr></thead>
+        <tbody>
+        {% for o in objectives %}
+            <tr><td>{{ o.necesidad }}</td><td>{{ o.meta }}</td><td>{{ o.kpi }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="card">
+    <h3><span class="step">2</span>Preguntas Clave</h3>
+    <ol>{% for q in questions %}<li>{{ q }}</li>{% endfor %}</ol>
+</div>
+
+<div class="card">
+    <h3><span class="step">3</span>Evaluación de Datos</h3>
+    {% if data_eval.error %}
+        <p class="ko">{{ data_eval.error }}</p>
+    {% else %}
+        <h4>Dataset de entrenamiento (ml_models/ticket_dataset.csv)</h4>
+        <div class="grid">
+            <div class="stat"><b>{{ data_eval.rows }}</b>registros</div>
+            <div class="stat"><b>{{ data_eval.unique_desc }}</b>descripciones únicas</div>
+            <div class="stat"><b>{{ data_eval.duplicate_pct }}%</b>duplicados</div>
+            <div class="stat"><b>{{ data_eval.vocab_size }}</b>palabras distintas</div>
+            <div class="stat"><b>{{ data_eval.avg_words }}</b>palabras / ticket</div>
+            <div class="stat"><b>{{ data_eval.overlap_pct }}%</b>test visto en train</div>
+        </div>
+
+        <h4>Chequeos de calidad, relevancia y suficiencia</h4>
+        <table class="t">
+            <thead><tr><th>Chequeo</th><th>Resultado</th><th>Detalle</th></tr></thead>
+            <tbody>
+            {% for c in data_eval.checks %}
+                <tr><td>{{ c.nombre }}</td>
+                    <td class="{{ 'ok' if c.ok else 'ko' }}">{{ 'Cumple' if c.ok else 'No cumple' }}</td>
+                    <td>{{ c.detalle }}</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <h4>Distribución de la variable objetivo (prioridad) por categoría</h4>
+        <table class="t">
+            <thead><tr><th>Prioridad</th><th>Total</th><th>%</th>
+                {% for c in data_eval.crosstab_cols %}<th>{{ c }}</th>{% endfor %}</tr></thead>
+            <tbody>
+            {% set ct = dict(data_eval.crosstab) %}
+            {% for p, n, pct in data_eval.priority_dist %}
+                <tr><td>{{ p }}</td><td>{{ n }}</td><td>{{ pct }}%</td>
+                    {% for v in ct[p] %}<td>{{ v }}</td>{% endfor %}</tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    <h4>Tickets reales registrados en la aplicación</h4>
+    {% if prod.total == 0 %}
+        <p>Aún no hay tickets reales. Serán la fuente para reentrenar con datos del negocio.</p>
+    {% else %}
+        <p>Total: <strong>{{ prod.total }}</strong></p>
+        <p>Por prioridad: {% for k, v in prod.por_prioridad.items() %}<span class="badge">{{ k }}: {{ v }}</span> {% endfor %}</p>
+        <p>Por categoría: {% for k, v in prod.por_categoria.items() %}<span class="badge">{{ k }}: {{ v }}</span> {% endfor %}</p>
+        <p>Por estado: {% for k, v in prod.por_estado.items() %}<span class="badge">{{ k }}: {{ v }}</span> {% endfor %}</p>
+    {% endif %}
+</div>
+
+<div class="card">
+    <h3><span class="step">4</span>Análisis de Viabilidad</h3>
+    <table class="t">
+        <thead><tr><th>Aspecto</th><th>Estado</th><th>Detalle / Mitigación</th></tr></thead>
+        <tbody>
+        {% for f in feasibility %}
+            <tr><td>{{ f.aspecto }}</td><td><span class="badge">{{ f.estado }}</span></td><td>{{ f.detalle }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

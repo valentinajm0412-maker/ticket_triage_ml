@@ -1,801 +1,1201 @@
 descripcion,categoria,prioridad
-error al procesar pagos,Incidente,Alto
-módulo contable no funciona,Incidente,Alto
-no hay acceso a producción,Incidente,Critico
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-duda sobre funcionalidad,Requerimiento,Bajo
-falla en proceso específico de facturación,Incidente,Alto
-requerimiento general de interfaz,Requerimiento,Bajo
-lentitud al exportar archivo,Incidente,Medio
-falla crítica en servidor principal,Incidente,Critico
-lentitud al exportar archivo,Requerimiento,Medio
-lentitud al exportar archivo,Requerimiento,Medio
-proceso específico inoperativo,Incidente,Alto
-solicitud para cambiar color del menú,Requerimiento,Bajo
-error de procesamiento de datos,Incidente,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-falla crítica en servidor principal,Incidente,Critico
-duda sobre funcionalidad,Requerimiento,Bajo
-operatividad de todo el sistema detenida,Incidente,Critico
-error al procesar pagos,Incidente,Alto
-falla en proceso específico de facturación,Incidente,Alto
-error de procesamiento de datos,Requerimiento,Medio
-error de procesamiento de datos,Incidente,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-solicitud para cambiar color del menú,Requerimiento,Bajo
-actualizar texto de bienvenida,Requerimiento,Bajo
-requerimiento general de interfaz,Requerimiento,Bajo
-no hay acceso a producción,Incidente,Critico
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-error al procesar pagos,Incidente,Alto
-cálculo incorrecto en reporte,Incidente,Medio
-cálculo incorrecto en reporte,Requerimiento,Medio
-lentitud al exportar archivo,Requerimiento,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-error de procesamiento de datos,Incidente,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-falla en proceso específico de facturación,Incidente,Alto
-error de procesamiento de datos,Incidente,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-falla crítica en servidor principal,Incidente,Critico
-falla en proceso específico de facturación,Incidente,Alto
-error al procesar pagos,Incidente,Alto
-proceso específico inoperativo,Incidente,Alto
-operatividad de todo el sistema detenida,Incidente,Critico
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-sistema completamente caído,Incidente,Critico
-proceso específico inoperativo,Incidente,Alto
-error al procesar pagos,Incidente,Alto
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-solicitud para cambiar color del menú,Requerimiento,Bajo
-sistema completamente caído,Incidente,Critico
-falla en proceso específico de facturación,Incidente,Alto
-error de procesamiento de datos,Requerimiento,Medio
-sistema completamente caído,Incidente,Critico
-cálculo incorrecto en reporte,Incidente,Medio
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-falla crítica en servidor principal,Incidente,Critico
-cálculo incorrecto en reporte,Incidente,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-no hay acceso a producción,Incidente,Critico
-error de procesamiento de datos,Requerimiento,Medio
-sistema completamente caído,Incidente,Critico
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-error de procesamiento de datos,Incidente,Medio
-operatividad de todo el sistema detenida,Incidente,Critico
-no hay acceso a producción,Incidente,Critico
-operatividad de todo el sistema detenida,Incidente,Critico
-error al procesar pagos,Incidente,Alto
-lentitud al exportar archivo,Incidente,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-falla crítica en servidor principal,Incidente,Critico
-no hay acceso a producción,Incidente,Critico
-actualizar texto de bienvenida,Requerimiento,Bajo
-requerimiento general de interfaz,Requerimiento,Bajo
-falla en proceso específico de facturación,Incidente,Alto
-requerimiento general de interfaz,Requerimiento,Bajo
-módulo contable no funciona,Incidente,Alto
-sistema completamente caído,Incidente,Critico
-cálculo incorrecto en reporte,Requerimiento,Medio
-módulo contable no funciona,Incidente,Alto
-falla en proceso específico de facturación,Incidente,Alto
-error al procesar pagos,Incidente,Alto
-operatividad de todo el sistema detenida,Incidente,Critico
-lentitud al exportar archivo,Incidente,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-falla en proceso específico de facturación,Incidente,Alto
-requerimiento general de interfaz,Requerimiento,Bajo
-módulo contable no funciona,Incidente,Alto
-falla crítica en servidor principal,Incidente,Critico
-duda sobre funcionalidad,Requerimiento,Bajo
-error de procesamiento de datos,Requerimiento,Medio
-cálculo incorrecto en reporte,Incidente,Medio
-error de procesamiento de datos,Requerimiento,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-módulo contable no funciona,Incidente,Alto
-error de procesamiento de datos,Incidente,Medio
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-falla crítica en servidor principal,Incidente,Critico
-actualizar texto de bienvenida,Requerimiento,Bajo
-requerimiento general de interfaz,Requerimiento,Bajo
-lentitud al exportar archivo,Requerimiento,Medio
-error de procesamiento de datos,Incidente,Medio
-cálculo incorrecto en reporte,Incidente,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-requerimiento general de interfaz,Requerimiento,Bajo
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-error de procesamiento de datos,Requerimiento,Medio
-módulo contable no funciona,Incidente,Alto
-operatividad de todo el sistema detenida,Incidente,Critico
-falla en proceso específico de facturación,Incidente,Alto
-solicitud para cambiar color del menú,Requerimiento,Bajo
-cálculo incorrecto en reporte,Requerimiento,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-proceso específico inoperativo,Incidente,Alto
-sistema completamente caído,Incidente,Critico
-lentitud al exportar archivo,Incidente,Medio
-cálculo incorrecto en reporte,Incidente,Medio
-proceso específico inoperativo,Incidente,Alto
-solicitud para cambiar color del menú,Requerimiento,Bajo
-actualizar texto de bienvenida,Requerimiento,Bajo
-lentitud al exportar archivo,Requerimiento,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-lentitud al exportar archivo,Requerimiento,Medio
-cálculo incorrecto en reporte,Incidente,Medio
-falla en proceso específico de facturación,Incidente,Alto
-cálculo incorrecto en reporte,Requerimiento,Medio
-no hay acceso a producción,Incidente,Critico
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-módulo contable no funciona,Incidente,Alto
-falla crítica en servidor principal,Incidente,Critico
-actualizar texto de bienvenida,Requerimiento,Bajo
-error de procesamiento de datos,Requerimiento,Medio
-cálculo incorrecto en reporte,Incidente,Medio
-módulo contable no funciona,Incidente,Alto
-duda sobre funcionalidad,Requerimiento,Bajo
-falla en proceso específico de facturación,Incidente,Alto
-solicitud para cambiar color del menú,Requerimiento,Bajo
-no hay acceso a producción,Incidente,Critico
-lentitud al exportar archivo,Incidente,Medio
-no hay acceso a producción,Incidente,Critico
-sistema completamente caído,Incidente,Critico
-error de procesamiento de datos,Incidente,Medio
-error de procesamiento de datos,Requerimiento,Medio
-lentitud al exportar archivo,Incidente,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-error al procesar pagos,Incidente,Alto
-cálculo incorrecto en reporte,Requerimiento,Medio
-error al procesar pagos,Incidente,Alto
-falla crítica en servidor principal,Incidente,Critico
-sistema completamente caído,Incidente,Critico
-duda sobre funcionalidad,Requerimiento,Bajo
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-lentitud al exportar archivo,Incidente,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-error de procesamiento de datos,Requerimiento,Medio
-sistema completamente caído,Incidente,Critico
-error al procesar pagos,Incidente,Alto
-error de procesamiento de datos,Incidente,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-cálculo incorrecto en reporte,Requerimiento,Medio
-cálculo incorrecto en reporte,Incidente,Medio
-duda sobre funcionalidad,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-error de procesamiento de datos,Requerimiento,Medio
-cálculo incorrecto en reporte,Incidente,Medio
-duda sobre funcionalidad,Requerimiento,Bajo
-solicitud para cambiar color del menú,Requerimiento,Bajo
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-proceso específico inoperativo,Incidente,Alto
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-cálculo incorrecto en reporte,Requerimiento,Medio
-lentitud al exportar archivo,Incidente,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-actualizar texto de bienvenida,Requerimiento,Bajo
-cálculo incorrecto en reporte,Requerimiento,Medio
-error de procesamiento de datos,Requerimiento,Medio
-cálculo incorrecto en reporte,Requerimiento,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-proceso específico inoperativo,Incidente,Alto
-lentitud al exportar archivo,Incidente,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-cálculo incorrecto en reporte,Incidente,Medio
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-lentitud al exportar archivo,Incidente,Medio
-no hay acceso a producción,Incidente,Critico
-error al procesar pagos,Incidente,Alto
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-operatividad de todo el sistema detenida,Incidente,Critico
-duda sobre funcionalidad,Requerimiento,Bajo
-solicitud para cambiar color del menú,Requerimiento,Bajo
-módulo contable no funciona,Incidente,Alto
-falla en proceso específico de facturación,Incidente,Alto
-requerimiento general de interfaz,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-error de procesamiento de datos,Incidente,Medio
-error al procesar pagos,Incidente,Alto
-cálculo incorrecto en reporte,Incidente,Medio
-duda sobre funcionalidad,Requerimiento,Bajo
-error de procesamiento de datos,Incidente,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-módulo contable no funciona,Incidente,Alto
-falla en proceso específico de facturación,Incidente,Alto
-solicitud para cambiar color del menú,Requerimiento,Bajo
-error al procesar pagos,Incidente,Alto
-cálculo incorrecto en reporte,Incidente,Medio
-error al procesar pagos,Incidente,Alto
-requerimiento general de interfaz,Requerimiento,Bajo
-sistema completamente caído,Incidente,Critico
-lentitud al exportar archivo,Requerimiento,Medio
-falla en proceso específico de facturación,Incidente,Alto
-sistema completamente caído,Incidente,Critico
-duda sobre funcionalidad,Requerimiento,Bajo
-lentitud al exportar archivo,Requerimiento,Medio
-lentitud al exportar archivo,Incidente,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-requerimiento general de interfaz,Requerimiento,Bajo
-lentitud al exportar archivo,Incidente,Medio
-error de procesamiento de datos,Incidente,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-operatividad de todo el sistema detenida,Incidente,Critico
-proceso específico inoperativo,Incidente,Alto
-cálculo incorrecto en reporte,Incidente,Medio
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-falla en proceso específico de facturación,Incidente,Alto
-módulo contable no funciona,Incidente,Alto
-error de procesamiento de datos,Incidente,Medio
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-error al procesar pagos,Incidente,Alto
-solicitud para cambiar color del menú,Requerimiento,Bajo
-operatividad de todo el sistema detenida,Incidente,Critico
-cálculo incorrecto en reporte,Requerimiento,Medio
-cálculo incorrecto en reporte,Incidente,Medio
-operatividad de todo el sistema detenida,Incidente,Critico
-lentitud al exportar archivo,Requerimiento,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-actualizar texto de bienvenida,Requerimiento,Bajo
-operatividad de todo el sistema detenida,Incidente,Critico
-solicitud para cambiar color del menú,Requerimiento,Bajo
-requerimiento general de interfaz,Requerimiento,Bajo
-requerimiento general de interfaz,Requerimiento,Bajo
-error al procesar pagos,Incidente,Alto
-requerimiento general de interfaz,Requerimiento,Bajo
-requerimiento general de interfaz,Requerimiento,Bajo
-proceso específico inoperativo,Incidente,Alto
-módulo contable no funciona,Incidente,Alto
-sistema completamente caído,Incidente,Critico
-cálculo incorrecto en reporte,Incidente,Medio
-operatividad de todo el sistema detenida,Incidente,Critico
-duda sobre funcionalidad,Requerimiento,Bajo
-falla en proceso específico de facturación,Incidente,Alto
-módulo contable no funciona,Incidente,Alto
-no hay acceso a producción,Incidente,Critico
-falla en proceso específico de facturación,Incidente,Alto
-falla en proceso específico de facturación,Incidente,Alto
-solicitud para cambiar color del menú,Requerimiento,Bajo
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-falla en proceso específico de facturación,Incidente,Alto
-duda sobre funcionalidad,Requerimiento,Bajo
-requerimiento general de interfaz,Requerimiento,Bajo
-requerimiento general de interfaz,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-solicitud para cambiar color del menú,Requerimiento,Bajo
-sistema completamente caído,Incidente,Critico
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-solicitud para cambiar color del menú,Requerimiento,Bajo
-no hay acceso a producción,Incidente,Critico
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-sistema completamente caído,Incidente,Critico
-sistema completamente caído,Incidente,Critico
-solicitud para cambiar color del menú,Requerimiento,Bajo
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-error al procesar pagos,Incidente,Alto
-solicitud para cambiar color del menú,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-cálculo incorrecto en reporte,Incidente,Medio
-cálculo incorrecto en reporte,Incidente,Medio
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-cálculo incorrecto en reporte,Incidente,Medio
-sistema completamente caído,Incidente,Critico
-lentitud al exportar archivo,Incidente,Medio
-cálculo incorrecto en reporte,Incidente,Medio
-duda sobre funcionalidad,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-módulo contable no funciona,Incidente,Alto
-requerimiento general de interfaz,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-sistema completamente caído,Incidente,Critico
-requerimiento general de interfaz,Requerimiento,Bajo
-error de procesamiento de datos,Incidente,Medio
-error de procesamiento de datos,Requerimiento,Medio
-falla en proceso específico de facturación,Incidente,Alto
-error de procesamiento de datos,Incidente,Medio
-falla crítica en servidor principal,Incidente,Critico
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-cálculo incorrecto en reporte,Incidente,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-cálculo incorrecto en reporte,Requerimiento,Medio
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-duda sobre funcionalidad,Requerimiento,Bajo
-sistema completamente caído,Incidente,Critico
-actualizar texto de bienvenida,Requerimiento,Bajo
-lentitud al exportar archivo,Incidente,Medio
-lentitud al exportar archivo,Incidente,Medio
-cálculo incorrecto en reporte,Requerimiento,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-requerimiento general de interfaz,Requerimiento,Bajo
-operatividad de todo el sistema detenida,Incidente,Critico
-módulo contable no funciona,Incidente,Alto
-error al procesar pagos,Incidente,Alto
-cálculo incorrecto en reporte,Incidente,Medio
-cálculo incorrecto en reporte,Incidente,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-no hay acceso a producción,Incidente,Critico
-operatividad de todo el sistema detenida,Incidente,Critico
-módulo contable no funciona,Incidente,Alto
-solicitud para cambiar color del menú,Requerimiento,Bajo
-sistema completamente caído,Incidente,Critico
-cálculo incorrecto en reporte,Requerimiento,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-cálculo incorrecto en reporte,Requerimiento,Medio
-duda sobre funcionalidad,Requerimiento,Bajo
-cálculo incorrecto en reporte,Requerimiento,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-sistema completamente caído,Incidente,Critico
-proceso específico inoperativo,Incidente,Alto
-módulo contable no funciona,Incidente,Alto
-solicitud para cambiar color del menú,Requerimiento,Bajo
-proceso específico inoperativo,Incidente,Alto
-duda sobre funcionalidad,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-sistema completamente caído,Incidente,Critico
-no hay acceso a producción,Incidente,Critico
-requerimiento general de interfaz,Requerimiento,Bajo
-actualizar texto de bienvenida,Requerimiento,Bajo
-solicitud para cambiar color del menú,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-error de procesamiento de datos,Requerimiento,Medio
-lentitud al exportar archivo,Requerimiento,Medio
-sistema completamente caído,Incidente,Critico
-lentitud al exportar archivo,Incidente,Medio
-error de procesamiento de datos,Requerimiento,Medio
-sistema completamente caído,Incidente,Critico
-proceso específico inoperativo,Incidente,Alto
-error de procesamiento de datos,Incidente,Medio
-no hay acceso a producción,Incidente,Critico
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-duda sobre funcionalidad,Requerimiento,Bajo
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-error de procesamiento de datos,Requerimiento,Medio
-lentitud al exportar archivo,Requerimiento,Medio
-falla crítica en servidor principal,Incidente,Critico
-requerimiento general de interfaz,Requerimiento,Bajo
-operatividad de todo el sistema detenida,Incidente,Critico
-lentitud al exportar archivo,Incidente,Medio
-cálculo incorrecto en reporte,Requerimiento,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-proceso específico inoperativo,Incidente,Alto
-lentitud al exportar archivo,Requerimiento,Medio
-lentitud al exportar archivo,Incidente,Medio
-error de procesamiento de datos,Incidente,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-cálculo incorrecto en reporte,Incidente,Medio
-módulo contable no funciona,Incidente,Alto
-sistema completamente caído,Incidente,Critico
-error al procesar pagos,Incidente,Alto
-solicitud para cambiar color del menú,Requerimiento,Bajo
-falla crítica en servidor principal,Incidente,Critico
-cálculo incorrecto en reporte,Requerimiento,Medio
-módulo contable no funciona,Incidente,Alto
-error de procesamiento de datos,Incidente,Medio
-no hay acceso a producción,Incidente,Critico
-error de procesamiento de datos,Incidente,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-módulo contable no funciona,Incidente,Alto
-cálculo incorrecto en reporte,Incidente,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-proceso específico inoperativo,Incidente,Alto
-error de procesamiento de datos,Requerimiento,Medio
-falla crítica en servidor principal,Incidente,Critico
-requerimiento general de interfaz,Requerimiento,Bajo
-cálculo incorrecto en reporte,Requerimiento,Medio
-falla en proceso específico de facturación,Incidente,Alto
-no hay acceso a producción,Incidente,Critico
-cálculo incorrecto en reporte,Requerimiento,Medio
-lentitud al exportar archivo,Requerimiento,Medio
-error de procesamiento de datos,Incidente,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-cálculo incorrecto en reporte,Incidente,Medio
-lentitud al exportar archivo,Requerimiento,Medio
-duda sobre funcionalidad,Requerimiento,Bajo
-operatividad de todo el sistema detenida,Incidente,Critico
-actualizar texto de bienvenida,Requerimiento,Bajo
-proceso específico inoperativo,Incidente,Alto
-cálculo incorrecto en reporte,Requerimiento,Medio
-módulo contable no funciona,Incidente,Alto
-lentitud al exportar archivo,Incidente,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-actualizar texto de bienvenida,Requerimiento,Bajo
-módulo contable no funciona,Incidente,Alto
-lentitud al exportar archivo,Incidente,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-no hay acceso a producción,Incidente,Critico
-error de procesamiento de datos,Requerimiento,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-error de procesamiento de datos,Requerimiento,Medio
-no hay acceso a producción,Incidente,Critico
-falla en proceso específico de facturación,Incidente,Alto
-error al procesar pagos,Incidente,Alto
-error al procesar pagos,Incidente,Alto
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-cálculo incorrecto en reporte,Incidente,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-requerimiento general de interfaz,Requerimiento,Bajo
-actualizar texto de bienvenida,Requerimiento,Bajo
-error de procesamiento de datos,Incidente,Medio
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-cálculo incorrecto en reporte,Incidente,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-proceso específico inoperativo,Incidente,Alto
-no hay acceso a producción,Incidente,Critico
-duda sobre funcionalidad,Requerimiento,Bajo
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-falla en proceso específico de facturación,Incidente,Alto
-solicitud para cambiar color del menú,Requerimiento,Bajo
-solicitud para cambiar color del menú,Requerimiento,Bajo
-requerimiento general de interfaz,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-falla en proceso específico de facturación,Incidente,Alto
-requerimiento general de interfaz,Requerimiento,Bajo
-actualizar texto de bienvenida,Requerimiento,Bajo
-error de procesamiento de datos,Requerimiento,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-falla en proceso específico de facturación,Incidente,Alto
-falla en proceso específico de facturación,Incidente,Alto
-error al procesar pagos,Incidente,Alto
-requerimiento general de interfaz,Requerimiento,Bajo
-no hay acceso a producción,Incidente,Critico
-operatividad de todo el sistema detenida,Incidente,Critico
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-lentitud al exportar archivo,Requerimiento,Medio
-error de procesamiento de datos,Incidente,Medio
-error al procesar pagos,Incidente,Alto
-operatividad de todo el sistema detenida,Incidente,Critico
-módulo contable no funciona,Incidente,Alto
-requerimiento general de interfaz,Requerimiento,Bajo
-falla en proceso específico de facturación,Incidente,Alto
-cálculo incorrecto en reporte,Requerimiento,Medio
-lentitud al exportar archivo,Incidente,Medio
-operatividad de todo el sistema detenida,Incidente,Critico
-error al procesar pagos,Incidente,Alto
-solicitud para cambiar color del menú,Requerimiento,Bajo
-error de procesamiento de datos,Incidente,Medio
-lentitud al exportar archivo,Requerimiento,Medio
-error de procesamiento de datos,Incidente,Medio
-error de procesamiento de datos,Incidente,Medio
-error de procesamiento de datos,Incidente,Medio
-cálculo incorrecto en reporte,Requerimiento,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-cálculo incorrecto en reporte,Incidente,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-no hay acceso a producción,Incidente,Critico
-actualizar texto de bienvenida,Requerimiento,Bajo
-solicitud para cambiar color del menú,Requerimiento,Bajo
-proceso específico inoperativo,Incidente,Alto
-módulo contable no funciona,Incidente,Alto
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-lentitud al exportar archivo,Requerimiento,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-error al procesar pagos,Incidente,Alto
-requerimiento general de interfaz,Requerimiento,Bajo
-falla crítica en servidor principal,Incidente,Critico
-no hay acceso a producción,Incidente,Critico
-solicitud para cambiar color del menú,Requerimiento,Bajo
-falla en proceso específico de facturación,Incidente,Alto
-falla en proceso específico de facturación,Incidente,Alto
-falla crítica en servidor principal,Incidente,Critico
-solicitud para cambiar color del menú,Requerimiento,Bajo
-error al procesar pagos,Incidente,Alto
-cálculo incorrecto en reporte,Incidente,Medio
-duda sobre funcionalidad,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-solicitud para cambiar color del menú,Requerimiento,Bajo
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-solicitud para cambiar color del menú,Requerimiento,Bajo
-no hay acceso a producción,Incidente,Critico
-operatividad de todo el sistema detenida,Incidente,Critico
-error de procesamiento de datos,Requerimiento,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-lentitud al exportar archivo,Incidente,Medio
-no hay acceso a producción,Incidente,Critico
-requerimiento general de interfaz,Requerimiento,Bajo
-proceso específico inoperativo,Incidente,Alto
-falla en proceso específico de facturación,Incidente,Alto
-proceso específico inoperativo,Incidente,Alto
-módulo contable no funciona,Incidente,Alto
-falla en proceso específico de facturación,Incidente,Alto
-falla crítica en servidor principal,Incidente,Critico
-sistema completamente caído,Incidente,Critico
-error de procesamiento de datos,Requerimiento,Medio
-falla crítica en servidor principal,Incidente,Critico
-falla en proceso específico de facturación,Incidente,Alto
-error al procesar pagos,Incidente,Alto
-lentitud al exportar archivo,Requerimiento,Medio
-lentitud al exportar archivo,Requerimiento,Medio
-lentitud al exportar archivo,Incidente,Medio
-proceso específico inoperativo,Incidente,Alto
-actualizar texto de bienvenida,Requerimiento,Bajo
-actualizar texto de bienvenida,Requerimiento,Bajo
-error al procesar pagos,Incidente,Alto
-cálculo incorrecto en reporte,Incidente,Medio
-proceso específico inoperativo,Incidente,Alto
-error de procesamiento de datos,Incidente,Medio
-error de procesamiento de datos,Requerimiento,Medio
-proceso específico inoperativo,Incidente,Alto
-solicitud para cambiar color del menú,Requerimiento,Bajo
-solicitud para cambiar color del menú,Requerimiento,Bajo
-operatividad de todo el sistema detenida,Incidente,Critico
-cálculo incorrecto en reporte,Incidente,Medio
-proceso específico inoperativo,Incidente,Alto
-lentitud al exportar archivo,Incidente,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-lentitud al exportar archivo,Incidente,Medio
-error de procesamiento de datos,Incidente,Medio
-duda sobre funcionalidad,Requerimiento,Bajo
-cálculo incorrecto en reporte,Requerimiento,Medio
-error de procesamiento de datos,Requerimiento,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-error al procesar pagos,Incidente,Alto
-falla crítica en servidor principal,Incidente,Critico
-falla en proceso específico de facturación,Incidente,Alto
-duda sobre funcionalidad,Requerimiento,Bajo
-actualizar texto de bienvenida,Requerimiento,Bajo
-error al procesar pagos,Incidente,Alto
-cálculo incorrecto en reporte,Incidente,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-error de procesamiento de datos,Requerimiento,Medio
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-error de procesamiento de datos,Requerimiento,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-actualizar texto de bienvenida,Requerimiento,Bajo
-error de procesamiento de datos,Incidente,Medio
-no hay acceso a producción,Incidente,Critico
-duda sobre funcionalidad,Requerimiento,Bajo
-lentitud al exportar archivo,Requerimiento,Medio
-error de procesamiento de datos,Requerimiento,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-falla crítica en servidor principal,Incidente,Critico
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-error de procesamiento de datos,Incidente,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-cálculo incorrecto en reporte,Incidente,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-no hay acceso a producción,Incidente,Critico
-actualizar texto de bienvenida,Requerimiento,Bajo
-error de procesamiento de datos,Incidente,Medio
-error al procesar pagos,Incidente,Alto
-módulo contable no funciona,Incidente,Alto
-sistema completamente caído,Incidente,Critico
-requerimiento general de interfaz,Requerimiento,Bajo
-sistema completamente caído,Incidente,Critico
-actualizar texto de bienvenida,Requerimiento,Bajo
-cálculo incorrecto en reporte,Incidente,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-módulo contable no funciona,Incidente,Alto
-lentitud al exportar archivo,Requerimiento,Medio
-error al procesar pagos,Incidente,Alto
-duda sobre funcionalidad,Requerimiento,Bajo
-requerimiento general de interfaz,Requerimiento,Bajo
-error al procesar pagos,Incidente,Alto
-actualizar texto de bienvenida,Requerimiento,Bajo
-solicitud para cambiar color del menú,Requerimiento,Bajo
-módulo contable no funciona,Incidente,Alto
-módulo contable no funciona,Incidente,Alto
-proceso específico inoperativo,Incidente,Alto
-módulo contable no funciona,Incidente,Alto
-actualizar texto de bienvenida,Requerimiento,Bajo
-actualizar texto de bienvenida,Requerimiento,Bajo
-solicitud para cambiar color del menú,Requerimiento,Bajo
-error de procesamiento de datos,Incidente,Medio
-falla en proceso específico de facturación,Incidente,Alto
-cálculo incorrecto en reporte,Requerimiento,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-requerimiento general de interfaz,Requerimiento,Bajo
-requerimiento general de interfaz,Requerimiento,Bajo
-error de procesamiento de datos,Requerimiento,Medio
-cálculo incorrecto en reporte,Requerimiento,Medio
-no hay acceso a producción,Incidente,Critico
-sistema completamente caído,Incidente,Critico
-error de procesamiento de datos,Requerimiento,Medio
-falla en proceso específico de facturación,Incidente,Alto
-proceso específico inoperativo,Incidente,Alto
-módulo contable no funciona,Incidente,Alto
-duda sobre funcionalidad,Requerimiento,Bajo
-no hay acceso a producción,Incidente,Critico
-error de procesamiento de datos,Incidente,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-proceso específico inoperativo,Incidente,Alto
-no hay acceso a producción,Incidente,Critico
-requerimiento general de interfaz,Requerimiento,Bajo
-cálculo incorrecto en reporte,Incidente,Medio
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-actualizar texto de bienvenida,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-requerimiento general de interfaz,Requerimiento,Bajo
-error de procesamiento de datos,Incidente,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-error al procesar pagos,Incidente,Alto
-cálculo incorrecto en reporte,Incidente,Medio
-operatividad de todo el sistema detenida,Incidente,Critico
-no hay acceso a producción,Incidente,Critico
-módulo contable no funciona,Incidente,Alto
-cálculo incorrecto en reporte,Requerimiento,Medio
-error al procesar pagos,Incidente,Alto
-lentitud al exportar archivo,Requerimiento,Medio
-cálculo incorrecto en reporte,Incidente,Medio
-duda sobre funcionalidad,Requerimiento,Bajo
-módulo contable no funciona,Incidente,Alto
-requerimiento general de interfaz,Requerimiento,Bajo
-requerimiento general de interfaz,Requerimiento,Bajo
-cálculo incorrecto en reporte,Requerimiento,Medio
-duda sobre funcionalidad,Requerimiento,Bajo
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-módulo contable no funciona,Incidente,Alto
-falla en proceso específico de facturación,Incidente,Alto
-cálculo incorrecto en reporte,Requerimiento,Medio
-proceso específico inoperativo,Incidente,Alto
-no hay acceso a producción,Incidente,Critico
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-lentitud al exportar archivo,Requerimiento,Medio
-cálculo incorrecto en reporte,Requerimiento,Medio
-error al procesar pagos,Incidente,Alto
-requerimiento general de interfaz,Requerimiento,Bajo
-módulo contable no funciona,Incidente,Alto
-error al procesar pagos,Incidente,Alto
-error de procesamiento de datos,Incidente,Medio
-cálculo incorrecto en reporte,Incidente,Medio
-duda sobre funcionalidad,Requerimiento,Bajo
-solicitud para cambiar color del menú,Requerimiento,Bajo
-operatividad de todo el sistema detenida,Incidente,Critico
-cálculo incorrecto en reporte,Requerimiento,Medio
-cálculo incorrecto en reporte,Incidente,Medio
-proceso específico inoperativo,Incidente,Alto
-duda sobre funcionalidad,Requerimiento,Bajo
-requerimiento general de interfaz,Requerimiento,Bajo
-error de procesamiento de datos,Incidente,Medio
-duda sobre funcionalidad,Requerimiento,Bajo
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-no hay acceso a producción,Incidente,Critico
-error de procesamiento de datos,Requerimiento,Medio
-lentitud al exportar archivo,Incidente,Medio
-cálculo incorrecto en reporte,Incidente,Medio
-error de procesamiento de datos,Incidente,Medio
-proceso específico inoperativo,Incidente,Alto
-solicitud para cambiar color del menú,Requerimiento,Bajo
-lentitud al exportar archivo,Requerimiento,Medio
-proceso específico inoperativo,Incidente,Alto
-error de procesamiento de datos,Requerimiento,Medio
-duda sobre funcionalidad,Requerimiento,Bajo
-solicitud para cambiar color del menú,Requerimiento,Bajo
-no hay acceso a producción,Incidente,Critico
-proceso específico inoperativo,Incidente,Alto
-cálculo incorrecto en reporte,Incidente,Medio
-falla en proceso específico de facturación,Incidente,Alto
-falla en proceso específico de facturación,Incidente,Alto
-lentitud al exportar archivo,Incidente,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-actualizar texto de bienvenida,Requerimiento,Bajo
-cálculo incorrecto en reporte,Incidente,Medio
-falla crítica en servidor principal,Incidente,Critico
-operatividad de todo el sistema detenida,Incidente,Critico
-duda sobre funcionalidad,Requerimiento,Bajo
-error al procesar pagos,Incidente,Alto
-cálculo incorrecto en reporte,Incidente,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-solicitud para cambiar color del menú,Requerimiento,Bajo
-error de procesamiento de datos,Incidente,Medio
-sistema completamente caído,Incidente,Critico
-solicitud para cambiar color del menú,Requerimiento,Bajo
-proceso específico inoperativo,Incidente,Alto
-cálculo incorrecto en reporte,Incidente,Medio
-duda sobre funcionalidad,Requerimiento,Bajo
-lentitud al exportar archivo,Incidente,Medio
-duda sobre funcionalidad,Requerimiento,Bajo
-operatividad de todo el sistema detenida,Incidente,Critico
-requerimiento general de interfaz,Requerimiento,Bajo
-falla en proceso específico de facturación,Incidente,Alto
-duda sobre funcionalidad,Requerimiento,Bajo
-actualizar texto de bienvenida,Requerimiento,Bajo
-lentitud al exportar archivo,Requerimiento,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-actualizar texto de bienvenida,Requerimiento,Bajo
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-cálculo incorrecto en reporte,Incidente,Medio
-lentitud al exportar archivo,Incidente,Medio
-falla crítica en servidor principal,Incidente,Critico
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-lentitud al exportar archivo,Incidente,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-solicitud para cambiar color del menú,Requerimiento,Bajo
-lentitud al exportar archivo,Requerimiento,Medio
-módulo contable no funciona,Incidente,Alto
-requerimiento general de interfaz,Requerimiento,Bajo
-solicitud para cambiar color del menú,Requerimiento,Bajo
-proceso específico inoperativo,Incidente,Alto
-requerimiento general de interfaz,Requerimiento,Bajo
-sistema completamente caído,Incidente,Critico
-duda sobre funcionalidad,Requerimiento,Bajo
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-cálculo incorrecto en reporte,Requerimiento,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-requerimiento general de interfaz,Requerimiento,Bajo
-cálculo incorrecto en reporte,Requerimiento,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-falla en procesamiento sin afectar operatividad,Incidente,Medio
-proceso específico inoperativo,Incidente,Alto
-actualizar texto de bienvenida,Requerimiento,Bajo
-solicitud para cambiar color del menú,Requerimiento,Bajo
-no hay acceso a producción,Incidente,Critico
-lentitud al exportar archivo,Incidente,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-cálculo incorrecto en reporte,Incidente,Medio
-requerimiento general de interfaz,Requerimiento,Bajo
-no hay acceso a producción,Incidente,Critico
-proceso específico inoperativo,Incidente,Alto
-proceso específico inoperativo,Incidente,Alto
-módulo contable no funciona,Incidente,Alto
-solicitud para cambiar color del menú,Requerimiento,Bajo
-módulo contable no funciona,Incidente,Alto
-error de procesamiento de datos,Incidente,Medio
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-error de procesamiento de datos,Requerimiento,Medio
-duda sobre funcionalidad,Requerimiento,Bajo
-duda sobre funcionalidad,Requerimiento,Bajo
-error al procesar pagos,Incidente,Alto
-módulo contable no funciona,Incidente,Alto
-módulo contable no funciona,Incidente,Alto
-operatividad de todo el sistema detenida,Incidente,Critico
-duda sobre funcionalidad,Requerimiento,Bajo
-falla en proceso específico de facturación,Incidente,Alto
-cálculo incorrecto en reporte,Incidente,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-error al procesar pagos,Incidente,Alto
-cálculo incorrecto en reporte,Incidente,Medio
-duda sobre funcionalidad,Requerimiento,Bajo
-falla crítica en servidor principal,Incidente,Critico
-cálculo incorrecto en reporte,Incidente,Medio
-error de procesamiento de datos,Incidente,Medio
-sistema completamente caído,Incidente,Critico
-actualizar texto de bienvenida,Requerimiento,Bajo
-lentitud al exportar archivo,Incidente,Medio
-actualizar texto de bienvenida,Requerimiento,Bajo
-no hay acceso a producción,Incidente,Critico
-módulo contable no funciona,Incidente,Alto
-falla en procesamiento sin afectar operatividad,Requerimiento,Medio
-módulo contable no funciona,Incidente,Alto
-solicitud para cambiar color del menú,Requerimiento,Bajo
-cálculo incorrecto en reporte,Requerimiento,Medio
-lentitud al exportar archivo,Incidente,Medio
-cálculo incorrecto en reporte,Requerimiento,Medio
-error de procesamiento de datos,Incidente,Medio
-lentitud al exportar archivo,Requerimiento,Medio
-lentitud al exportar archivo,Requerimiento,Medio
-lentitud al exportar archivo,Requerimiento,Medio
-solicitud para cambiar color del menú,Requerimiento,Bajo
-operatividad de todo el sistema detenida,Incidente,Critico
-solicitud para cambiar color del menú,Requerimiento,Bajo
-falla en proceso específico de facturación,Incidente,Alto
-falla en proceso específico de facturación,Incidente,Alto
-falla en proceso específico de facturación,Incidente,Alto
+Solicitud de ajuste en el reporte de ventas,Requerimiento,Medio
+Cálculo incorrecto en la vista de clientes,Incidente,Medio
+No funciona el módulo de pagos con tarjeta,Incidente,Alto
+Solicitud de ajuste en el formulario de registro,Requerimiento,Medio
+Error fatal arrojando error 500 general,Incidente,Critico
+Actualización de permisos en la plantilla de impresión,Requerimiento,Medio
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Operatividad detenida en todas las sedes,Incidente,Critico
+Consulta general de el manual de usuario,Requerimiento,Bajo
+Configuración de nuevo campo en el formulario de registro,Requerimiento,Medio
+Sin acceso a producción bloqueando ventas y operaciones,Incidente,Critico
+Requerimiento para modificar la plantilla de impresión,Requerimiento,Medio
+Error al procesar en sincronización de inventario,Incidente,Alto
+Caída parcial de cierre contable,Incidente,Alto
+Cálculo incorrecto en las notificaciones por correo,Incidente,Medio
+Error intermitente al exportar las notificaciones por correo,Incidente,Medio
+Falla grave en pagos con tarjeta,Incidente,Alto
+Sugerencia de mejora en el color del menú lateral,Requerimiento,Bajo
+Consulta general de el manual de usuario,Requerimiento,Bajo
+Solicitud de ajuste en el perfil de supervisor,Requerimiento,Medio
+Duda sobre cómo usar los filtros de búsqueda,Requerimiento,Bajo
+Error intermitente al exportar las notificaciones por correo,Incidente,Medio
+Servidor principal sin respuesta bloqueando ventas y operaciones,Incidente,Critico
+Requerimiento para modificar el reporte de ventas,Requerimiento,Medio
+Error al procesar en autenticación de usuarios,Incidente,Alto
+Bloqueo total en pagos con tarjeta,Incidente,Alto
+Sugerencia de mejora en los filtros de búsqueda,Requerimiento,Bajo
+Sugerencia de mejora en los filtros de búsqueda,Requerimiento,Bajo
+Falla grave en autenticación de usuarios,Incidente,Alto
+No funciona el módulo de autenticación de usuarios,Incidente,Alto
+Servidor principal sin respuesta bloqueando ventas y operaciones,Incidente,Critico
+Operatividad detenida bloqueando ventas y operaciones,Incidente,Critico
+Error al procesar en sincronización de inventario,Incidente,Alto
+Requerimiento para modificar el perfil de supervisor,Requerimiento,Medio
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Actualización de permisos en el reporte de ventas,Requerimiento,Medio
+Bloqueo total en sincronización de inventario,Incidente,Alto
+Error fatal para toda la empresa,Incidente,Critico
+Falla grave en facturación electrónica,Incidente,Alto
+Sistema completamente caído bloqueando ventas y operaciones,Incidente,Critico
+Error intermitente al exportar el reporte mensual,Incidente,Medio
+Error intermitente al exportar el archivo Excel,Incidente,Medio
+Bloqueo total en autenticación de usuarios,Incidente,Alto
+Configuración de nuevo campo en el perfil de supervisor,Requerimiento,Medio
+Duda sobre cómo usar el manual de usuario,Requerimiento,Bajo
+Bloqueo total en cierre contable,Incidente,Alto
+No funciona el módulo de facturación electrónica,Incidente,Alto
+Falla visual en el reporte mensual,Incidente,Medio
+Sin acceso a producción bloqueando ventas y operaciones,Incidente,Critico
+Error fatal bloqueando ventas y operaciones,Incidente,Critico
+Bloqueo total en autenticación de usuarios,Incidente,Alto
+Sin acceso a producción desde hace 10 minutos,Incidente,Critico
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Sin acceso a producción arrojando error 500 general,Incidente,Critico
+Sin acceso a producción desde hace 10 minutos,Incidente,Critico
+No funciona el módulo de facturación electrónica,Incidente,Alto
+Error fatal para toda la empresa,Incidente,Critico
+Duda sobre cómo usar los filtros de búsqueda,Requerimiento,Bajo
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Error intermitente al exportar el archivo Excel,Incidente,Medio
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Consulta general de el color del menú lateral,Requerimiento,Bajo
+Falla visual en la vista de clientes,Incidente,Medio
+Caída parcial de facturación electrónica,Incidente,Alto
+Lentitud al cargar el reporte mensual,Incidente,Medio
+Servidor principal sin respuesta arrojando error 500 general,Incidente,Critico
+Falla visual en las notificaciones por correo,Incidente,Medio
+Sin acceso a producción bloqueando ventas y operaciones,Incidente,Critico
+Falla visual en el archivo Excel,Incidente,Medio
+Falla visual en el reporte mensual,Incidente,Medio
+Bloqueo total en pagos con tarjeta,Incidente,Alto
+Sistema completamente caído bloqueando ventas y operaciones,Incidente,Critico
+Configuración de nuevo campo en el formulario de registro,Requerimiento,Medio
+Error fatal en todas las sedes,Incidente,Critico
+Actualización de permisos en la plantilla de impresión,Requerimiento,Medio
+Requerimiento para modificar el reporte de ventas,Requerimiento,Medio
+Lentitud al cargar las notificaciones por correo,Incidente,Medio
+Falla visual en el archivo Excel,Incidente,Medio
+Solicitud de ajuste en la plantilla de impresión,Requerimiento,Medio
+Operatividad detenida en todas las sedes,Incidente,Critico
+Falla grave en autenticación de usuarios,Incidente,Alto
+Error fatal desde hace 10 minutos,Incidente,Critico
+Sugerencia de mejora en los filtros de búsqueda,Requerimiento,Bajo
+Configuración de nuevo campo en el perfil de supervisor,Requerimiento,Medio
+Servidor principal sin respuesta desde hace 10 minutos,Incidente,Critico
+Duda sobre cómo usar el manual de usuario,Requerimiento,Bajo
+Solicitud de ajuste en la plantilla de impresión,Requerimiento,Medio
+Consulta general de el manual de usuario,Requerimiento,Bajo
+Servidor principal sin respuesta desde hace 10 minutos,Incidente,Critico
+Sin acceso a producción en todas las sedes,Incidente,Critico
+Servidor principal sin respuesta arrojando error 500 general,Incidente,Critico
+Cálculo incorrecto en las notificaciones por correo,Incidente,Medio
+Solicitud de ajuste en el formulario de registro,Requerimiento,Medio
+Error fatal desde hace 10 minutos,Incidente,Critico
+Falla grave en autenticación de usuarios,Incidente,Alto
+Caída parcial de facturación electrónica,Incidente,Alto
+No funciona el módulo de autenticación de usuarios,Incidente,Alto
+Falla grave en cierre contable,Incidente,Alto
+Solicitud estética para cambiar el color del menú lateral,Requerimiento,Bajo
+Lentitud al cargar las notificaciones por correo,Incidente,Medio
+Error al procesar en facturación electrónica,Incidente,Alto
+Bloqueo total en facturación electrónica,Incidente,Alto
+Error intermitente al exportar la vista de clientes,Incidente,Medio
+Duda sobre cómo usar el manual de usuario,Requerimiento,Bajo
+Cálculo incorrecto en la vista de clientes,Incidente,Medio
+Solicitud de ajuste en el perfil de supervisor,Requerimiento,Medio
+Cálculo incorrecto en el archivo Excel,Incidente,Medio
+Sugerencia de mejora en el manual de usuario,Requerimiento,Bajo
+Sistema completamente caído en todas las sedes,Incidente,Critico
+Solicitud de ajuste en el perfil de supervisor,Requerimiento,Medio
+Lentitud al cargar la vista de clientes,Incidente,Medio
+Bloqueo total en cierre contable,Incidente,Alto
+No funciona el módulo de sincronización de inventario,Incidente,Alto
+Error intermitente al exportar el reporte mensual,Incidente,Medio
+Consulta general de el texto de bienvenida,Requerimiento,Bajo
+Caída parcial de pagos con tarjeta,Incidente,Alto
+Cálculo incorrecto en la vista de clientes,Incidente,Medio
+Caída parcial de sincronización de inventario,Incidente,Alto
+Error fatal arrojando error 500 general,Incidente,Critico
+Sin acceso a producción para toda la empresa,Incidente,Critico
+Actualización de permisos en el perfil de supervisor,Requerimiento,Medio
+No funciona el módulo de cierre contable,Incidente,Alto
+Bloqueo total en facturación electrónica,Incidente,Alto
+Operatividad detenida en todas las sedes,Incidente,Critico
+Sistema completamente caído bloqueando ventas y operaciones,Incidente,Critico
+Consulta general de el color del menú lateral,Requerimiento,Bajo
+Sugerencia de mejora en los filtros de búsqueda,Requerimiento,Bajo
+Solicitud de ajuste en el perfil de supervisor,Requerimiento,Medio
+Configuración de nuevo campo en el formulario de registro,Requerimiento,Medio
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Solicitud estética para cambiar el manual de usuario,Requerimiento,Bajo
+Error intermitente al exportar el reporte mensual,Incidente,Medio
+Caída parcial de cierre contable,Incidente,Alto
+Configuración de nuevo campo en la plantilla de impresión,Requerimiento,Medio
+Actualización de permisos en el formulario de registro,Requerimiento,Medio
+Consulta general de los filtros de búsqueda,Requerimiento,Bajo
+Consulta general de el color del menú lateral,Requerimiento,Bajo
+Sistema completamente caído bloqueando ventas y operaciones,Incidente,Critico
+Falla grave en pagos con tarjeta,Incidente,Alto
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Operatividad detenida bloqueando ventas y operaciones,Incidente,Critico
+Requerimiento para modificar la plantilla de impresión,Requerimiento,Medio
+No funciona el módulo de sincronización de inventario,Incidente,Alto
+Requerimiento para modificar la plantilla de impresión,Requerimiento,Medio
+No funciona el módulo de autenticación de usuarios,Incidente,Alto
+Sistema completamente caído en todas las sedes,Incidente,Critico
+Caída parcial de pagos con tarjeta,Incidente,Alto
+Solicitud estética para cambiar el color del menú lateral,Requerimiento,Bajo
+Actualización de permisos en el reporte de ventas,Requerimiento,Medio
+Sistema completamente caído en todas las sedes,Incidente,Critico
+Sin acceso a producción para toda la empresa,Incidente,Critico
+Servidor principal sin respuesta en todas las sedes,Incidente,Critico
+Configuración de nuevo campo en la plantilla de impresión,Requerimiento,Medio
+Falla visual en el archivo Excel,Incidente,Medio
+Operatividad detenida arrojando error 500 general,Incidente,Critico
+Lentitud al cargar la vista de clientes,Incidente,Medio
+Requerimiento para modificar el formulario de registro,Requerimiento,Medio
+Error al procesar en cierre contable,Incidente,Alto
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+Actualización de permisos en el formulario de registro,Requerimiento,Medio
+Consulta general de el texto de bienvenida,Requerimiento,Bajo
+Consulta general de el color del menú lateral,Requerimiento,Bajo
+Error intermitente al exportar las notificaciones por correo,Incidente,Medio
+Lentitud al cargar el reporte mensual,Incidente,Medio
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+Error al procesar en pagos con tarjeta,Incidente,Alto
+Consulta general de el color del menú lateral,Requerimiento,Bajo
+Configuración de nuevo campo en el formulario de registro,Requerimiento,Medio
+Caída parcial de pagos con tarjeta,Incidente,Alto
+Consulta general de los filtros de búsqueda,Requerimiento,Bajo
+Bloqueo total en autenticación de usuarios,Incidente,Alto
+Bloqueo total en facturación electrónica,Incidente,Alto
+Solicitud estética para cambiar el color del menú lateral,Requerimiento,Bajo
+Sugerencia de mejora en los filtros de búsqueda,Requerimiento,Bajo
+Solicitud estética para cambiar el texto de bienvenida,Requerimiento,Bajo
+Sin acceso a producción en todas las sedes,Incidente,Critico
+Error fatal para toda la empresa,Incidente,Critico
+Error fatal arrojando error 500 general,Incidente,Critico
+Caída parcial de sincronización de inventario,Incidente,Alto
+Error fatal para toda la empresa,Incidente,Critico
+Lentitud al cargar el archivo Excel,Incidente,Medio
+Operatividad detenida desde hace 10 minutos,Incidente,Critico
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Falla visual en la vista de clientes,Incidente,Medio
+Sugerencia de mejora en el color del menú lateral,Requerimiento,Bajo
+Error fatal desde hace 10 minutos,Incidente,Critico
+Sugerencia de mejora en el color del menú lateral,Requerimiento,Bajo
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Solicitud de ajuste en el perfil de supervisor,Requerimiento,Medio
+Configuración de nuevo campo en el reporte de ventas,Requerimiento,Medio
+Error intermitente al exportar el archivo Excel,Incidente,Medio
+Sugerencia de mejora en los filtros de búsqueda,Requerimiento,Bajo
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Error intermitente al exportar las notificaciones por correo,Incidente,Medio
+Falla visual en el archivo Excel,Incidente,Medio
+Lentitud al cargar el reporte mensual,Incidente,Medio
+Duda sobre cómo usar los filtros de búsqueda,Requerimiento,Bajo
+No funciona el módulo de facturación electrónica,Incidente,Alto
+Error intermitente al exportar la vista de clientes,Incidente,Medio
+Error al procesar en cierre contable,Incidente,Alto
+Falla grave en cierre contable,Incidente,Alto
+Cálculo incorrecto en las notificaciones por correo,Incidente,Medio
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+Sin acceso a producción bloqueando ventas y operaciones,Incidente,Critico
+Bloqueo total en facturación electrónica,Incidente,Alto
+Duda sobre cómo usar los filtros de búsqueda,Requerimiento,Bajo
+Sugerencia de mejora en los filtros de búsqueda,Requerimiento,Bajo
+Configuración de nuevo campo en el formulario de registro,Requerimiento,Medio
+Configuración de nuevo campo en la plantilla de impresión,Requerimiento,Medio
+Configuración de nuevo campo en el reporte de ventas,Requerimiento,Medio
+Falla visual en el reporte mensual,Incidente,Medio
+Sin acceso a producción bloqueando ventas y operaciones,Incidente,Critico
+Solicitud estética para cambiar el texto de bienvenida,Requerimiento,Bajo
+Requerimiento para modificar la plantilla de impresión,Requerimiento,Medio
+Error fatal bloqueando ventas y operaciones,Incidente,Critico
+Error fatal bloqueando ventas y operaciones,Incidente,Critico
+Requerimiento para modificar el formulario de registro,Requerimiento,Medio
+Cálculo incorrecto en el reporte mensual,Incidente,Medio
+Falla visual en el reporte mensual,Incidente,Medio
+Lentitud al cargar la vista de clientes,Incidente,Medio
+Error al procesar en autenticación de usuarios,Incidente,Alto
+Actualización de permisos en el formulario de registro,Requerimiento,Medio
+Configuración de nuevo campo en la plantilla de impresión,Requerimiento,Medio
+Caída parcial de autenticación de usuarios,Incidente,Alto
+Error fatal para toda la empresa,Incidente,Critico
+Configuración de nuevo campo en el perfil de supervisor,Requerimiento,Medio
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Configuración de nuevo campo en el reporte de ventas,Requerimiento,Medio
+Sugerencia de mejora en el manual de usuario,Requerimiento,Bajo
+Bloqueo total en sincronización de inventario,Incidente,Alto
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+Sistema completamente caído arrojando error 500 general,Incidente,Critico
+Error intermitente al exportar las notificaciones por correo,Incidente,Medio
+Error al procesar en sincronización de inventario,Incidente,Alto
+Cálculo incorrecto en el archivo Excel,Incidente,Medio
+Sistema completamente caído arrojando error 500 general,Incidente,Critico
+Error al procesar en cierre contable,Incidente,Alto
+Solicitud estética para cambiar el color del menú lateral,Requerimiento,Bajo
+Consulta general de el texto de bienvenida,Requerimiento,Bajo
+No funciona el módulo de cierre contable,Incidente,Alto
+Lentitud al cargar el archivo Excel,Incidente,Medio
+Sistema completamente caído bloqueando ventas y operaciones,Incidente,Critico
+Duda sobre cómo usar el manual de usuario,Requerimiento,Bajo
+Cálculo incorrecto en el archivo Excel,Incidente,Medio
+Sistema completamente caído desde hace 10 minutos,Incidente,Critico
+Consulta general de el texto de bienvenida,Requerimiento,Bajo
+Operatividad detenida bloqueando ventas y operaciones,Incidente,Critico
+Cálculo incorrecto en la vista de clientes,Incidente,Medio
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Sistema completamente caído en todas las sedes,Incidente,Critico
+Falla grave en sincronización de inventario,Incidente,Alto
+Bloqueo total en facturación electrónica,Incidente,Alto
+Servidor principal sin respuesta arrojando error 500 general,Incidente,Critico
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Solicitud estética para cambiar el color del menú lateral,Requerimiento,Bajo
+Sugerencia de mejora en el color del menú lateral,Requerimiento,Bajo
+Falla grave en pagos con tarjeta,Incidente,Alto
+Falla grave en pagos con tarjeta,Incidente,Alto
+Bloqueo total en cierre contable,Incidente,Alto
+Error intermitente al exportar las notificaciones por correo,Incidente,Medio
+Bloqueo total en facturación electrónica,Incidente,Alto
+Error intermitente al exportar el reporte mensual,Incidente,Medio
+Lentitud al cargar las notificaciones por correo,Incidente,Medio
+Cálculo incorrecto en la vista de clientes,Incidente,Medio
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Falla grave en cierre contable,Incidente,Alto
+Consulta general de el texto de bienvenida,Requerimiento,Bajo
+Falla visual en el archivo Excel,Incidente,Medio
+Bloqueo total en facturación electrónica,Incidente,Alto
+Error intermitente al exportar el archivo Excel,Incidente,Medio
+Duda sobre cómo usar los filtros de búsqueda,Requerimiento,Bajo
+Servidor principal sin respuesta arrojando error 500 general,Incidente,Critico
+Error intermitente al exportar las notificaciones por correo,Incidente,Medio
+Falla visual en la vista de clientes,Incidente,Medio
+Operatividad detenida en todas las sedes,Incidente,Critico
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Lentitud al cargar las notificaciones por correo,Incidente,Medio
+Falla visual en el archivo Excel,Incidente,Medio
+Actualización de permisos en el perfil de supervisor,Requerimiento,Medio
+Configuración de nuevo campo en el formulario de registro,Requerimiento,Medio
+Duda sobre cómo usar los filtros de búsqueda,Requerimiento,Bajo
+Cálculo incorrecto en las notificaciones por correo,Incidente,Medio
+Error intermitente al exportar las notificaciones por correo,Incidente,Medio
+Sistema completamente caído para toda la empresa,Incidente,Critico
+Consulta general de los filtros de búsqueda,Requerimiento,Bajo
+Lentitud al cargar la vista de clientes,Incidente,Medio
+No funciona el módulo de autenticación de usuarios,Incidente,Alto
+Falla grave en cierre contable,Incidente,Alto
+Solicitud estética para cambiar los filtros de búsqueda,Requerimiento,Bajo
+Sugerencia de mejora en el manual de usuario,Requerimiento,Bajo
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+Duda sobre cómo usar el manual de usuario,Requerimiento,Bajo
+Caída parcial de sincronización de inventario,Incidente,Alto
+Sin acceso a producción bloqueando ventas y operaciones,Incidente,Critico
+Cálculo incorrecto en el archivo Excel,Incidente,Medio
+Falla visual en el reporte mensual,Incidente,Medio
+Solicitud de ajuste en la plantilla de impresión,Requerimiento,Medio
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Sugerencia de mejora en el manual de usuario,Requerimiento,Bajo
+Error fatal para toda la empresa,Incidente,Critico
+No funciona el módulo de sincronización de inventario,Incidente,Alto
+Servidor principal sin respuesta bloqueando ventas y operaciones,Incidente,Critico
+Sugerencia de mejora en el color del menú lateral,Requerimiento,Bajo
+Error fatal desde hace 10 minutos,Incidente,Critico
+Consulta general de el manual de usuario,Requerimiento,Bajo
+Requerimiento para modificar el formulario de registro,Requerimiento,Medio
+Lentitud al cargar el reporte mensual,Incidente,Medio
+Error al procesar en autenticación de usuarios,Incidente,Alto
+Actualización de permisos en el reporte de ventas,Requerimiento,Medio
+Sin acceso a producción bloqueando ventas y operaciones,Incidente,Critico
+No funciona el módulo de facturación electrónica,Incidente,Alto
+Error al procesar en facturación electrónica,Incidente,Alto
+Operatividad detenida para toda la empresa,Incidente,Critico
+Sugerencia de mejora en el manual de usuario,Requerimiento,Bajo
+Configuración de nuevo campo en el formulario de registro,Requerimiento,Medio
+Error al procesar en cierre contable,Incidente,Alto
+No funciona el módulo de sincronización de inventario,Incidente,Alto
+Sistema completamente caído desde hace 10 minutos,Incidente,Critico
+Cálculo incorrecto en el reporte mensual,Incidente,Medio
+Duda sobre cómo usar los filtros de búsqueda,Requerimiento,Bajo
+Error intermitente al exportar la vista de clientes,Incidente,Medio
+Servidor principal sin respuesta arrojando error 500 general,Incidente,Critico
+Falla visual en el reporte mensual,Incidente,Medio
+Sistema completamente caído desde hace 10 minutos,Incidente,Critico
+Solicitud de ajuste en el formulario de registro,Requerimiento,Medio
+Cálculo incorrecto en el archivo Excel,Incidente,Medio
+Configuración de nuevo campo en el reporte de ventas,Requerimiento,Medio
+Servidor principal sin respuesta arrojando error 500 general,Incidente,Critico
+Sistema completamente caído bloqueando ventas y operaciones,Incidente,Critico
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+No funciona el módulo de cierre contable,Incidente,Alto
+Actualización de permisos en el perfil de supervisor,Requerimiento,Medio
+Cálculo incorrecto en las notificaciones por correo,Incidente,Medio
+Sugerencia de mejora en el manual de usuario,Requerimiento,Bajo
+Servidor principal sin respuesta en todas las sedes,Incidente,Critico
+No funciona el módulo de cierre contable,Incidente,Alto
+Error al procesar en autenticación de usuarios,Incidente,Alto
+Falla grave en pagos con tarjeta,Incidente,Alto
+Consulta general de el color del menú lateral,Requerimiento,Bajo
+Configuración de nuevo campo en el formulario de registro,Requerimiento,Medio
+Falla visual en la vista de clientes,Incidente,Medio
+Error al procesar en autenticación de usuarios,Incidente,Alto
+Servidor principal sin respuesta en todas las sedes,Incidente,Critico
+Solicitud de ajuste en el formulario de registro,Requerimiento,Medio
+Sugerencia de mejora en el manual de usuario,Requerimiento,Bajo
+Lentitud al cargar el archivo Excel,Incidente,Medio
+No funciona el módulo de facturación electrónica,Incidente,Alto
+Consulta general de el color del menú lateral,Requerimiento,Bajo
+Configuración de nuevo campo en el reporte de ventas,Requerimiento,Medio
+Consulta general de el texto de bienvenida,Requerimiento,Bajo
+Solicitud estética para cambiar el color del menú lateral,Requerimiento,Bajo
+Solicitud de ajuste en el formulario de registro,Requerimiento,Medio
+Lentitud al cargar la vista de clientes,Incidente,Medio
+No funciona el módulo de facturación electrónica,Incidente,Alto
+Consulta general de el color del menú lateral,Requerimiento,Bajo
+Lentitud al cargar la vista de clientes,Incidente,Medio
+Error intermitente al exportar el reporte mensual,Incidente,Medio
+Consulta general de el manual de usuario,Requerimiento,Bajo
+Servidor principal sin respuesta en todas las sedes,Incidente,Critico
+Falla visual en el reporte mensual,Incidente,Medio
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Requerimiento para modificar el perfil de supervisor,Requerimiento,Medio
+Servidor principal sin respuesta desde hace 10 minutos,Incidente,Critico
+Sin acceso a producción arrojando error 500 general,Incidente,Critico
+Error al procesar en cierre contable,Incidente,Alto
+Sin acceso a producción desde hace 10 minutos,Incidente,Critico
+Lentitud al cargar las notificaciones por correo,Incidente,Medio
+Operatividad detenida para toda la empresa,Incidente,Critico
+Configuración de nuevo campo en la plantilla de impresión,Requerimiento,Medio
+Solicitud estética para cambiar los filtros de búsqueda,Requerimiento,Bajo
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Error al procesar en facturación electrónica,Incidente,Alto
+Operatividad detenida arrojando error 500 general,Incidente,Critico
+Falla visual en el archivo Excel,Incidente,Medio
+Configuración de nuevo campo en el formulario de registro,Requerimiento,Medio
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Error al procesar en facturación electrónica,Incidente,Alto
+Consulta general de los filtros de búsqueda,Requerimiento,Bajo
+Solicitud estética para cambiar los filtros de búsqueda,Requerimiento,Bajo
+Actualización de permisos en la plantilla de impresión,Requerimiento,Medio
+Sistema completamente caído bloqueando ventas y operaciones,Incidente,Critico
+Falla grave en autenticación de usuarios,Incidente,Alto
+Cálculo incorrecto en las notificaciones por correo,Incidente,Medio
+Actualización de permisos en el perfil de supervisor,Requerimiento,Medio
+Solicitud de ajuste en la plantilla de impresión,Requerimiento,Medio
+Operatividad detenida desde hace 10 minutos,Incidente,Critico
+Operatividad detenida en todas las sedes,Incidente,Critico
+Operatividad detenida arrojando error 500 general,Incidente,Critico
+Bloqueo total en sincronización de inventario,Incidente,Alto
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+Solicitud de ajuste en el reporte de ventas,Requerimiento,Medio
+Solicitud de ajuste en el perfil de supervisor,Requerimiento,Medio
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Configuración de nuevo campo en el reporte de ventas,Requerimiento,Medio
+Consulta general de el color del menú lateral,Requerimiento,Bajo
+Sin acceso a producción desde hace 10 minutos,Incidente,Critico
+Bloqueo total en autenticación de usuarios,Incidente,Alto
+Servidor principal sin respuesta para toda la empresa,Incidente,Critico
+Cálculo incorrecto en el archivo Excel,Incidente,Medio
+Configuración de nuevo campo en la plantilla de impresión,Requerimiento,Medio
+Operatividad detenida en todas las sedes,Incidente,Critico
+Lentitud al cargar la vista de clientes,Incidente,Medio
+Configuración de nuevo campo en el perfil de supervisor,Requerimiento,Medio
+Error intermitente al exportar el archivo Excel,Incidente,Medio
+Sistema completamente caído bloqueando ventas y operaciones,Incidente,Critico
+Sistema completamente caído bloqueando ventas y operaciones,Incidente,Critico
+Servidor principal sin respuesta para toda la empresa,Incidente,Critico
+Duda sobre cómo usar el manual de usuario,Requerimiento,Bajo
+Servidor principal sin respuesta en todas las sedes,Incidente,Critico
+Requerimiento para modificar la plantilla de impresión,Requerimiento,Medio
+Solicitud de ajuste en el perfil de supervisor,Requerimiento,Medio
+Solicitud estética para cambiar el color del menú lateral,Requerimiento,Bajo
+Lentitud al cargar el archivo Excel,Incidente,Medio
+Error intermitente al exportar la vista de clientes,Incidente,Medio
+Error fatal para toda la empresa,Incidente,Critico
+Cálculo incorrecto en las notificaciones por correo,Incidente,Medio
+Solicitud estética para cambiar los filtros de búsqueda,Requerimiento,Bajo
+Lentitud al cargar el archivo Excel,Incidente,Medio
+Sugerencia de mejora en el color del menú lateral,Requerimiento,Bajo
+Duda sobre cómo usar los filtros de búsqueda,Requerimiento,Bajo
+No funciona el módulo de sincronización de inventario,Incidente,Alto
+Error intermitente al exportar las notificaciones por correo,Incidente,Medio
+Sistema completamente caído arrojando error 500 general,Incidente,Critico
+Operatividad detenida en todas las sedes,Incidente,Critico
+Error al procesar en facturación electrónica,Incidente,Alto
+Error al procesar en pagos con tarjeta,Incidente,Alto
+Falla visual en las notificaciones por correo,Incidente,Medio
+Servidor principal sin respuesta bloqueando ventas y operaciones,Incidente,Critico
+Cálculo incorrecto en el reporte mensual,Incidente,Medio
+Operatividad detenida bloqueando ventas y operaciones,Incidente,Critico
+Cálculo incorrecto en la vista de clientes,Incidente,Medio
+Consulta general de el manual de usuario,Requerimiento,Bajo
+Actualización de permisos en la plantilla de impresión,Requerimiento,Medio
+No funciona el módulo de cierre contable,Incidente,Alto
+Error al procesar en autenticación de usuarios,Incidente,Alto
+Solicitud de ajuste en la plantilla de impresión,Requerimiento,Medio
+Solicitud de ajuste en el reporte de ventas,Requerimiento,Medio
+Solicitud de ajuste en el formulario de registro,Requerimiento,Medio
+Bloqueo total en facturación electrónica,Incidente,Alto
+Sistema completamente caído bloqueando ventas y operaciones,Incidente,Critico
+Lentitud al cargar el reporte mensual,Incidente,Medio
+Error al procesar en sincronización de inventario,Incidente,Alto
+Sin acceso a producción bloqueando ventas y operaciones,Incidente,Critico
+Servidor principal sin respuesta arrojando error 500 general,Incidente,Critico
+Error fatal para toda la empresa,Incidente,Critico
+Servidor principal sin respuesta para toda la empresa,Incidente,Critico
+Falla visual en las notificaciones por correo,Incidente,Medio
+Actualización de permisos en la plantilla de impresión,Requerimiento,Medio
+Solicitud estética para cambiar los filtros de búsqueda,Requerimiento,Bajo
+Solicitud estética para cambiar los filtros de búsqueda,Requerimiento,Bajo
+No funciona el módulo de pagos con tarjeta,Incidente,Alto
+Duda sobre cómo usar los filtros de búsqueda,Requerimiento,Bajo
+Requerimiento para modificar el formulario de registro,Requerimiento,Medio
+Lentitud al cargar la vista de clientes,Incidente,Medio
+Error al procesar en facturación electrónica,Incidente,Alto
+Error fatal arrojando error 500 general,Incidente,Critico
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+Sin acceso a producción para toda la empresa,Incidente,Critico
+Actualización de permisos en la plantilla de impresión,Requerimiento,Medio
+Falla visual en el reporte mensual,Incidente,Medio
+Error fatal desde hace 10 minutos,Incidente,Critico
+Falla grave en cierre contable,Incidente,Alto
+Sistema completamente caído arrojando error 500 general,Incidente,Critico
+Error fatal para toda la empresa,Incidente,Critico
+Error al procesar en autenticación de usuarios,Incidente,Alto
+Error intermitente al exportar la vista de clientes,Incidente,Medio
+Solicitud estética para cambiar el manual de usuario,Requerimiento,Bajo
+Duda sobre cómo usar los filtros de búsqueda,Requerimiento,Bajo
+Solicitud estética para cambiar el manual de usuario,Requerimiento,Bajo
+No funciona el módulo de facturación electrónica,Incidente,Alto
+Lentitud al cargar la vista de clientes,Incidente,Medio
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+Solicitud estética para cambiar los filtros de búsqueda,Requerimiento,Bajo
+Requerimiento para modificar la plantilla de impresión,Requerimiento,Medio
+Error fatal para toda la empresa,Incidente,Critico
+Error intermitente al exportar el reporte mensual,Incidente,Medio
+Cálculo incorrecto en las notificaciones por correo,Incidente,Medio
+Error al procesar en sincronización de inventario,Incidente,Alto
+No funciona el módulo de facturación electrónica,Incidente,Alto
+Bloqueo total en facturación electrónica,Incidente,Alto
+Error al procesar en autenticación de usuarios,Incidente,Alto
+Configuración de nuevo campo en el formulario de registro,Requerimiento,Medio
+Bloqueo total en autenticación de usuarios,Incidente,Alto
+Error al procesar en sincronización de inventario,Incidente,Alto
+Bloqueo total en autenticación de usuarios,Incidente,Alto
+Error fatal bloqueando ventas y operaciones,Incidente,Critico
+Lentitud al cargar el archivo Excel,Incidente,Medio
+Error fatal arrojando error 500 general,Incidente,Critico
+Configuración de nuevo campo en el reporte de ventas,Requerimiento,Medio
+Error intermitente al exportar el archivo Excel,Incidente,Medio
+No funciona el módulo de sincronización de inventario,Incidente,Alto
+Bloqueo total en autenticación de usuarios,Incidente,Alto
+Cálculo incorrecto en las notificaciones por correo,Incidente,Medio
+Sin acceso a producción arrojando error 500 general,Incidente,Critico
+Actualización de permisos en la plantilla de impresión,Requerimiento,Medio
+Actualización de permisos en el reporte de ventas,Requerimiento,Medio
+Error al procesar en sincronización de inventario,Incidente,Alto
+Sin acceso a producción en todas las sedes,Incidente,Critico
+Error intermitente al exportar la vista de clientes,Incidente,Medio
+Consulta general de el texto de bienvenida,Requerimiento,Bajo
+Consulta general de el manual de usuario,Requerimiento,Bajo
+Error intermitente al exportar la vista de clientes,Incidente,Medio
+Servidor principal sin respuesta en todas las sedes,Incidente,Critico
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Falla grave en autenticación de usuarios,Incidente,Alto
+Duda sobre cómo usar los filtros de búsqueda,Requerimiento,Bajo
+Solicitud estética para cambiar los filtros de búsqueda,Requerimiento,Bajo
+Sugerencia de mejora en los filtros de búsqueda,Requerimiento,Bajo
+Bloqueo total en pagos con tarjeta,Incidente,Alto
+Bloqueo total en pagos con tarjeta,Incidente,Alto
+Bloqueo total en cierre contable,Incidente,Alto
+Duda sobre cómo usar los filtros de búsqueda,Requerimiento,Bajo
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Solicitud de ajuste en el reporte de ventas,Requerimiento,Medio
+Requerimiento para modificar la plantilla de impresión,Requerimiento,Medio
+Sin acceso a producción para toda la empresa,Incidente,Critico
+Duda sobre cómo usar el manual de usuario,Requerimiento,Bajo
+Falla grave en pagos con tarjeta,Incidente,Alto
+Caída parcial de facturación electrónica,Incidente,Alto
+Solicitud estética para cambiar el texto de bienvenida,Requerimiento,Bajo
+Solicitud estética para cambiar el texto de bienvenida,Requerimiento,Bajo
+Lentitud al cargar el archivo Excel,Incidente,Medio
+Configuración de nuevo campo en el reporte de ventas,Requerimiento,Medio
+No funciona el módulo de sincronización de inventario,Incidente,Alto
+Consulta general de el color del menú lateral,Requerimiento,Bajo
+Duda sobre cómo usar el manual de usuario,Requerimiento,Bajo
+Configuración de nuevo campo en el formulario de registro,Requerimiento,Medio
+Solicitud de ajuste en la plantilla de impresión,Requerimiento,Medio
+Caída parcial de pagos con tarjeta,Incidente,Alto
+Actualización de permisos en el formulario de registro,Requerimiento,Medio
+Solicitud estética para cambiar el color del menú lateral,Requerimiento,Bajo
+Lentitud al cargar el reporte mensual,Incidente,Medio
+Falla grave en sincronización de inventario,Incidente,Alto
+Consulta general de el manual de usuario,Requerimiento,Bajo
+Requerimiento para modificar el reporte de ventas,Requerimiento,Medio
+Error fatal bloqueando ventas y operaciones,Incidente,Critico
+Lentitud al cargar la vista de clientes,Incidente,Medio
+Error fatal bloqueando ventas y operaciones,Incidente,Critico
+Cálculo incorrecto en las notificaciones por correo,Incidente,Medio
+Error intermitente al exportar el reporte mensual,Incidente,Medio
+Requerimiento para modificar el perfil de supervisor,Requerimiento,Medio
+Falla grave en pagos con tarjeta,Incidente,Alto
+Solicitud de ajuste en el formulario de registro,Requerimiento,Medio
+Sugerencia de mejora en el manual de usuario,Requerimiento,Bajo
+Falla grave en facturación electrónica,Incidente,Alto
+Error al procesar en facturación electrónica,Incidente,Alto
+Error intermitente al exportar las notificaciones por correo,Incidente,Medio
+Solicitud estética para cambiar los filtros de búsqueda,Requerimiento,Bajo
+Lentitud al cargar el archivo Excel,Incidente,Medio
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Solicitud de ajuste en el formulario de registro,Requerimiento,Medio
+Actualización de permisos en el formulario de registro,Requerimiento,Medio
+Falla grave en pagos con tarjeta,Incidente,Alto
+Configuración de nuevo campo en la plantilla de impresión,Requerimiento,Medio
+Falla visual en el reporte mensual,Incidente,Medio
+Duda sobre cómo usar los filtros de búsqueda,Requerimiento,Bajo
+Sugerencia de mejora en el color del menú lateral,Requerimiento,Bajo
+Cálculo incorrecto en las notificaciones por correo,Incidente,Medio
+Requerimiento para modificar el formulario de registro,Requerimiento,Medio
+Servidor principal sin respuesta arrojando error 500 general,Incidente,Critico
+Error fatal arrojando error 500 general,Incidente,Critico
+Error fatal para toda la empresa,Incidente,Critico
+Falla grave en sincronización de inventario,Incidente,Alto
+Servidor principal sin respuesta bloqueando ventas y operaciones,Incidente,Critico
+Servidor principal sin respuesta en todas las sedes,Incidente,Critico
+Solicitud estética para cambiar los filtros de búsqueda,Requerimiento,Bajo
+Falla grave en facturación electrónica,Incidente,Alto
+Lentitud al cargar el archivo Excel,Incidente,Medio
+Solicitud de ajuste en la plantilla de impresión,Requerimiento,Medio
+Sistema completamente caído desde hace 10 minutos,Incidente,Critico
+Cálculo incorrecto en el reporte mensual,Incidente,Medio
+No funciona el módulo de sincronización de inventario,Incidente,Alto
+Lentitud al cargar la vista de clientes,Incidente,Medio
+Solicitud estética para cambiar los filtros de búsqueda,Requerimiento,Bajo
+Caída parcial de facturación electrónica,Incidente,Alto
+Sistema completamente caído arrojando error 500 general,Incidente,Critico
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Caída parcial de cierre contable,Incidente,Alto
+Caída parcial de pagos con tarjeta,Incidente,Alto
+Error intermitente al exportar las notificaciones por correo,Incidente,Medio
+Solicitud estética para cambiar el color del menú lateral,Requerimiento,Bajo
+Bloqueo total en pagos con tarjeta,Incidente,Alto
+Configuración de nuevo campo en el perfil de supervisor,Requerimiento,Medio
+Sistema completamente caído bloqueando ventas y operaciones,Incidente,Critico
+Error fatal bloqueando ventas y operaciones,Incidente,Critico
+Caída parcial de cierre contable,Incidente,Alto
+Servidor principal sin respuesta bloqueando ventas y operaciones,Incidente,Critico
+No funciona el módulo de facturación electrónica,Incidente,Alto
+Cálculo incorrecto en la vista de clientes,Incidente,Medio
+Servidor principal sin respuesta en todas las sedes,Incidente,Critico
+Error intermitente al exportar el archivo Excel,Incidente,Medio
+No funciona el módulo de cierre contable,Incidente,Alto
+Falla visual en las notificaciones por correo,Incidente,Medio
+Bloqueo total en sincronización de inventario,Incidente,Alto
+Requerimiento para modificar la plantilla de impresión,Requerimiento,Medio
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Servidor principal sin respuesta en todas las sedes,Incidente,Critico
+Falla grave en facturación electrónica,Incidente,Alto
+No funciona el módulo de autenticación de usuarios,Incidente,Alto
+No funciona el módulo de pagos con tarjeta,Incidente,Alto
+Falla grave en facturación electrónica,Incidente,Alto
+Solicitud estética para cambiar el texto de bienvenida,Requerimiento,Bajo
+Configuración de nuevo campo en la plantilla de impresión,Requerimiento,Medio
+No funciona el módulo de sincronización de inventario,Incidente,Alto
+Requerimiento para modificar la plantilla de impresión,Requerimiento,Medio
+No funciona el módulo de pagos con tarjeta,Incidente,Alto
+Servidor principal sin respuesta en todas las sedes,Incidente,Critico
+Configuración de nuevo campo en el perfil de supervisor,Requerimiento,Medio
+Error intermitente al exportar el reporte mensual,Incidente,Medio
+Operatividad detenida desde hace 10 minutos,Incidente,Critico
+Servidor principal sin respuesta desde hace 10 minutos,Incidente,Critico
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Actualización de permisos en el perfil de supervisor,Requerimiento,Medio
+Sistema completamente caído para toda la empresa,Incidente,Critico
+Cálculo incorrecto en las notificaciones por correo,Incidente,Medio
+Caída parcial de cierre contable,Incidente,Alto
+No funciona el módulo de cierre contable,Incidente,Alto
+Sin acceso a producción para toda la empresa,Incidente,Critico
+Sistema completamente caído arrojando error 500 general,Incidente,Critico
+Cálculo incorrecto en las notificaciones por correo,Incidente,Medio
+Solicitud de ajuste en el reporte de ventas,Requerimiento,Medio
+Consulta general de los filtros de búsqueda,Requerimiento,Bajo
+Operatividad detenida bloqueando ventas y operaciones,Incidente,Critico
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Solicitud de ajuste en la plantilla de impresión,Requerimiento,Medio
+Sistema completamente caído en todas las sedes,Incidente,Critico
+Requerimiento para modificar el perfil de supervisor,Requerimiento,Medio
+Sin acceso a producción desde hace 10 minutos,Incidente,Critico
+Actualización de permisos en el perfil de supervisor,Requerimiento,Medio
+Cálculo incorrecto en el reporte mensual,Incidente,Medio
+Cálculo incorrecto en el archivo Excel,Incidente,Medio
+Sugerencia de mejora en los filtros de búsqueda,Requerimiento,Bajo
+Solicitud estética para cambiar los filtros de búsqueda,Requerimiento,Bajo
+Error intermitente al exportar las notificaciones por correo,Incidente,Medio
+Caída parcial de pagos con tarjeta,Incidente,Alto
+Caída parcial de pagos con tarjeta,Incidente,Alto
+Error al procesar en pagos con tarjeta,Incidente,Alto
+Operatividad detenida arrojando error 500 general,Incidente,Critico
+Error fatal desde hace 10 minutos,Incidente,Critico
+Error intermitente al exportar el archivo Excel,Incidente,Medio
+Requerimiento para modificar el reporte de ventas,Requerimiento,Medio
+Actualización de permisos en el perfil de supervisor,Requerimiento,Medio
+Servidor principal sin respuesta para toda la empresa,Incidente,Critico
+Actualización de permisos en el reporte de ventas,Requerimiento,Medio
+No funciona el módulo de facturación electrónica,Incidente,Alto
+Lentitud al cargar las notificaciones por correo,Incidente,Medio
+Sin acceso a producción en todas las sedes,Incidente,Critico
+Requerimiento para modificar el reporte de ventas,Requerimiento,Medio
+Configuración de nuevo campo en la plantilla de impresión,Requerimiento,Medio
+Actualización de permisos en el perfil de supervisor,Requerimiento,Medio
+Configuración de nuevo campo en el formulario de registro,Requerimiento,Medio
+Cálculo incorrecto en la vista de clientes,Incidente,Medio
+Cálculo incorrecto en las notificaciones por correo,Incidente,Medio
+Cálculo incorrecto en las notificaciones por correo,Incidente,Medio
+Sistema completamente caído para toda la empresa,Incidente,Critico
+Solicitud estética para cambiar el manual de usuario,Requerimiento,Bajo
+Solicitud estética para cambiar el color del menú lateral,Requerimiento,Bajo
+Error intermitente al exportar las notificaciones por correo,Incidente,Medio
+Actualización de permisos en el perfil de supervisor,Requerimiento,Medio
+Sin acceso a producción arrojando error 500 general,Incidente,Critico
+Solicitud estética para cambiar el color del menú lateral,Requerimiento,Bajo
+Sugerencia de mejora en los filtros de búsqueda,Requerimiento,Bajo
+Error al procesar en facturación electrónica,Incidente,Alto
+No funciona el módulo de cierre contable,Incidente,Alto
+Actualización de permisos en el formulario de registro,Requerimiento,Medio
+Lentitud al cargar el archivo Excel,Incidente,Medio
+Bloqueo total en pagos con tarjeta,Incidente,Alto
+Consulta general de los filtros de búsqueda,Requerimiento,Bajo
+Lentitud al cargar la vista de clientes,Incidente,Medio
+Falla visual en la vista de clientes,Incidente,Medio
+Servidor principal sin respuesta en todas las sedes,Incidente,Critico
+Lentitud al cargar las notificaciones por correo,Incidente,Medio
+Sistema completamente caído bloqueando ventas y operaciones,Incidente,Critico
+Sugerencia de mejora en los filtros de búsqueda,Requerimiento,Bajo
+Configuración de nuevo campo en el perfil de supervisor,Requerimiento,Medio
+Error fatal bloqueando ventas y operaciones,Incidente,Critico
+Lentitud al cargar la vista de clientes,Incidente,Medio
+Bloqueo total en facturación electrónica,Incidente,Alto
+Caída parcial de sincronización de inventario,Incidente,Alto
+Falla visual en el archivo Excel,Incidente,Medio
+Solicitud de ajuste en el formulario de registro,Requerimiento,Medio
+Solicitud de ajuste en el reporte de ventas,Requerimiento,Medio
+Sugerencia de mejora en el manual de usuario,Requerimiento,Bajo
+Caída parcial de cierre contable,Incidente,Alto
+Operatividad detenida en todas las sedes,Incidente,Critico
+Cálculo incorrecto en el archivo Excel,Incidente,Medio
+Bloqueo total en autenticación de usuarios,Incidente,Alto
+Error al procesar en autenticación de usuarios,Incidente,Alto
+Sugerencia de mejora en el manual de usuario,Requerimiento,Bajo
+Configuración de nuevo campo en el perfil de supervisor,Requerimiento,Medio
+Lentitud al cargar la vista de clientes,Incidente,Medio
+Consulta general de el color del menú lateral,Requerimiento,Bajo
+Actualización de permisos en la plantilla de impresión,Requerimiento,Medio
+Configuración de nuevo campo en el reporte de ventas,Requerimiento,Medio
+Caída parcial de facturación electrónica,Incidente,Alto
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Error intermitente al exportar la vista de clientes,Incidente,Medio
+Actualización de permisos en el formulario de registro,Requerimiento,Medio
+Solicitud de ajuste en el formulario de registro,Requerimiento,Medio
+Consulta general de el texto de bienvenida,Requerimiento,Bajo
+Duda sobre cómo usar los filtros de búsqueda,Requerimiento,Bajo
+Cálculo incorrecto en el reporte mensual,Incidente,Medio
+Solicitud estética para cambiar el manual de usuario,Requerimiento,Bajo
+Error fatal para toda la empresa,Incidente,Critico
+Error al procesar en pagos con tarjeta,Incidente,Alto
+Operatividad detenida en todas las sedes,Incidente,Critico
+Operatividad detenida en todas las sedes,Incidente,Critico
+Sugerencia de mejora en el manual de usuario,Requerimiento,Bajo
+Requerimiento para modificar el formulario de registro,Requerimiento,Medio
+Falla visual en la vista de clientes,Incidente,Medio
+Error fatal desde hace 10 minutos,Incidente,Critico
+Solicitud de ajuste en el reporte de ventas,Requerimiento,Medio
+Sin acceso a producción desde hace 10 minutos,Incidente,Critico
+Servidor principal sin respuesta en todas las sedes,Incidente,Critico
+Servidor principal sin respuesta arrojando error 500 general,Incidente,Critico
+Falla grave en cierre contable,Incidente,Alto
+Falla grave en pagos con tarjeta,Incidente,Alto
+Error fatal en todas las sedes,Incidente,Critico
+Falla grave en pagos con tarjeta,Incidente,Alto
+Actualización de permisos en la plantilla de impresión,Requerimiento,Medio
+Operatividad detenida en todas las sedes,Incidente,Critico
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+Falla grave en autenticación de usuarios,Incidente,Alto
+Lentitud al cargar la vista de clientes,Incidente,Medio
+Configuración de nuevo campo en el reporte de ventas,Requerimiento,Medio
+Error fatal desde hace 10 minutos,Incidente,Critico
+Configuración de nuevo campo en el perfil de supervisor,Requerimiento,Medio
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Caída parcial de cierre contable,Incidente,Alto
+Sistema completamente caído bloqueando ventas y operaciones,Incidente,Critico
+No funciona el módulo de cierre contable,Incidente,Alto
+Lentitud al cargar las notificaciones por correo,Incidente,Medio
+Solicitud de ajuste en el perfil de supervisor,Requerimiento,Medio
+Falla visual en las notificaciones por correo,Incidente,Medio
+Sistema completamente caído bloqueando ventas y operaciones,Incidente,Critico
+Falla grave en facturación electrónica,Incidente,Alto
+Sin acceso a producción bloqueando ventas y operaciones,Incidente,Critico
+No funciona el módulo de cierre contable,Incidente,Alto
+Solicitud estética para cambiar los filtros de búsqueda,Requerimiento,Bajo
+Error al procesar en cierre contable,Incidente,Alto
+Lentitud al cargar las notificaciones por correo,Incidente,Medio
+No funciona el módulo de pagos con tarjeta,Incidente,Alto
+Consulta general de el color del menú lateral,Requerimiento,Bajo
+Lentitud al cargar las notificaciones por correo,Incidente,Medio
+Sin acceso a producción arrojando error 500 general,Incidente,Critico
+Sistema completamente caído desde hace 10 minutos,Incidente,Critico
+Bloqueo total en pagos con tarjeta,Incidente,Alto
+Sistema completamente caído desde hace 10 minutos,Incidente,Critico
+Consulta general de los filtros de búsqueda,Requerimiento,Bajo
+Falla grave en facturación electrónica,Incidente,Alto
+Falla visual en la vista de clientes,Incidente,Medio
+Consulta general de el color del menú lateral,Requerimiento,Bajo
+Sistema completamente caído desde hace 10 minutos,Incidente,Critico
+Cálculo incorrecto en la vista de clientes,Incidente,Medio
+Solicitud de ajuste en el reporte de ventas,Requerimiento,Medio
+Falla visual en el archivo Excel,Incidente,Medio
+Solicitud de ajuste en la plantilla de impresión,Requerimiento,Medio
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Solicitud estética para cambiar el manual de usuario,Requerimiento,Bajo
+Consulta general de los filtros de búsqueda,Requerimiento,Bajo
+Caída parcial de sincronización de inventario,Incidente,Alto
+Actualización de permisos en la plantilla de impresión,Requerimiento,Medio
+Operatividad detenida arrojando error 500 general,Incidente,Critico
+Actualización de permisos en el reporte de ventas,Requerimiento,Medio
+Sistema completamente caído desde hace 10 minutos,Incidente,Critico
+Solicitud estética para cambiar los filtros de búsqueda,Requerimiento,Bajo
+Servidor principal sin respuesta en todas las sedes,Incidente,Critico
+Lentitud al cargar las notificaciones por correo,Incidente,Medio
+Cálculo incorrecto en la vista de clientes,Incidente,Medio
+Sugerencia de mejora en el manual de usuario,Requerimiento,Bajo
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Sin acceso a producción en todas las sedes,Incidente,Critico
+Requerimiento para modificar el reporte de ventas,Requerimiento,Medio
+Falla visual en el reporte mensual,Incidente,Medio
+Sin acceso a producción en todas las sedes,Incidente,Critico
+Sistema completamente caído bloqueando ventas y operaciones,Incidente,Critico
+Operatividad detenida para toda la empresa,Incidente,Critico
+Duda sobre cómo usar los filtros de búsqueda,Requerimiento,Bajo
+Error al procesar en pagos con tarjeta,Incidente,Alto
+Bloqueo total en autenticación de usuarios,Incidente,Alto
+Consulta general de los filtros de búsqueda,Requerimiento,Bajo
+Cálculo incorrecto en la vista de clientes,Incidente,Medio
+Solicitud de ajuste en la plantilla de impresión,Requerimiento,Medio
+Falla grave en sincronización de inventario,Incidente,Alto
+Error al procesar en sincronización de inventario,Incidente,Alto
+Servidor principal sin respuesta para toda la empresa,Incidente,Critico
+Configuración de nuevo campo en el perfil de supervisor,Requerimiento,Medio
+Sistema completamente caído en todas las sedes,Incidente,Critico
+Falla grave en autenticación de usuarios,Incidente,Alto
+Error intermitente al exportar el archivo Excel,Incidente,Medio
+Error al procesar en cierre contable,Incidente,Alto
+Caída parcial de cierre contable,Incidente,Alto
+Error intermitente al exportar el archivo Excel,Incidente,Medio
+Lentitud al cargar la vista de clientes,Incidente,Medio
+Error fatal en todas las sedes,Incidente,Critico
+Falla visual en el reporte mensual,Incidente,Medio
+Requerimiento para modificar la plantilla de impresión,Requerimiento,Medio
+Actualización de permisos en el perfil de supervisor,Requerimiento,Medio
+Solicitud estética para cambiar los filtros de búsqueda,Requerimiento,Bajo
+Duda sobre cómo usar el manual de usuario,Requerimiento,Bajo
+Solicitud estética para cambiar el manual de usuario,Requerimiento,Bajo
+Servidor principal sin respuesta arrojando error 500 general,Incidente,Critico
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Bloqueo total en autenticación de usuarios,Incidente,Alto
+Consulta general de el color del menú lateral,Requerimiento,Bajo
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Falla visual en las notificaciones por correo,Incidente,Medio
+Caída parcial de pagos con tarjeta,Incidente,Alto
+Falla visual en la vista de clientes,Incidente,Medio
+Error intermitente al exportar el reporte mensual,Incidente,Medio
+Error al procesar en facturación electrónica,Incidente,Alto
+Bloqueo total en pagos con tarjeta,Incidente,Alto
+Operatividad detenida para toda la empresa,Incidente,Critico
+Consulta general de el texto de bienvenida,Requerimiento,Bajo
+Error al procesar en autenticación de usuarios,Incidente,Alto
+Solicitud estética para cambiar el manual de usuario,Requerimiento,Bajo
+Configuración de nuevo campo en el formulario de registro,Requerimiento,Medio
+Sugerencia de mejora en el color del menú lateral,Requerimiento,Bajo
+Sistema completamente caído para toda la empresa,Incidente,Critico
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+Falla grave en sincronización de inventario,Incidente,Alto
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Falla visual en la vista de clientes,Incidente,Medio
+Operatividad detenida arrojando error 500 general,Incidente,Critico
+Sin acceso a producción arrojando error 500 general,Incidente,Critico
+Lentitud al cargar el reporte mensual,Incidente,Medio
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+Sugerencia de mejora en el manual de usuario,Requerimiento,Bajo
+Consulta general de el manual de usuario,Requerimiento,Bajo
+Error fatal bloqueando ventas y operaciones,Incidente,Critico
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+Error intermitente al exportar el reporte mensual,Incidente,Medio
+Cálculo incorrecto en el reporte mensual,Incidente,Medio
+Sistema completamente caído arrojando error 500 general,Incidente,Critico
+Operatividad detenida bloqueando ventas y operaciones,Incidente,Critico
+Caída parcial de sincronización de inventario,Incidente,Alto
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+Cálculo incorrecto en el reporte mensual,Incidente,Medio
+Falla visual en la vista de clientes,Incidente,Medio
+Solicitud estética para cambiar el texto de bienvenida,Requerimiento,Bajo
+Lentitud al cargar las notificaciones por correo,Incidente,Medio
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Operatividad detenida desde hace 10 minutos,Incidente,Critico
+Caída parcial de facturación electrónica,Incidente,Alto
+Sistema completamente caído para toda la empresa,Incidente,Critico
+Caída parcial de cierre contable,Incidente,Alto
+No funciona el módulo de pagos con tarjeta,Incidente,Alto
+Caída parcial de sincronización de inventario,Incidente,Alto
+Consulta general de el manual de usuario,Requerimiento,Bajo
+Error fatal desde hace 10 minutos,Incidente,Critico
+Servidor principal sin respuesta en todas las sedes,Incidente,Critico
+Solicitud estética para cambiar el color del menú lateral,Requerimiento,Bajo
+Consulta general de los filtros de búsqueda,Requerimiento,Bajo
+Cálculo incorrecto en la vista de clientes,Incidente,Medio
+Actualización de permisos en la plantilla de impresión,Requerimiento,Medio
+Cálculo incorrecto en las notificaciones por correo,Incidente,Medio
+Operatividad detenida desde hace 10 minutos,Incidente,Critico
+Actualización de permisos en la plantilla de impresión,Requerimiento,Medio
+No funciona el módulo de sincronización de inventario,Incidente,Alto
+Sugerencia de mejora en los filtros de búsqueda,Requerimiento,Bajo
+Sistema completamente caído bloqueando ventas y operaciones,Incidente,Critico
+Caída parcial de cierre contable,Incidente,Alto
+Falla grave en pagos con tarjeta,Incidente,Alto
+Error al procesar en cierre contable,Incidente,Alto
+Servidor principal sin respuesta desde hace 10 minutos,Incidente,Critico
+Sin acceso a producción desde hace 10 minutos,Incidente,Critico
+Sugerencia de mejora en el color del menú lateral,Requerimiento,Bajo
+Configuración de nuevo campo en el perfil de supervisor,Requerimiento,Medio
+Duda sobre cómo usar el manual de usuario,Requerimiento,Bajo
+Cálculo incorrecto en las notificaciones por correo,Incidente,Medio
+Error al procesar en facturación electrónica,Incidente,Alto
+Caída parcial de pagos con tarjeta,Incidente,Alto
+Bloqueo total en facturación electrónica,Incidente,Alto
+Sin acceso a producción arrojando error 500 general,Incidente,Critico
+Caída parcial de pagos con tarjeta,Incidente,Alto
+Falla grave en autenticación de usuarios,Incidente,Alto
+Cálculo incorrecto en la vista de clientes,Incidente,Medio
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Error intermitente al exportar la vista de clientes,Incidente,Medio
+Error al procesar en sincronización de inventario,Incidente,Alto
+Operatividad detenida bloqueando ventas y operaciones,Incidente,Critico
+Error intermitente al exportar las notificaciones por correo,Incidente,Medio
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+Error fatal en todas las sedes,Incidente,Critico
+Actualización de permisos en el perfil de supervisor,Requerimiento,Medio
+Configuración de nuevo campo en el reporte de ventas,Requerimiento,Medio
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+No funciona el módulo de cierre contable,Incidente,Alto
+Bloqueo total en cierre contable,Incidente,Alto
+Caída parcial de pagos con tarjeta,Incidente,Alto
+Sugerencia de mejora en el manual de usuario,Requerimiento,Bajo
+Duda sobre cómo usar el manual de usuario,Requerimiento,Bajo
+Solicitud estética para cambiar el manual de usuario,Requerimiento,Bajo
+Operatividad detenida para toda la empresa,Incidente,Critico
+Falla grave en cierre contable,Incidente,Alto
+Error fatal bloqueando ventas y operaciones,Incidente,Critico
+No funciona el módulo de sincronización de inventario,Incidente,Alto
+Bloqueo total en pagos con tarjeta,Incidente,Alto
+Error intermitente al exportar el reporte mensual,Incidente,Medio
+Configuración de nuevo campo en la plantilla de impresión,Requerimiento,Medio
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+Lentitud al cargar el archivo Excel,Incidente,Medio
+Error al procesar en cierre contable,Incidente,Alto
+Bloqueo total en autenticación de usuarios,Incidente,Alto
+Error intermitente al exportar el reporte mensual,Incidente,Medio
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Operatividad detenida desde hace 10 minutos,Incidente,Critico
+Falla grave en pagos con tarjeta,Incidente,Alto
+Sin acceso a producción desde hace 10 minutos,Incidente,Critico
+Requerimiento para modificar la plantilla de impresión,Requerimiento,Medio
+Error al procesar en cierre contable,Incidente,Alto
+Error al procesar en autenticación de usuarios,Incidente,Alto
+Error intermitente al exportar el reporte mensual,Incidente,Medio
+Lentitud al cargar el archivo Excel,Incidente,Medio
+Falla visual en las notificaciones por correo,Incidente,Medio
+Error fatal para toda la empresa,Incidente,Critico
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Error fatal para toda la empresa,Incidente,Critico
+No funciona el módulo de sincronización de inventario,Incidente,Alto
+Error fatal arrojando error 500 general,Incidente,Critico
+No funciona el módulo de pagos con tarjeta,Incidente,Alto
+Caída parcial de facturación electrónica,Incidente,Alto
+Servidor principal sin respuesta en todas las sedes,Incidente,Critico
+Requerimiento para modificar el perfil de supervisor,Requerimiento,Medio
+Falla visual en el reporte mensual,Incidente,Medio
+Operatividad detenida bloqueando ventas y operaciones,Incidente,Critico
+Servidor principal sin respuesta bloqueando ventas y operaciones,Incidente,Critico
+Caída parcial de facturación electrónica,Incidente,Alto
+Servidor principal sin respuesta arrojando error 500 general,Incidente,Critico
+Caída parcial de autenticación de usuarios,Incidente,Alto
+Bloqueo total en cierre contable,Incidente,Alto
+Error fatal bloqueando ventas y operaciones,Incidente,Critico
+Caída parcial de autenticación de usuarios,Incidente,Alto
+Consulta general de los filtros de búsqueda,Requerimiento,Bajo
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Error intermitente al exportar la vista de clientes,Incidente,Medio
+Falla visual en la vista de clientes,Incidente,Medio
+Solicitud de ajuste en el formulario de registro,Requerimiento,Medio
+Operatividad detenida arrojando error 500 general,Incidente,Critico
+Lentitud al cargar las notificaciones por correo,Incidente,Medio
+Falla grave en pagos con tarjeta,Incidente,Alto
+Duda sobre cómo usar los filtros de búsqueda,Requerimiento,Bajo
+Caída parcial de cierre contable,Incidente,Alto
+Sin acceso a producción para toda la empresa,Incidente,Critico
+No funciona el módulo de cierre contable,Incidente,Alto
+Falla visual en el reporte mensual,Incidente,Medio
+Error intermitente al exportar el archivo Excel,Incidente,Medio
+No funciona el módulo de sincronización de inventario,Incidente,Alto
+Operatividad detenida desde hace 10 minutos,Incidente,Critico
+Error al procesar en autenticación de usuarios,Incidente,Alto
+Sugerencia de mejora en los filtros de búsqueda,Requerimiento,Bajo
+Falla visual en el reporte mensual,Incidente,Medio
+Cálculo incorrecto en el archivo Excel,Incidente,Medio
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Solicitud de ajuste en el reporte de ventas,Requerimiento,Medio
+Falla visual en el reporte mensual,Incidente,Medio
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Error intermitente al exportar la vista de clientes,Incidente,Medio
+Configuración de nuevo campo en la plantilla de impresión,Requerimiento,Medio
+Requerimiento para modificar la plantilla de impresión,Requerimiento,Medio
+Actualización de permisos en la plantilla de impresión,Requerimiento,Medio
+Configuración de nuevo campo en el formulario de registro,Requerimiento,Medio
+Sistema completamente caído bloqueando ventas y operaciones,Incidente,Critico
+Falla visual en las notificaciones por correo,Incidente,Medio
+Actualización de permisos en el formulario de registro,Requerimiento,Medio
+Error al procesar en pagos con tarjeta,Incidente,Alto
+Solicitud estética para cambiar los filtros de búsqueda,Requerimiento,Bajo
+Lentitud al cargar el reporte mensual,Incidente,Medio
+Cálculo incorrecto en el archivo Excel,Incidente,Medio
+Falla visual en el archivo Excel,Incidente,Medio
+Cálculo incorrecto en el archivo Excel,Incidente,Medio
+Sistema completamente caído para toda la empresa,Incidente,Critico
+Solicitud de ajuste en la plantilla de impresión,Requerimiento,Medio
+Consulta general de el texto de bienvenida,Requerimiento,Bajo
+Actualización de permisos en el formulario de registro,Requerimiento,Medio
+Cálculo incorrecto en la vista de clientes,Incidente,Medio
+Falla grave en autenticación de usuarios,Incidente,Alto
+Requerimiento para modificar la plantilla de impresión,Requerimiento,Medio
+Requerimiento para modificar el formulario de registro,Requerimiento,Medio
+Bloqueo total en autenticación de usuarios,Incidente,Alto
+Falla visual en las notificaciones por correo,Incidente,Medio
+Sin acceso a producción en todas las sedes,Incidente,Critico
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+Servidor principal sin respuesta bloqueando ventas y operaciones,Incidente,Critico
+Actualización de permisos en la plantilla de impresión,Requerimiento,Medio
+Falla visual en el reporte mensual,Incidente,Medio
+Solicitud estética para cambiar el manual de usuario,Requerimiento,Bajo
+Caída parcial de facturación electrónica,Incidente,Alto
+Consulta general de el manual de usuario,Requerimiento,Bajo
+No funciona el módulo de pagos con tarjeta,Incidente,Alto
+Actualización de permisos en el formulario de registro,Requerimiento,Medio
+Lentitud al cargar las notificaciones por correo,Incidente,Medio
+Falla grave en facturación electrónica,Incidente,Alto
+Configuración de nuevo campo en la plantilla de impresión,Requerimiento,Medio
+Error intermitente al exportar el reporte mensual,Incidente,Medio
+Servidor principal sin respuesta para toda la empresa,Incidente,Critico
+Operatividad detenida arrojando error 500 general,Incidente,Critico
+Actualización de permisos en el formulario de registro,Requerimiento,Medio
+Operatividad detenida bloqueando ventas y operaciones,Incidente,Critico
+Falla grave en autenticación de usuarios,Incidente,Alto
+Solicitud estética para cambiar el manual de usuario,Requerimiento,Bajo
+Sin acceso a producción bloqueando ventas y operaciones,Incidente,Critico
+No funciona el módulo de pagos con tarjeta,Incidente,Alto
+Operatividad detenida bloqueando ventas y operaciones,Incidente,Critico
+Duda sobre cómo usar los filtros de búsqueda,Requerimiento,Bajo
+Servidor principal sin respuesta en todas las sedes,Incidente,Critico
+No funciona el módulo de autenticación de usuarios,Incidente,Alto
+Actualización de permisos en el formulario de registro,Requerimiento,Medio
+Operatividad detenida para toda la empresa,Incidente,Critico
+Lentitud al cargar las notificaciones por correo,Incidente,Medio
+Sugerencia de mejora en los filtros de búsqueda,Requerimiento,Bajo
+Falla grave en sincronización de inventario,Incidente,Alto
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+Error al procesar en autenticación de usuarios,Incidente,Alto
+Solicitud estética para cambiar el manual de usuario,Requerimiento,Bajo
+Error fatal desde hace 10 minutos,Incidente,Critico
+Cálculo incorrecto en el reporte mensual,Incidente,Medio
+Falla visual en el archivo Excel,Incidente,Medio
+Error al procesar en pagos con tarjeta,Incidente,Alto
+Configuración de nuevo campo en la plantilla de impresión,Requerimiento,Medio
+Sugerencia de mejora en los filtros de búsqueda,Requerimiento,Bajo
+Configuración de nuevo campo en el formulario de registro,Requerimiento,Medio
+Error intermitente al exportar la vista de clientes,Incidente,Medio
+Sin acceso a producción para toda la empresa,Incidente,Critico
+Lentitud al cargar el archivo Excel,Incidente,Medio
+Solicitud de ajuste en la plantilla de impresión,Requerimiento,Medio
+Error fatal desde hace 10 minutos,Incidente,Critico
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Bloqueo total en sincronización de inventario,Incidente,Alto
+Configuración de nuevo campo en el reporte de ventas,Requerimiento,Medio
+Sistema completamente caído desde hace 10 minutos,Incidente,Critico
+Lentitud al cargar el reporte mensual,Incidente,Medio
+Duda sobre cómo usar el color del menú lateral,Requerimiento,Bajo
+Error al procesar en autenticación de usuarios,Incidente,Alto
+Sin acceso a producción en todas las sedes,Incidente,Critico
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Configuración de nuevo campo en el reporte de ventas,Requerimiento,Medio
+Caída parcial de sincronización de inventario,Incidente,Alto
+Actualización de permisos en el perfil de supervisor,Requerimiento,Medio
+Operatividad detenida arrojando error 500 general,Incidente,Critico
+Solicitud estética para cambiar el texto de bienvenida,Requerimiento,Bajo
+Solicitud de ajuste en la plantilla de impresión,Requerimiento,Medio
+Operatividad detenida arrojando error 500 general,Incidente,Critico
+Sin acceso a producción en todas las sedes,Incidente,Critico
+Error fatal en todas las sedes,Incidente,Critico
+Error fatal arrojando error 500 general,Incidente,Critico
+Cálculo incorrecto en la vista de clientes,Incidente,Medio
+Solicitud estética para cambiar el texto de bienvenida,Requerimiento,Bajo
+Consulta general de el texto de bienvenida,Requerimiento,Bajo
+Falla visual en el reporte mensual,Incidente,Medio
+Error intermitente al exportar el reporte mensual,Incidente,Medio
+Sugerencia de mejora en el color del menú lateral,Requerimiento,Bajo
+Servidor principal sin respuesta bloqueando ventas y operaciones,Incidente,Critico
+Solicitud estética para cambiar los filtros de búsqueda,Requerimiento,Bajo
+No funciona el módulo de cierre contable,Incidente,Alto
+Falla visual en el archivo Excel,Incidente,Medio
+Operatividad detenida desde hace 10 minutos,Incidente,Critico
+Configuración de nuevo campo en el perfil de supervisor,Requerimiento,Medio
+Solicitud estética para cambiar el manual de usuario,Requerimiento,Bajo
+Error fatal desde hace 10 minutos,Incidente,Critico
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Error al procesar en facturación electrónica,Incidente,Alto
+Falla grave en cierre contable,Incidente,Alto
+Sistema completamente caído desde hace 10 minutos,Incidente,Critico
+Error fatal para toda la empresa,Incidente,Critico
+Solicitud de ajuste en el perfil de supervisor,Requerimiento,Medio
+Operatividad detenida para toda la empresa,Incidente,Critico
+Caída parcial de cierre contable,Incidente,Alto
+Caída parcial de sincronización de inventario,Incidente,Alto
+Bloqueo total en autenticación de usuarios,Incidente,Alto
+Solicitud estética para cambiar el color del menú lateral,Requerimiento,Bajo
+Bloqueo total en facturación electrónica,Incidente,Alto
+Lentitud al cargar las notificaciones por correo,Incidente,Medio
+Sugerencia de mejora en el manual de usuario,Requerimiento,Bajo
+Solicitud de ajuste en el formulario de registro,Requerimiento,Medio
+Error fatal arrojando error 500 general,Incidente,Critico
+Sin acceso a producción para toda la empresa,Incidente,Critico
+Actualización de permisos en el formulario de registro,Requerimiento,Medio
+Cálculo incorrecto en el archivo Excel,Incidente,Medio
+Operatividad detenida desde hace 10 minutos,Incidente,Critico
+No funciona el módulo de cierre contable,Incidente,Alto
+Falla visual en las notificaciones por correo,Incidente,Medio
+Error al procesar en pagos con tarjeta,Incidente,Alto
+Duda sobre cómo usar el manual de usuario,Requerimiento,Bajo
+Cálculo incorrecto en las notificaciones por correo,Incidente,Medio
+Solicitud de ajuste en el perfil de supervisor,Requerimiento,Medio
+Solicitud estética para cambiar el color del menú lateral,Requerimiento,Bajo
+Requerimiento para modificar el perfil de supervisor,Requerimiento,Medio
+Falla visual en el archivo Excel,Incidente,Medio
+Error al procesar en facturación electrónica,Incidente,Alto
+Solicitud estética para cambiar el texto de bienvenida,Requerimiento,Bajo
+Caída parcial de cierre contable,Incidente,Alto
+Cálculo incorrecto en la vista de clientes,Incidente,Medio
+Configuración de nuevo campo en el reporte de ventas,Requerimiento,Medio
+Servidor principal sin respuesta en todas las sedes,Incidente,Critico
+Configuración de nuevo campo en la plantilla de impresión,Requerimiento,Medio
+Caída parcial de sincronización de inventario,Incidente,Alto
+Sugerencia de mejora en el color del menú lateral,Requerimiento,Bajo
+Operatividad detenida desde hace 10 minutos,Incidente,Critico
+No funciona el módulo de facturación electrónica,Incidente,Alto
+No funciona el módulo de autenticación de usuarios,Incidente,Alto
+Servidor principal sin respuesta bloqueando ventas y operaciones,Incidente,Critico
+Servidor principal sin respuesta en todas las sedes,Incidente,Critico
+Error al procesar en cierre contable,Incidente,Alto
+No funciona el módulo de facturación electrónica,Incidente,Alto
+Error intermitente al exportar el archivo Excel,Incidente,Medio
+Falla grave en cierre contable,Incidente,Alto
+Actualización de permisos en el perfil de supervisor,Requerimiento,Medio
+Operatividad detenida para toda la empresa,Incidente,Critico
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Requerimiento para modificar el formulario de registro,Requerimiento,Medio
+Caída parcial de sincronización de inventario,Incidente,Alto
+Falla visual en el reporte mensual,Incidente,Medio
+Solicitud de ajuste en el formulario de registro,Requerimiento,Medio
+Solicitud de ajuste en el formulario de registro,Requerimiento,Medio
+Caída parcial de facturación electrónica,Incidente,Alto
+Servidor principal sin respuesta arrojando error 500 general,Incidente,Critico
+Configuración de nuevo campo en la plantilla de impresión,Requerimiento,Medio
+Caída parcial de facturación electrónica,Incidente,Alto
+Caída parcial de sincronización de inventario,Incidente,Alto
+Error intermitente al exportar las notificaciones por correo,Incidente,Medio
+Sugerencia de mejora en los filtros de búsqueda,Requerimiento,Bajo
+Lentitud al cargar el reporte mensual,Incidente,Medio
+Error intermitente al exportar las notificaciones por correo,Incidente,Medio
+No funciona el módulo de facturación electrónica,Incidente,Alto
+Bloqueo total en cierre contable,Incidente,Alto
+Servidor principal sin respuesta en todas las sedes,Incidente,Critico
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Error al procesar en autenticación de usuarios,Incidente,Alto
+Actualización de permisos en el formulario de registro,Requerimiento,Medio
+Error al procesar en cierre contable,Incidente,Alto
+Sistema completamente caído bloqueando ventas y operaciones,Incidente,Critico
+Falla grave en facturación electrónica,Incidente,Alto
+Error fatal en todas las sedes,Incidente,Critico
+No funciona el módulo de pagos con tarjeta,Incidente,Alto
+Sin acceso a producción arrojando error 500 general,Incidente,Critico
+Sugerencia de mejora en el color del menú lateral,Requerimiento,Bajo
+Lentitud al cargar las notificaciones por correo,Incidente,Medio
+Configuración de nuevo campo en el reporte de ventas,Requerimiento,Medio
+Actualización de permisos en el formulario de registro,Requerimiento,Medio
+Actualización de permisos en el perfil de supervisor,Requerimiento,Medio
+Sugerencia de mejora en el manual de usuario,Requerimiento,Bajo
+Caída parcial de cierre contable,Incidente,Alto
+Sugerencia de mejora en el texto de bienvenida,Requerimiento,Bajo
+Sugerencia de mejora en los filtros de búsqueda,Requerimiento,Bajo
+Configuración de nuevo campo en el formulario de registro,Requerimiento,Medio
+Lentitud al cargar el archivo Excel,Incidente,Medio
+Error intermitente al exportar la vista de clientes,Incidente,Medio
+Falla grave en facturación electrónica,Incidente,Alto
+Sugerencia de mejora en los filtros de búsqueda,Requerimiento,Bajo
+Error fatal bloqueando ventas y operaciones,Incidente,Critico
+Caída parcial de sincronización de inventario,Incidente,Alto
+Error intermitente al exportar la vista de clientes,Incidente,Medio
+Sugerencia de mejora en los filtros de búsqueda,Requerimiento,Bajo
+Falla grave en cierre contable,Incidente,Alto
+Caída parcial de autenticación de usuarios,Incidente,Alto
+Servidor principal sin respuesta para toda la empresa,Incidente,Critico
+Cálculo incorrecto en el reporte mensual,Incidente,Medio
+Solicitud de ajuste en la plantilla de impresión,Requerimiento,Medio
+Bloqueo total en autenticación de usuarios,Incidente,Alto
+Actualización de permisos en el formulario de registro,Requerimiento,Medio
+Configuración de nuevo campo en el perfil de supervisor,Requerimiento,Medio
+Caída parcial de facturación electrónica,Incidente,Alto
+Lentitud al cargar el reporte mensual,Incidente,Medio
+Caída parcial de pagos con tarjeta,Incidente,Alto
+Requerimiento para modificar la plantilla de impresión,Requerimiento,Medio
+Sin acceso a producción arrojando error 500 general,Incidente,Critico
+Error intermitente al exportar el archivo Excel,Incidente,Medio
+No funciona el módulo de sincronización de inventario,Incidente,Alto
+Falla visual en el reporte mensual,Incidente,Medio
+Bloqueo total en facturación electrónica,Incidente,Alto
+Falla visual en el reporte mensual,Incidente,Medio
+Lentitud al cargar el reporte mensual,Incidente,Medio
+Bloqueo total en cierre contable,Incidente,Alto
+Actualización de permisos en el reporte de ventas,Requerimiento,Medio
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Solicitud estética para cambiar los filtros de búsqueda,Requerimiento,Bajo
+No funciona el módulo de sincronización de inventario,Incidente,Alto
+Sistema completamente caído para toda la empresa,Incidente,Critico
+Lentitud al cargar el archivo Excel,Incidente,Medio
+Solicitud estética para cambiar el color del menú lateral,Requerimiento,Bajo
+Cálculo incorrecto en el archivo Excel,Incidente,Medio
+Bloqueo total en cierre contable,Incidente,Alto
+Sistema completamente caído para toda la empresa,Incidente,Critico
+Sistema completamente caído en todas las sedes,Incidente,Critico
+Caída parcial de sincronización de inventario,Incidente,Alto
+Error intermitente al exportar la vista de clientes,Incidente,Medio
+Sugerencia de mejora en los filtros de búsqueda,Requerimiento,Bajo
+Solicitud estética para cambiar el texto de bienvenida,Requerimiento,Bajo
+Solicitud de ajuste en el perfil de supervisor,Requerimiento,Medio
+Sin acceso a producción arrojando error 500 general,Incidente,Critico
+Duda sobre cómo usar el texto de bienvenida,Requerimiento,Bajo
+Configuración de nuevo campo en el perfil de supervisor,Requerimiento,Medio
+Solicitud estética para cambiar los filtros de búsqueda,Requerimiento,Bajo

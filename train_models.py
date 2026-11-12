@@ -9,7 +9,9 @@ from sklearn.naive_bayes import MultinomialNB
 
 # 1. Cargar el dataset
 df = pd.read_csv('ml_models/ticket_dataset.csv')
-X = df['descripcion']
+df = df.drop_duplicates(subset=['titulo', 'descripcion'])
+# Título + descripción como texto de entrada (igual que en triage_service.py)
+X = df['titulo'].fillna('') + '. ' + df['descripcion']
 y_priority = df['prioridad']
 y_category = df['categoria']
 
