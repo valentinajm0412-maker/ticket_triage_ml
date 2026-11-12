@@ -4,6 +4,7 @@ from flask_bcrypt import Bcrypt
 from models import db, User, Ticket
 from triage_service import classify_and_assign_ticket
 from crisp_fase1 import build_context as crisp_fase1_context
+from crisp_fase2 import build_context as crisp_fase2_context
 
 app = Flask(__name__)
 
@@ -128,6 +129,14 @@ def crisp_fase1():
     if current_user.role != 'Admin':
         return redirect(url_for('dashboard'))
     return render_template('crisp_fase1.html', **crisp_fase1_context(Ticket))
+
+# CRISP-ML Phase 2 page (Admin only) || Hoja Fase 2 CRISP-ML (solo Admin)
+@app.route('/crisp/fase2')
+@login_required
+def crisp_fase2():
+    if current_user.role != 'Admin':
+        return redirect(url_for('dashboard'))
+    return render_template('crisp_fase2.html', **crisp_fase2_context())
 
 # Logout Route || Ruta de Cerrar Sesión
 @app.route('/logout')

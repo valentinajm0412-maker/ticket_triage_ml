@@ -24,6 +24,7 @@
             {% if current_user.role == 'Admin' %}
                 <a href="{{ url_for('admin_users') }}">Gestionar Usuarios</a>
                 <a href="{{ url_for('crisp_fase1') }}">CRISP-ML Fase 1</a>
+                <a href="{{ url_for('crisp_fase2') }}">CRISP-ML Fase 2</a>
             {% endif %}
             {% if current_user.role in ['Cliente', 'Admin'] %}
                 <a href="{{ url_for('create_ticket') }}">Crear Ticket</a>

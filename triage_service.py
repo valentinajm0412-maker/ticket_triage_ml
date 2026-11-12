@@ -1,15 +1,15 @@
 import joblib
 from models import db, User, Ticket
 
-# Load the trained model and vectorizer || Cargar el modelo entrenado y el vectorizador
+import data_pipeline  # noqa: F401  (needed to unpickle TextCleaner || necesario para cargar TextCleaner)
+
+# Load the full pipeline: cleaning + features + model || Cargar el pipeline completo: limpieza + características + modelo
 model = joblib.load('ml_models/best_ticket_model.pkl')
-vectorizer = joblib.load('ml_models/tfidf_vectorizer.pkl')
 
 def classify_and_assign_ticket(title, description, category, client_id):
-    # Predict priority using the ML model || Predecir prioridad usando el modelo de ML
+    # Predict priority using the ML pipeline || Predecir prioridad usando el pipeline de ML
     # Same input as training: title + description || Mismo texto que en el entrenamiento
-    text_vectorized = vectorizer.transform([f'{title}. {description}'])
-    predicted_priority = model.predict(text_vectorized)[0]
+    predicted_priority = model.predict([f'{title}. {description}'])[0]
 
     # Determine required consultant role by category || Determinar el rol de consultor requerido según categoría
     # Incidents go to Technical Consultants, Requirements go to Functional Consultants

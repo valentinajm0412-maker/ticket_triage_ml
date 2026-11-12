@@ -1,0 +1,161 @@
+{
+  "fecha": "2026-11-11T21:24:31",
+  "entorno": {
+    "python": "3.14.7",
+    "pandas": "3.0.5",
+    "scikit-learn": "1.9.1"
+  },
+  "seleccion": {
+    "fuentes": [
+      {
+        "fuente": "sintetico",
+        "archivo": "ml_models\\ticket_dataset.csv",
+        "filas": 3000,
+        "sha256": "080718f668b5e863"
+      },
+      {
+        "fuente": "real",
+        "archivo": "ml_models\\real_tickets.csv",
+        "filas": 0,
+        "sha256": null
+      }
+    ],
+    "columnas_requeridas": [
+      "titulo",
+      "descripcion",
+      "categoria",
+      "prioridad"
+    ]
+  },
+  "limpieza": {
+    "pasos": [
+      {
+        "paso": "Filas cargadas",
+        "eliminadas": 0,
+        "filas_resultantes": 3000,
+        "detalle": "Unión de todas las fuentes"
+      },
+      {
+        "paso": "Nulos o vacíos",
+        "eliminadas": 0,
+        "filas_resultantes": 3000,
+        "detalle": "Sin descripción, prioridad o categoría"
+      },
+      {
+        "paso": "Etiquetas inválidas",
+        "eliminadas": 0,
+        "filas_resultantes": 3000,
+        "detalle": "Prioridad fuera de ['Critico', 'Alto', 'Medio', 'Bajo'] o categoría fuera de ['Incidente', 'Requerimiento']"
+      },
+      {
+        "paso": "Texto muy corto",
+        "eliminadas": 0,
+        "filas_resultantes": 3000,
+        "detalle": "Menos de 3 palabras después de limpiar"
+      },
+      {
+        "paso": "Duplicados",
+        "eliminadas": 139,
+        "filas_resultantes": 2861,
+        "detalle": "Mismo texto normalizado y mismas etiquetas"
+      },
+      {
+        "paso": "Etiquetas contradictorias",
+        "eliminadas": 20,
+        "filas_resultantes": 2841,
+        "detalle": "Mismo texto con prioridades distintas (no se puede saber cuál es correcta)"
+      }
+    ],
+    "filas_iniciales": 3000,
+    "filas_finales": 2841,
+    "dataset_limpio": "ml_models\\ticket_dataset_clean.csv",
+    "sha256_limpio": "64d3056514412f55"
+  },
+  "transformacion": {
+    "entrada": "titulo + \". \" + descripcion",
+    "normalizacion": [
+      "minúsculas",
+      "sin tildes",
+      "sin saludos/cierres",
+      "sin signos de puntuación",
+      "espacios simples"
+    ],
+    "caracteristicas": [
+      "TF-IDF palabras (1-2 gramas, stopwords español, min_df=2)",
+      "TF-IDF caracteres (3-5 gramas, min_df=3, máx. 20.000)"
+    ],
+    "stopwords": 53,
+    "ejemplos": [
+      {
+        "original": "VPN. La exportación a Excel desde VPN falla de vez en cuando desde hace una hora, pasa en todas las sedes. Es urgente.",
+        "limpio": "vpn la exportacion a excel desde vpn falla de vez en cuando desde hace una hora pasa en todas las sedes es urgente"
+      },
+      {
+        "original": "Revisión de agendamiento de citas. A veces agendamiento de citas cierra la sesion desde ayer, le ocurre a un usuario.",
+        "limpio": "revision de agendamiento de citas a veces agendamiento de citas cierra la sesion desde ayer le ocurre a un usuario"
+      },
+      {
+        "original": "Solicitud sobre correo corporativo. Buenos días, el reporte de correo corporativo no trae la columna de centro de costo. adjunto pantallazo.",
+        "limpio": "solicitud sobre correo corporativo el reporte de correo corporativo no trae la columna de centro de costo"
+      },
+      {
+        "original": "Error en compras. Compras no deja guardar los registros desde esta mañana pasa en la sede norte",
+        "limpio": "error en compras compras no deja guardar los registros desde esta manana pasa en la sede norte"
+      },
+      {
+        "original": "Ayuda con correo corporativo. Buenos días, ¿dónde encuentro el manual de correo corporativo?. Quedo atento.",
+        "limpio": "ayuda con correo corporativo donde encuentro el manual de correo corporativo"
+      }
+    ],
+    "vocabulario": {
+      "palabras": 2070,
+      "caracteres": 2506
+    }
+  },
+  "distribucion": {
+    "prioridad": {
+      "Medio": 971,
+      "Bajo": 731,
+      "Alto": 574,
+      "Critico": 565
+    },
+    "categoria": {
+      "Incidente": 1744,
+      "Requerimiento": 1097
+    },
+    "fuente": {
+      "sintetico": 2841
+    }
+  },
+  "particion": {
+    "semilla": 42,
+    "test_size": 0.2,
+    "estratificado_por": "prioridad",
+    "train": 2272,
+    "test": 569
+  },
+  "modelos": {
+    "prioridad": {
+      "mejor": "Random Forest",
+      "accuracy": 0.8647,
+      "candidatos": {
+        "Naive Bayes": 0.6134,
+        "Random Forest": 0.8647,
+        "Logistic Regression": 0.7856
+      }
+    },
+    "categoria": {
+      "mejor": "Naive Bayes",
+      "accuracy": 0.9684,
+      "candidatos": {
+        "Naive Bayes": 0.9684,
+        "Random Forest": 0.9666,
+        "Logistic Regression": 0.9684
+      }
+    },
+    "archivos": [
+      "ml_models\\best_ticket_model.pkl",
+      "ml_models\\best_category_model.pkl"
+    ]
+  }
+}

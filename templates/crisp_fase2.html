@@ -1,0 +1,130 @@
+<!-- CRISP-ML Phase 2: Data Engineering || Fase 2 CRISP-ML: Ingeniería de Datos -->
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+    .stat { background: #f9f9f9; border-radius: 6px; padding: 12px; text-align: center; }
+    .stat b { display: block; font-size: 1.6em; color: #2c3e50; }
+    table.t { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    table.t th, table.t td { padding: 8px 10px; border-bottom: 1px solid #eee; text-align: left; vertical-align: top; }
+    table.t th { background: #f9f9f9; border-bottom: 2px solid #ddd; }
+    .ok { color: #27ae60; font-weight: bold; }
+    .ko { color: #c0392b; font-weight: bold; }
+    .badge { padding: 2px 8px; border-radius: 10px; font-size: .85em; background: #ecf0f1; }
+    .step { color: #1abc9c; font-weight: bold; margin-right: 6px; }
+    code { background: #f4f4f4; padding: 1px 5px; border-radius: 3px; }
+    .muted { color: #777; }
+</style>
+
+<div class="card">
+    <h2>Fase 2 · Ingeniería de Datos</h2>
+    <p>Preparar los datos para el modelado y documentar cada transformación para que el proceso
+       sea reproducible (ML-Ops.org). Esta hoja se alimenta de <code>{{ report_path }}</code>,
+       que se regenera cada vez que se ejecuta <code>train_models.py</code>.</p>
+</div>
+
+{% if not report %}
+<div class="card">
+    <p class="ko">Aún no existe el reporte de datos.</p>
+    <p>Ejecuta <code>python generate_dataset.py</code> y luego <code>python train_models.py</code>.</p>
+</div>
+{% else %}
+{% set lim = report.limpieza %}
+
+<div class="card">
+    <div class="grid">
+        <div class="stat"><b>{{ lim.filas_iniciales }}</b>filas cargadas</div>
+        <div class="stat"><b>{{ lim.filas_iniciales - lim.filas_finales }}</b>filas eliminadas</div>
+        <div class="stat"><b>{{ lim.filas_finales }}</b>filas para modelar</div>
+        {% if report.particion %}
+        <div class="stat"><b>{{ report.particion.train }} / {{ report.particion.test }}</b>train / test</div>
+        {% endif %}
+        <div class="stat"><b>{{ report.fecha[:10] }}</b>última ejecución</div>
+    </div>
+</div>
+
+<div class="card">
+    <h3><span class="step">1</span>Selección de fuentes</h3>
+    <table class="t">
+        <thead><tr><th>Fuente</th><th>Archivo</th><th>Filas</th><th>Huella (sha256)</th></tr></thead>
+        <tbody>
+        {% for s in report.seleccion.fuentes %}
+            <tr><td>{{ s.fuente }}</td><td><code>{{ s.archivo }}</code></td>
+                <td>{{ s.filas if s.filas else 'No disponible' }}</td>
+                <td class="muted">{{ s.sha256 or '-' }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p class="muted">Columnas requeridas: {{ report.seleccion.columnas_requeridas | join(', ') }}.
+       Para sumar tickets reales, guarda un CSV con esas columnas en <code>ml_models/real_tickets.csv</code>.</p>
+</div>
+
+<div class="card">
+    <h3><span class="step">2</span>Limpieza</h3>
+    <table class="t">
+        <thead><tr><th>Paso</th><th>Eliminadas</th><th>Filas resultantes</th><th>Regla</th></tr></thead>
+        <tbody>
+        {% for p in lim.pasos %}
+            <tr><td>{{ p.paso }}</td>
+                <td class="{{ 'ko' if p.eliminadas else '' }}">{{ p.eliminadas }}</td>
+                <td>{{ p.filas_resultantes }}</td><td class="muted">{{ p.detalle }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <h4>Distribución después de limpiar</h4>
+    <p>Prioridad: {% for k, v in report.distribucion.prioridad.items() %}<span class="badge">{{ k }}: {{ v }}</span> {% endfor %}</p>
+    <p>Categoría: {% for k, v in report.distribucion.categoria.items() %}<span class="badge">{{ k }}: {{ v }}</span> {% endfor %}</p>
+</div>
+
+<div class="card">
+    {% set tr = report.transformacion %}
+    <h3><span class="step">3</span>Transformación</h3>
+    <p>Entrada del modelo: <code>{{ tr.entrada }}</code></p>
+    <p>Normalización: {% for n in tr.normalizacion %}<span class="badge">{{ n }}</span> {% endfor %}</p>
+    <p>Características generadas:</p>
+    <ul>
+        {% for c in tr.caracteristicas %}<li>{{ c }}</li>{% endfor %}
+    </ul>
+    {% if tr.vocabulario %}
+    <p>Tamaño del vocabulario: {% for k, v in tr.vocabulario.items() %}<span class="badge">{{ k }}: {{ v }}</span> {% endfor %}
+       · Stopwords: {{ tr.stopwords }} (se conservan "no", "sin", "todos" porque cambian el sentido)</p>
+    {% endif %}
+    <h4>Ejemplos antes y después</h4>
+    <table class="t">
+        <thead><tr><th>Texto original</th><th>Texto limpio</th></tr></thead>
+        <tbody>
+        {% for e in tr.ejemplos %}
+            <tr><td>{{ e.original }}</td><td class="muted">{{ e.limpio }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="card">
+    <h3><span class="step">4</span>Documentación y reproducibilidad</h3>
+    <table class="t">
+        <thead><tr><th>Librería</th><th>Versión al entrenar</th><th>Versión actual</th><th>Estado</th></tr></thead>
+        <tbody>
+        {% for r in env_rows %}
+            <tr><td>{{ r.libreria }}</td><td>{{ r.entrenamiento }}</td><td>{{ r.actual }}</td>
+                <td class="{{ 'ok' if r.ok else 'ko' }}">{{ 'Coincide' if r.ok else 'Distinta: reentrenar' }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <ul>
+        <li>Fecha de ejecución: {{ report.fecha }}</li>
+        <li>Dataset limpio: <code>{{ lim.dataset_limpio }}</code> (sha256 {{ lim.sha256_limpio }})</li>
+        {% if report.particion %}
+        <li>Partición: semilla {{ report.particion.semilla }}, test {{ (report.particion.test_size * 100) | int }}%,
+            estratificada por {{ report.particion.estratificado_por }}</li>
+        {% endif %}
+        {% if report.modelos %}
+        <li>Prioridad: {{ report.modelos.prioridad.mejor }} ({{ report.modelos.prioridad.accuracy }})
+            · Categoría: {{ report.modelos.categoria.mejor }} ({{ report.modelos.categoria.accuracy }})
+            <span class="muted">— el detalle se verá en las fases 3 y 4</span></li>
+        {% endif %}
+    </ul>
+</div>
+{% endif %}
+{% endblock %}
