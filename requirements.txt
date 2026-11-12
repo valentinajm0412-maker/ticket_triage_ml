@@ -5,7 +5,7 @@ Flask-Bcrypt==1.0.1
 Flask-WTF==1.2.2
 # Fixed versions: the .pkl models must be loaded with the same versions used to train them
 # || Versiones fijas: los modelos .pkl deben cargarse con las mismas versiones con que se entrenaron
-pandas==3.0.5
+pandas
 scikit-learn==1.9.1
 joblib>=1.3
 gunicorn==21.2.0

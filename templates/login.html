@@ -1,45 +1,95 @@
-<!-- Login Template || Plantilla de Inicio de Sesión -->
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Login - ML Ticket Triage</title>
-    <style>
-        /* Minimalist global styles || Estilos globales minimalistas */
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .login-container { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 100%; max-width: 350px; text-align: center; }
-        h2 { margin-bottom: 20px; color: #333; }
-        input[type="text"], input[type="password"] { width: 100%; padding: 10px; margin: 10px 0 20px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        button { background-color: #2c3e50; color: white; border: none; padding: 12px; width: 100%; border-radius: 4px; cursor: pointer; font-size: 16px; }
-        button:hover { background-color: #1a252f; }
-        .flash-message { color: #e74c3c; margin-bottom: 15px; font-size: 14px; }
-        .back { display: block; margin-top: 18px; color: #16a085; font-size: 14px; text-decoration: none; }
-    </style>
-</head>
-<body>
+<!-- Login Template inheriting public header || Plantilla de Inicio de Sesión heredando cabecera pública -->
+{% extends "base_public.html" %}
 
-<div class="login-container">
-    <h2>Ticket Triage ML</h2>
-    <p style="color: #777; margin-top: -10px;">Ingreso a la aplicación</p>
-    
-    <!-- Display error messages || Mostrar mensajes de error -->
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        {% for message in messages %}
-          <div class="flash-message">{{ message }}</div>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
+{% block title %}Login - Ticket Triage ML{% endblock %}
 
-    <!-- Login Form || Formulario de Inicio de Sesión -->
-    <form method="POST" action="{{ url_for('login') }}">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-        <input type="text" name="username" placeholder="Usuario" required>
-        <input type="password" name="password" placeholder="Contraseña" required>
-        <button type="submit">Ingresar</button>
-    </form>
-    <a class="back" href="{{ url_for('index') }}">← Volver a la presentación del proyecto</a>
+{% block head %}
+<style>
+    /* Centered login card styles || Estilos de tarjeta de login centrada */
+    .login-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 65vh;
+    }
+    .login-container {
+        background: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 360px;
+        text-align: center;
+    }
+    .login-container h2 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: #2c3e50;
+    }
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0 18px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    .login-container button[type="submit"] {
+        background-color: #2c3e50;
+        color: white;
+        border: none;
+        padding: 12px;
+        width: 100%;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .login-container button[type="submit"]:hover {
+        background-color: #1a252f;
+    }
+    .flash-message {
+        color: #e74c3c;
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+    .back {
+        display: block;
+        margin-top: 18px;
+        color: #16a085;
+        font-size: 14px;
+        text-decoration: none;
+    }
+    .back:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="login-wrapper">
+    <div class="login-container">
+        <h2>Ticket Triage ML</h2>
+        <p style="color: #777; margin-top: 0; margin-bottom: 20px;">Ingreso a la aplicación</p>
+        
+        <!-- Display error messages || Mostrar mensajes de error -->
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              <div class="flash-message">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <!-- Login Form || Formulario de Inicio de Sesión -->
+        <form method="POST" action="{{ url_for('login') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <input type="text" name="username" placeholder="Usuario" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit">Ingresar</button>
+        </form>
+        <a class="back" href="{{ url_for('index') }}">← Volver a la presentación del proyecto</a>
+    </div>
 </div>
-
-</body>
-</html>
+{% endblock %}

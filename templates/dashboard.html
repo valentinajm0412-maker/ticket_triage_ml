@@ -1,4 +1,4 @@
-<!-- Dashboard View with Tickets Table || Vista de Tablero con Tabla de Tickets -->
+<!-- Dashboard View with User Avatar, Summary Pie Chart & Tickets Table || Vista de Tablero con Avatar de Usuario, Gráfica de Torta y Tabla -->
 {% extends "base.html" %}
 
 {% block content %}
@@ -7,20 +7,140 @@
     .tt th, .tt td { padding: 10px; vertical-align: top; }
     .tt thead tr { border-bottom: 2px solid #ddd; background-color: #f9f9f9; }
     .tt tbody tr { border-bottom: 1px solid #eee; }
-    .p-Critico { color: #c0392b; } .p-Alto { color: #d35400; } .p-Medio { color: #2980b9; } .p-Bajo { color: #7f8c8d; }
+    .p-Critico, .p-Crítico { color: #c0392b; } .p-Alto { color: #d35400; } .p-Medio { color: #2980b9; } .p-Bajo { color: #7f8c8d; }
     .muted { color: #888; font-size: .85em; }
     .warn { color: #d68910; font-weight: bold; }
     .linkbtn { background: none; border: none; padding: 0; font-weight: bold; cursor: pointer; font-size: 1em; font-family: inherit; }
     .mini select { padding: 3px; } .mini button { padding: 3px 8px; background: #2c3e50; color: #fff; border: none; border-radius: 3px; cursor: pointer; }
+
+    /* Minimalist Dashboard Header, User Avatar & Chart Layout || Diseño Minimalista de Cabecera, Avatar y Gráfica */
+    .dash-overview { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; }
+    .dash-info { flex: 1; min-width: 260px; }
+    .user-profile-header { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+    .user-avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background-color: #f0f4f8;
+        border: 2px solid #1abc9c;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        box-shadow: 0 2px 6px rgba(44, 62, 80, 0.08);
+    }
+    .dash-info h2 { margin: 0 0 4px 0; color: #2c3e50; }
+    .kpi-pills { display: flex; gap: 12px; margin-top: 10px; flex-wrap: wrap; }
+    .kpi-pill { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 6px; padding: 8px 14px; min-width: 85px; }
+    .kpi-pill b { display: block; font-size: 1.35em; color: #2c3e50; }
+    .kpi-pill span { font-size: 0.82em; color: #7f8c8d; }
+
+    .chart-panel { display: flex; align-items: center; gap: 20px; background: #fafbfc; border: 1px solid #eef0f2; border-radius: 8px; padding: 14px 20px; }
+    .chart-box { position: relative; width: 155px; height: 155px; flex-shrink: 0; }
+    .chart-legend { list-style: none; padding: 0; margin: 0; font-size: 0.88em; }
+    .chart-legend li { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 6px; color: #444; }
+    .chart-legend li:last-child { margin-bottom: 0; }
+    .legend-label { display: flex; align-items: center; gap: 8px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+    .empty-chart { width: 155px; height: 155px; border-radius: 50%; background: #ecf0f1; display: flex; align-items: center; justify-content: center; text-align: center; color: #7f8c8d; font-size: 0.8em; padding: 12px; box-sizing: border-box; }
 </style>
 
-<div class="card">
-    <h2>Panel Principal</h2>
-    <p>Rol activo: <strong>{{ current_user.role }}</strong></p>
-    {% if current_user.role in ['Consultor Tecnico', 'Consultor Funcional'] %}
-        <p>Tickets asignados activos: <strong>{{ current_user.workload }}</strong></p>
+<!-- Count open tickets by priority and closed tickets || Contar tickets abiertos por prioridad y tickets cerrados -->
+{% set ns = namespace(critico=0, alto=0, medio=0, bajo=0, cerrado=0, abiertos=0) %}
+{% for t in tickets %}
+    {% if t.status == 'Resuelto' %}
+        {% set ns.cerrado = ns.cerrado + 1 %}
+    {% else %}
+        {% set ns.abiertos = ns.abiertos + 1 %}
+        {% if t.priority in ['Critico', 'Crítico'] %}
+            {% set ns.critico = ns.critico + 1 %}
+        {% elif t.priority == 'Alto' %}
+            {% set ns.alto = ns.alto + 1 %}
+        {% elif t.priority == 'Medio' %}
+            {% set ns.medio = ns.medio + 1 %}
+        {% elif t.priority == 'Bajo' %}
+            {% set ns.bajo = ns.bajo + 1 %}
+        {% endif %}
     {% endif %}
-    {% with messages = get_flashed_messages() %}{% for m in messages %}<p style="color: #27ae60;">{{ m }}</p>{% endfor %}{% endwith %}
+{% endfor %}
+
+<div class="card">
+    <div class="dash-overview">
+        <!-- User Icon, Role & Open/Closed Summary || Icono de Usuario, Rol y Resumen Abiertos/Cerrados -->
+        <div class="dash-info">
+            <div class="user-profile-header">
+                <div class="user-avatar" title="{{ current_user.username }}">
+                    <!-- Minimalist Person SVG Icon || Icono SVG Minimalista de Persona -->
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2c3e50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+                <div>
+                    <h2>Panel Principal</h2>
+                    <p style="margin: 3px 0;">Rol activo: <strong>{{ current_user.role }}</strong> <span style="color: #7f8c8d;">({{ current_user.username }})</span></p>
+                    {% if current_user.role in ['Consultor Tecnico', 'Consultor Funcional'] %}
+                        <p style="margin: 3px 0;">Tickets asignados activos: <strong>{{ current_user.workload }}</strong></p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="kpi-pills">
+                <div class="kpi-pill">
+                    <b>{{ tickets | length }}</b>
+                    <span>Total tickets</span>
+                </div>
+                <div class="kpi-pill">
+                    <b style="color: #2980b9;">{{ ns.abiertos }}</b>
+                    <span>Abiertos</span>
+                </div>
+                <div class="kpi-pill">
+                    <b style="color: #7f8c8d;">{{ ns.cerrado }}</b>
+                    <span>Cerrados</span>
+                </div>
+            </div>
+
+            {% with messages = get_flashed_messages() %}{% for m in messages %}<p style="color: #27ae60; margin-top: 10px;">{{ m }}</p>{% endfor %}{% endwith %}
+        </div>
+
+        <!-- Minimalist Pie Chart Panel || Panel Minimalista de Gráfica de Torta -->
+        <div class="chart-panel">
+            <div class="chart-box">
+                {% if (tickets | length) > 0 %}
+                    <canvas id="ticketsPieChart"
+                        data-critico="{{ ns.critico }}"
+                        data-alto="{{ ns.alto }}"
+                        data-medio="{{ ns.medio }}"
+                        data-bajo="{{ ns.bajo }}"
+                        data-cerrado="{{ ns.cerrado }}"></canvas>
+                {% else %}
+                    <div class="empty-chart">Sin datos</div>
+                {% endif %}
+            </div>
+            <ul class="chart-legend">
+                <li>
+                    <span class="legend-label"><span class="dot" style="background: #e74c3c;"></span><span>Críticos</span></span>
+                    <strong>{{ ns.critico }}</strong>
+                </li>
+                <li>
+                    <span class="legend-label"><span class="dot" style="background: #ff9f43;"></span><span>Altos</span></span>
+                    <strong>{{ ns.alto }}</strong>
+                </li>
+                <li>
+                    <span class="legend-label"><span class="dot" style="background: #f1c40f;"></span><span>Medios</span></span>
+                    <strong>{{ ns.medio }}</strong>
+                </li>
+                <li>
+                    <span class="legend-label"><span class="dot" style="background: #3498db;"></span><span>Bajos</span></span>
+                    <strong>{{ ns.bajo }}</strong>
+                </li>
+                <li style="border-top: 1px solid #e5e8eb; padding-top: 5px; margin-top: 5px;">
+                    <span class="legend-label"><span class="dot" style="background: #95a5a6;"></span><span>Cerrados</span></span>
+                    <strong>{{ ns.cerrado }}</strong>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 
 <div class="card">
@@ -102,4 +222,67 @@
         <p>No hay tickets registrados en esta vista.</p>
     {% endif %}
 </div>
+
+<!-- Chart.js CDN & Bilingual Pie Chart Initialization || CDN de Chart.js e Inicialización de Gráfica Bilingüe -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+(function () {
+    const canvas = document.getElementById('ticketsPieChart');
+    if (!canvas || typeof Chart === 'undefined') return;
+
+    const counts = [
+        Number(canvas.dataset.critico) || 0,
+        Number(canvas.dataset.alto) || 0,
+        Number(canvas.dataset.medio) || 0,
+        Number(canvas.dataset.bajo) || 0,
+        Number(canvas.dataset.cerrado) || 0
+    ];
+
+    const labelsByLang = {
+        en: ['Critical', 'High', 'Medium', 'Low', 'Closed'],
+        es: ['Críticos', 'Altos', 'Medios', 'Bajos', 'Cerrados']
+    };
+
+    const initialLang = document.documentElement.lang === 'es' ? 'es' : 'en';
+
+    const pieChart = new Chart(canvas, {
+        type: 'pie',
+        data: {
+            labels: labelsByLang[initialLang],
+            datasets: [{
+                data: counts,
+                backgroundColor: [
+                    '#e74c3c',
+                    '#ff9f43',
+                    '#f1c40f',
+                    '#3498db',
+                    '#95a5a6'
+                ],
+                borderColor: '#ffffff',
+                borderWidth: 2,
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: '#2c3e50',
+                    padding: 8,
+                    cornerRadius: 4
+                }
+            }
+        }
+    });
+
+    const prevSetLang = window.setAppLanguage;
+    window.setAppLanguage = function (lang) {
+        if (typeof prevSetLang === 'function') prevSetLang(lang);
+        pieChart.data.labels = labelsByLang[lang] || labelsByLang.en;
+        pieChart.update();
+    };
+})();
+</script>
 {% endblock %}
