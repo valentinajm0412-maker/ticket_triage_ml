@@ -1,44 +1,125 @@
-import pandas as pd
+import os
 import random
+import pandas as pd
 
-# Synthetic data generation for ML training || Generación de datos sintéticos para entrenamiento de ML
-def generate_dataset(num_records=800):
-    data = []
-    
-    # Vocabulary by priority level based on business rules || Vocabulario por nivel de prioridad según reglas de negocio
-    critical_phrases = ['sistema completamente caído', 'no hay acceso a producción', 'operatividad de todo el sistema detenida', 'falla crítica en servidor principal']
-    high_phrases = ['falla en proceso específico de facturación', 'módulo contable no funciona', 'error al procesar pagos', 'proceso específico inoperativo']
-    medium_phrases = ['error de procesamiento de datos', 'cálculo incorrecto en reporte', 'lentitud al exportar archivo', 'falla en procesamiento sin afectar operatividad']
-    low_phrases = ['duda sobre funcionalidad', 'solicitud para cambiar color del menú', 'actualizar texto de bienvenida', 'requerimiento general de interfaz']
 
-    for _ in range(num_records):
-        rand_val = random.random()
-        
-        # Rule assignment || Asignación de reglas
-        if rand_val < 0.15:
-            desc = random.choice(critical_phrases)
-            priority = 'Critico'
-            category = 'Incidente'
-        elif rand_val < 0.35:
-            desc = random.choice(high_phrases)
-            priority = 'Alto'
-            category = 'Incidente'
-        elif rand_val < 0.70:
-            desc = random.choice(medium_phrases)
-            priority = 'Medio'
-            category = random.choice(['Incidente', 'Requerimiento'])
-        else:
-            desc = random.choice(low_phrases)
-            priority = 'Bajo'
-            category = 'Requerimiento'
-            
-        data.append({'descripcion': desc, 'categoria': category, 'prioridad': priority})
-        
-    df = pd.DataFrame(data)
-    
-    # Save to the ML models folder || Guardar en la carpeta de modelos de ML
-    df.to_csv('ml_models/ticket_dataset.csv', index=False)
-    print("Dataset created successfully in ml_models/ticket_dataset.csv || Dataset creado con éxito en ml_models/ticket_dataset.csv")
+def generate_dataset(num_records=1200):
+  data = []
+
+  # Componentes combinables por nivel
+  templates = {
+      'Critico': {
+          'categoria': ['Incidente'],
+          'inicio': [
+              'Sistema completamente caído',
+              'Sin acceso a producción',
+              'Operatividad detenida',
+              'Error fatal',
+              'Servidor principal sin respuesta',
+          ],
+          'detalle': [
+              'para toda la empresa',
+              'en todas las sedes',
+              'desde hace 10 minutos',
+              'bloqueando ventas y operaciones',
+              'arrojando error 500 general',
+          ],
+      },
+      'Alto': {
+          'categoria': ['Incidente'],
+          'inicio': [
+              'Falla grave en',
+              'No funciona el módulo de',
+              'Error al procesar en',
+              'Bloqueo total en',
+              'Caída parcial de',
+          ],
+          'detalle': [
+              'facturación electrónica',
+              'pagos con tarjeta',
+              'cierre contable',
+              'autenticación de usuarios',
+              'sincronización de inventario',
+          ],
+      },
+      'Medio_Incidente': {
+          'prioridad': 'Medio',
+          'categoria': ['Incidente'],
+          'inicio': [
+              'Lentitud al cargar',
+              'Cálculo incorrecto en',
+              'Error intermitente al exportar',
+              'Falla visual en',
+          ],
+          'detalle': [
+              'el reporte mensual',
+              'la vista de clientes',
+              'el archivo Excel',
+              'las notificaciones por correo',
+          ],
+      },
+      'Medio_Requerimiento': {
+          'prioridad': 'Medio',
+          'categoria': ['Requerimiento'],
+          'inicio': [
+              'Solicitud de ajuste en',
+              'Requerimiento para modificar',
+              'Actualización de permisos en',
+              'Configuración de nuevo campo en',
+          ],
+          'detalle': [
+              'el formulario de registro',
+              'el reporte de ventas',
+              'el perfil de supervisor',
+              'la plantilla de impresión',
+          ],
+      },
+      'Bajo': {
+          'categoria': ['Requerimiento'],
+          'inicio': [
+              'Duda sobre cómo usar',
+              'Consulta general de',
+              'Solicitud estética para cambiar',
+              'Sugerencia de mejora en',
+          ],
+          'detalle': [
+              'el color del menú lateral',
+              'el texto de bienvenida',
+              'los filtros de búsqueda',
+              'el manual de usuario',
+          ],
+      },
+  }
+
+  for _ in range(num_records):
+    rand_val = random.random()
+
+    if rand_val < 0.20:
+      key = 'Critico'
+    elif rand_val < 0.45:
+      key = 'Alto'
+    elif rand_val < 0.62:
+      key = 'Medio_Incidente'
+    elif rand_val < 0.78:
+      key = 'Medio_Requerimiento'
+    else:
+      key = 'Bajo'
+
+    grupo = templates[key]
+    desc = f"{random.choice(grupo['inicio'])} {random.choice(grupo['detalle'])}"
+    priority = grupo.get('prioridad', key)
+    category = random.choice(grupo['categoria'])
+
+    data.append(
+        {'descripcion': desc, 'categoria': category, 'prioridad': priority}
+    )
+
+  os.makedirs('ml_models', exist_ok=True)
+  df = pd.DataFrame(data)
+  df.to_csv('ml_models/ticket_dataset.csv', index=False)
+  print(f'Dataset creado con {len(df)} registros.')
+  print(df['prioridad'].value_counts())
+
 
 if __name__ == '__main__':
-    generate_dataset()
+  generate_dataset()
