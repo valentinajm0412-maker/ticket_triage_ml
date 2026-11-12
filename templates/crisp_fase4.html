@@ -53,6 +53,105 @@
     </div>
 </div>
 
+{% if cmp %}
+<div class="card">
+    <h3><span class="step">0</span>Modelos evaluados: ¿cuál escogimos y por qué?</h3>
+    <p>Se evaluaron los cinco modelos del curso con <strong>el mismo split</strong> ({{ cmp.train }} tickets de entrenamiento,
+       {{ cmp.test }} de prueba) y <strong>las mismas características de texto</strong> (Fase 2). Cada uno responde la pregunta
+       de negocio para la que sirve:</p>
+    <table class="t">
+        <thead><tr><th>Pregunta</th><th>Modelo</th><th>Tipo</th><th>Cómo responde</th></tr></thead>
+        <tbody>
+        {% for q in questions %}
+            <tr><td>{{ q.pregunta }}</td><td><strong>{{ q.modelo }}</strong></td><td class="muted">{{ q.tipo }}</td><td class="muted">{{ q.como }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h4>Pregunta principal: ¿qué prioridad tiene el ticket?</h4>
+    <p class="muted">Se ordena por F1 macro en validación cruzada (dentro de train). El test solo confirma; no se usa para elegir.
+       Random Forest (Fase 3) se incluye como referencia.</p>
+    <table class="t">
+        <thead><tr><th>Modelo</th><th>F1 macro (CV)</th><th>Recall Crítico (CV)</th><th>Exactitud (test)</th><th>F1 macro (test)</th><th>Recall Crítico (test)</th><th></th></tr></thead>
+        <tbody>
+        {% for r in cmp.ranking_prioridad %}
+            <tr style="{{ 'background: #eafaf1; font-weight: bold;' if r.en_produccion else '' }}">
+                <td>{{ r.modelo }}</td>
+                <td>{{ '%.1f' | format(r.cv_f1_macro * 100) ~ '%' if r.cv_f1_macro is not none else '— (no supervisado)' }}</td>
+                <td>{{ '%.1f' | format(r.cv_recall_critico * 100) ~ '%' if r.cv_recall_critico is not none else '—' }}</td>
+                <td>{{ '%.1f' | format(r.accuracy * 100) }}%</td>
+                <td>{{ '%.1f' | format(r.f1_macro * 100) }}%</td>
+                <td class="{{ 'ok' if r.recall_critico >= 0.95 else ('warn' if r.recall_critico >= 0.9 else 'ko') }}">{{ '%.1f' | format(r.recall_critico * 100) }}%</td>
+                <td>{% if r.en_produccion %}<span class="badge" style="background:#1abc9c;color:#fff;">Elegido</span>{% endif %}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% if chosen %}
+    {% set lin = cmp.linear_regression %}
+    <div class="decision apto" style="margin-top: 16px;">Modelo elegido: {{ chosen.modelo }}</div>
+    <p><strong>Por qué:</strong></p>
+    <ol>
+        <li><strong>Mejor desempeño en validación cruzada:</strong> F1 macro {{ '%.1f' | format(chosen.cv_f1_macro * 100) }}%
+            {% if cmp.ranking_prioridad | length > 1 %}, frente a {{ '%.1f' | format(cmp.ranking_prioridad[1].cv_f1_macro * 100) }}% del siguiente ({{ cmp.ranking_prioridad[1].modelo }}){% endif %}.</li>
+        <li><strong>Cumple la regla de negocio en CV:</strong> detecta el {{ '%.1f' | format(chosen.cv_recall_critico * 100) }}% de los críticos
+            (meta 95%), gracias al corte de Crítico en el puntaje {{ lin.corte_critico }}.</li>
+        <li><strong>El test lo confirma:</strong> exactitud {{ '%.1f' | format(chosen.accuracy * 100) }}% (meta 85%) y F1 {{ '%.1f' | format(chosen.f1_macro * 100) }}%.
+            Detecta {{ '%.1f' | format(chosen.recall_critico * 100) }}% de críticos: a un punto de la meta, por eso sigue la revisión humana.</li>
+        <li><strong>Aprovecha que la prioridad es un orden:</strong> confundir Crítico con Alto es menos grave que con Bajo; la regresión lo
+            sabe (error medio {{ lin.mae }} niveles, R² {{ lin.r2 }}), los clasificadores no.</li>
+        <li><strong>Generaliza y es liviano:</strong> casi no hay diferencia entre train y test (ver sección 2), y es un modelo lineal rápido de
+            explicar y de ejecutar.</li>
+    </ol>
+    <p class="muted"><strong>Logistic Regression</strong> fue el mejor clasificador puro del curso, pero quedó por debajo en F1 y en críticos.
+       <strong>KNN</strong> rinde poco porque tickets con las mismas palabras de sistema ("ERP", "nómina") tienen prioridades distintas.
+       <strong>K-Means</strong> no sirve para priorizar (ver abajo), y <strong>Q-Learning</strong> no predice prioridad: decide la acción.</p>
+    {% endif %}
+
+    {% set km = cmp.kmeans %}
+    <h4>K-Means: ¿qué tipos de tickets llegan?</h4>
+    <p>Mejor número de grupos por silueta: <strong>k = {{ km.k }}</strong> (silueta {{ km.silueta }}).
+       Parecido con la prioridad real (ARI): <strong>{{ km.ari_prioridad }}</strong>; con la categoría: <strong>{{ km.ari_categoria }}</strong>
+       (0 = sin relación, 1 = idéntico).</p>
+    <table class="t">
+        <thead><tr><th>Grupo</th><th>Tickets</th><th>Palabras que lo definen</th><th>Prioridad más común</th></tr></thead>
+        <tbody>
+        {% for g in km.grupos | sort(attribute='tickets', reverse=True) %}
+            <tr><td>{{ g.grupo }}</td><td>{{ g.tickets }}</td><td>{{ g.palabras | join(', ') }}</td>
+                <td>{{ g.prioridad_dominante }} <span class="muted">({{ '%.0f' | format(g.pct_prioridad * 100) }}%)</span></td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p class="muted">Conclusión: K-Means agrupa por <strong>sistema</strong> (facturación, nómina, VPN…), no por gravedad; dentro de cada grupo
+       hay de todas las prioridades. Sirve para ver qué sistemas generan más tickets (monitoreo), no para priorizar:
+       usado como clasificador solo acierta {{ '%.1f' | format(km.como_clasificador.accuracy * 100) }}%.</p>
+
+    {% set ql = cmp.q_learning %}
+    <h4>Q-Learning: ¿qué hacer con el ticket?</h4>
+    <p>Estado = prioridad predicha + confianza del modelo. Acciones: atender de inmediato, cola normal o revisión humana.
+       Se entrenó con {{ ql.tickets_aprendizaje }} tickets del test ({{ ql.episodios }} episodios) y se evaluó con otros {{ ql.tickets_evaluacion }}.</p>
+    <table class="t">
+        <thead><tr><th>Política</th><th>Recompensa media</th><th>Críticos dejados en cola</th></tr></thead>
+        <tbody>
+        {% for name, r in ql.comparacion.items() %}
+            <tr style="{{ 'font-weight: bold; background: #eafaf1;' if name.startswith('Q-Learning') else '' }}"><td>{{ name }}</td>
+                <td>{{ r.recompensa_media }}</td><td>{{ r.criticos_en_cola }} de {{ r.criticos }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <table class="t">
+        <thead><tr><th>Situación</th><th>Tickets</th><th>Acción aprendida</th></tr></thead>
+        <tbody>
+        {% for p in ql.politica %}<tr><td>{{ p.estado }}</td><td>{{ p.tickets }}</td><td><strong>{{ p.accion }}</strong></td></tr>{% endfor %}
+        </tbody>
+    </table>
+    <p class="muted">Recompensas (supuestos de negocio): Crítico atendido de inmediato +10, Crítico en cola −20; atender de inmediato
+       algo Medio/Bajo −3 (quita tiempo a otros); revisión humana tiene un costo pequeño. Como las recompensas son supuestos,
+       la política es una <strong>recomendación de apoyo</strong>, no una regla automática.</p>
+</div>
+{% endif %}
+
 <div class="card">
     <h3><span class="step">1</span>Métricas de desempeño</h3>
     <h4>Criterios de aceptación (KPI de la Fase 1)</h4>

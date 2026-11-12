@@ -90,6 +90,11 @@ from evaluation import EVALUATION_REPORT_PATH, run_evaluation  # noqa: E402
 evaluation = run_evaluation()
 print(f"Evaluación (Fase 4): {evaluation['decision']}. Reporte: {EVALUATION_REPORT_PATH}")
 
+# Fase 4: comparación de los modelos del curso (Logistic Regression, KNN, K-Means, Linear Regression, Q-Learning)
+from model_comparison import run_comparison  # noqa: E402
+
+run_comparison()
+
 # Fase 6: historial de versiones del modelo (registro para mantenimiento)
 import hashlib  # noqa: E402
 

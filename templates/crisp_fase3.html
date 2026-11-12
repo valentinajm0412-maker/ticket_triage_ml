@@ -135,6 +135,24 @@
     <p class="muted">Compromiso: se aceptan algunas falsas alarmas (tickets marcados como críticos que no lo eran)
        a cambio de no dejar pasar críticos reales, que es el error más costoso para el negocio.</p>
 
+    {% if p.ordinal %}
+    {% set o = p.ordinal %}
+    <h4>Corte de "Crítico" en Linear Regression (prioridad como puntaje 0-3)</h4>
+    <p>La regresión predice un puntaje de gravedad (Bajo=0, Medio=1, Alto=2, Crítico=3). Con redondeo normal,
+       Crítico empieza en 2,5; se buscó el corte más bajo que cumple la meta con el mejor F1:</p>
+    <table class="t">
+        <thead><tr><th></th><th>Corte</th><th>Recall Crítico</th><th>F1 macro</th><th>Exactitud</th></tr></thead>
+        <tbody>
+            <tr><td>Redondeo normal</td><td>2.5</td><td>{{ '%.1f' | format(o.antes.recall_critico * 100) }}%</td>
+                <td>{{ '%.1f' | format(o.antes.f1_macro * 100) }}%</td><td>{{ '%.1f' | format(o.antes.accuracy * 100) }}%</td></tr>
+            <tr class="best"><td>Con ajuste</td><td>{{ o.corte }}</td>
+                <td class="{{ 'ok' if o.cumple else 'ko' }}">{{ '%.1f' | format(o.despues.recall_critico * 100) }}%</td>
+                <td>{{ '%.1f' | format(o.despues.f1_macro * 100) }}%</td><td>{{ '%.1f' | format(o.despues.accuracy * 100) }}%</td></tr>
+        </tbody>
+    </table>
+    <p class="muted">Con ambas reglas cumpliendo la meta de críticos, se elige el de mayor F1 en validación cruzada.</p>
+    {% endif %}
+
     <details>
         <summary>Ver curva umbral vs. desempeño</summary>
         <table class="t">

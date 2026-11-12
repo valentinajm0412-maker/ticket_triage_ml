@@ -10,6 +10,14 @@ con menor carga. El proyecto sigue la metodología **CRISP-ML** y cada fase tien
 - Dependencias con versiones fijas en `requirements.txt`. Los modelos `.pkl` deben cargarse con las
   mismas versiones de pandas y scikit-learn con que se entrenaron.
 
+## Modelo elegido
+
+La prioridad se predice con **Linear Regression ordinal**: la prioridad se trata como un puntaje
+(Bajo=0, Medio=1, Alto=2, Crítico=3) y por encima de un corte ajustado en validación cruzada el ticket es Crítico.
+Se eligió frente a Random Forest, Logistic Regression, KNN y K-Means por tener el mayor F1 macro en
+validación cruzada cumpliendo la meta de detección de críticos. K-Means se usa para entender qué tipos de
+tickets llegan y Q-Learning para recomendar la acción. El detalle está en la hoja **Evaluación del Modelo**.
+
 ## Instalación (Windows, PowerShell)
 
 ```
@@ -17,7 +25,7 @@ git clone https://github.com/valentinajm0412-maker/ticket_triage_ml.git
 cd ticket_triage_ml
 py -m pip install -r requirements.txt
 py generate_dataset.py      # 3000 tickets sintéticos
-py train_models.py          # Fases 2, 3 y 4: limpia, entrena, evalúa (1-3 min)
+py train_models.py          # Fases 2, 3 y 4: limpia, entrena, evalúa y compara modelos (2-4 min)
 py create_admin.py          # usuario admin / admin123 (cambiarla luego)
 py seed_users.py            # consultores y cliente de prueba (clave 123456)
 py app.py                   # desarrollo: http://127.0.0.1:5000
@@ -71,6 +79,7 @@ Rutina: **semanal** revisar Monitoreo y los tickets ⚠ · **mensual** `py retra
 | `model_engineering.py` | 3. Ingeniería del modelo | Validación cruzada, GridSearch, umbral de críticos |
 | `train_models.py` | 2-3-4 | Orquesta el entrenamiento completo |
 | `evaluation.py`, `evaluate_model.py` | 4. Evaluación | Métricas en test, riesgos, sesgos, errores para expertos |
+| `model_comparison.py`, `compare_models.py` | 4. Evaluación | Compara Logistic Regression, KNN, K-Means, Linear Regression y Q-Learning |
 | `config.py`, `deployment.py`, `run_production.py`, `export_feedback.py` | 5. Despliegue | Configuración, verificación, retroalimentación |
 | `monitoring.py`, `retrain.py`, `simulate_production.py` | 6. Monitoreo y mantenimiento | Supervisión, drift, reentrenamiento seguro, simulación |
 | `app.py`, `triage_service.py`, `models.py` | App | Rutas, predicción + asignación, base de datos |

@@ -14,6 +14,7 @@ ALGORITHM_NOTES = {
     'Logistic Regression': 'Lineal, interpretable y entrega probabilidades.',
     'Linear SVM': 'Lineal de márgenes; fuerte en texto, pero sin probabilidades.',
     'Random Forest': 'Conjunto de árboles; capta combinaciones (ej. "caído" + "toda la empresa").',
+    'Linear Regression (ordinal)': 'Trata la prioridad como un orden (Bajo < Medio < Alto < Crítico) y predice un puntaje 0-3.',
 }
 
 

@@ -99,9 +99,9 @@ def run_evaluation():
     # 2. Validación cruzada vs test vs train
     selected = model_report['prioridad']['seleccionado']
     cv_row = next(r for r in model_report['prioridad']['candidatos'] if selected.startswith(r['algoritmo']))
-    umbral = model_report['prioridad'].get('umbral', {})
-    cv_f1 = umbral.get('despues', {}).get('f1_macro', cv_row['f1_macro']) if '+' in selected else cv_row['f1_macro']
-    cv_recall = umbral.get('despues', {}).get('recall_critico', cv_row.get('recall_critico'))
+    cv_sel = model_report['prioridad'].get('cv_seleccionado', {})
+    cv_f1 = cv_sel.get('f1_macro', cv_row['f1_macro'])
+    cv_recall = cv_sel.get('recall_critico', cv_row.get('recall_critico'))
     train_metrics = _metrics(train['prioridad'], priority_model.predict(train['texto']))
     comparison = {
         'train': train_metrics,
