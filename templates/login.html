@@ -13,12 +13,14 @@
         button { background-color: #2c3e50; color: white; border: none; padding: 12px; width: 100%; border-radius: 4px; cursor: pointer; font-size: 16px; }
         button:hover { background-color: #1a252f; }
         .flash-message { color: #e74c3c; margin-bottom: 15px; font-size: 14px; }
+        .back { display: block; margin-top: 18px; color: #16a085; font-size: 14px; text-decoration: none; }
     </style>
 </head>
 <body>
 
 <div class="login-container">
     <h2>Ticket Triage ML</h2>
+    <p style="color: #777; margin-top: -10px;">Ingreso a la aplicación</p>
     
     <!-- Display error messages || Mostrar mensajes de error -->
     {% with messages = get_flashed_messages() %}
@@ -36,6 +38,7 @@
         <input type="password" name="password" placeholder="Contraseña" required>
         <button type="submit">Ingresar</button>
     </form>
+    <a class="back" href="{{ url_for('index') }}">← Volver a la presentación del proyecto</a>
 </div>
 
 </body>

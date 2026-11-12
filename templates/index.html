@@ -1,0 +1,193 @@
+<!-- Public project presentation (Anexo 1 PGC) || Presentación pública del proyecto -->
+{% extends "base_public.html" %}
+
+{% block head %}
+<style>
+    .hero { background: linear-gradient(135deg, #2c3e50 0%, #1f6f6a 100%); color: #fff; border-radius: 10px; padding: 46px 40px; margin-bottom: 20px; }
+    .hero h1 { margin: 0 0 12px; font-size: 2em; line-height: 1.25; }
+    .hero p { margin: 0 0 22px; font-size: 1.1em; color: #d6eae6; max-width: 860px; }
+    .hero .cta a { display: inline-block; margin: 0 10px 8px 0; padding: 10px 18px; border-radius: 5px; font-weight: bold; text-decoration: none; }
+    .cta .primary { background: #1abc9c; color: #fff; } .cta .ghost { border: 2px solid #fff; color: #fff; }
+    .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 26px; }
+    .kpi { background: rgba(255,255,255,.1); border-radius: 6px; padding: 12px; text-align: center; }
+    .kpi b { display: block; font-size: 1.6em; }
+    .kpi span { font-size: .85em; color: #d6eae6; }
+    .toc { position: sticky; top: 54px; z-index: 10; background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,.08); padding: 10px 18px; margin-bottom: 20px; font-size: .92em; }
+    .toc a { color: #2c3e50; text-decoration: none; margin-right: 16px; font-weight: 600; white-space: nowrap; }
+    .toc a:hover { color: #1abc9c; }
+    section { scroll-margin-top: 110px; }
+    h2 { color: #2c3e50; margin-top: 0; }
+    h2 .n { color: #1abc9c; margin-right: 8px; }
+    h3 { color: #16a085; margin-bottom: 6px; }
+    table.t { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    table.t th, table.t td { padding: 8px 10px; border-bottom: 1px solid #eee; text-align: left; vertical-align: top; }
+    table.t th { background: #f9f9f9; border-bottom: 2px solid #ddd; }
+    .muted { color: #777; }
+    .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+    .box { background: #f9f9f9; border-radius: 6px; padding: 14px 18px; }
+    .box h4 { margin: 0 0 6px; color: #2c3e50; }
+    .question { border-left: 4px solid #1abc9c; background: #f4fbf9; padding: 12px 18px; font-size: 1.08em; font-style: italic; margin: 14px 0; }
+    .steps { counter-reset: s; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin-top: 14px; }
+    .step { background: #f9f9f9; border-radius: 6px; padding: 14px; position: relative; }
+    .step::before { counter-increment: s; content: counter(s); position: absolute; top: -10px; left: 12px; background: #1abc9c; color: #fff; width: 24px; height: 24px; border-radius: 50%; text-align: center; font-weight: bold; line-height: 24px; font-size: .9em; }
+    .step h4 { margin: 8px 0 4px; color: #2c3e50; }
+    .step p { margin: 0; font-size: .92em; color: #555; }
+    .gantt td.on { background: #1abc9c; }
+    .gantt td.hito { background: #f39c12; }
+    .gantt td, .gantt th { text-align: center; padding: 6px 4px; border: 1px solid #eee; font-size: .85em; }
+    .gantt td.fase { text-align: left; white-space: nowrap; }
+    .gantt a { color: #2c3e50; font-weight: 600; text-decoration: none; }
+    .products { columns: 2; column-gap: 30px; }
+    .products div { break-inside: avoid; padding: 3px 0; }
+    .mark { display: inline-block; width: 20px; height: 20px; border: 1px solid #bbb; text-align: center; line-height: 20px; margin-right: 8px; font-weight: bold; color: #16a085; }
+    ol.refs li { margin-bottom: 6px; font-size: .92em; }
+    .chosen { background: #eafaf1; font-weight: bold; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>{{ titulo }}</h1>
+    <p>{{ subtitulo }}</p>
+    <div class="cta">
+        <a class="primary" href="#solucion">Ver la solución</a>
+        <a class="ghost" href="{{ url_for('crisp_fase1') }}">Recorrer las fases CRISP-ML</a>
+        <a class="ghost" href="{{ url_for('login') }}">Ingresar a la aplicación</a>
+    </div>
+    {% if resultados %}
+    <div class="kpis">
+        <div class="kpi"><b>{{ '%.1f' | format(resultados.accuracy * 100) }}%</b><span>exactitud en prioridad</span></div>
+        <div class="kpi"><b>{{ '%.1f' | format(resultados.recall_critico * 100) }}%</b><span>tickets críticos detectados</span></div>
+        <div class="kpi"><b>{{ '%.1f' | format(resultados.categoria * 100) }}%</b><span>exactitud en categoría</span></div>
+        <div class="kpi"><b>{{ resultados.tickets }}</b><span>tickets para entrenar y evaluar</span></div>
+        <div class="kpi"><b>6 / 6</b><span>fases CRISP-ML implementadas</span></div>
+    </div>
+    {% endif %}
+</div>
+
+<div class="toc">
+    <a href="#entendimiento">Entendimiento</a><a href="#problema">Problema</a>
+    <a href="#solucion">Solución</a><a href="#objetivos">Objetivos</a><a href="#marco">Marco referencial</a>
+    <a href="#metodologia">Metodología y cronograma</a><a href="#productos">Productos</a><a href="#referencias">Referencias</a>
+</div>
+
+<section id="entendimiento" class="card">
+    <h2><span class="n">1</span>Entendimiento del problema</h2>
+    <p>{{ entendimiento.contexto }}</p>
+    <div class="grid2">
+        <div>
+            <h3>¿Quiénes participan?</h3>
+            <table class="t">{% for a, d in entendimiento.actores %}<tr><th style="width: 160px;">{{ a }}</th><td>{{ d }}</td></tr>{% endfor %}</table>
+        </div>
+        <div>
+            <h3>¿Cómo funciona hoy?</h3>
+            <ul>{% for p in entendimiento.proceso_actual %}<li>{{ p }}</li>{% endfor %}</ul>
+        </div>
+    </div>
+    <h3>Tipos de ticket</h3>
+    <div class="grid2">
+        {% for t, d in entendimiento.tipos_ticket %}<div class="box"><h4>{{ t }}</h4>{{ d }}</div>{% endfor %}
+    </div>
+    <p class="muted" style="margin-top: 14px;">El detalle de los objetivos de negocio, indicadores y evaluación de los datos está en la fase
+        <a href="{{ url_for('crisp_fase1') }}">1 · Entendimiento del Negocio y los Datos</a>.</p>
+</section>
+
+<section id="problema" class="card">
+    <h2><span class="n">2</span>Planteamiento del problema y justificación</h2>
+    <p>{{ problema }}</p>
+    <div class="question"><strong>Pregunta problema:</strong> {{ pregunta }}</div>
+    <h3>Justificación</h3>
+    <ul>{% for j in justificacion %}<li>{{ j }}</li>{% endfor %}</ul>
+</section>
+
+<section id="solucion" class="card">
+    <h2><span class="n">3</span>Solución</h2>
+    <p>{{ solucion.resumen }}</p>
+    <div class="steps">
+        {% for t, d in solucion.pasos %}<div class="step"><h4>{{ t }}</h4><p>{{ d }}</p></div>{% endfor %}
+    </div>
+    {% if resultados %}
+    <h3 style="margin-top: 24px;">Modelo elegido y resultados</h3>
+    <p><strong>{{ resultados.modelo }}</strong>. Medido con {{ resultados.test }} tickets que el modelo nunca vio:
+       exactitud {{ '%.1f' | format(resultados.accuracy * 100) }}%, F1 macro {{ '%.1f' | format(resultados.f1_macro * 100) }}%
+       y {{ '%.1f' | format(resultados.recall_critico * 100) }}% de los tickets críticos detectados.
+       Decisión: <em>{{ resultados.decision }}</em>.</p>
+    {% if ranking %}
+    <table class="t">
+        <thead><tr><th>Modelo comparado</th><th>F1 macro (validación cruzada)</th><th>Exactitud (test)</th><th>Críticos detectados (test)</th></tr></thead>
+        <tbody>
+        {% for r in ranking %}
+            <tr class="{{ 'chosen' if r.en_produccion }}"><td>{{ r.modelo }}{% if r.en_produccion %} · elegido{% endif %}</td>
+                <td>{{ '%.1f' | format(r.cv_f1_macro * 100) ~ '%' if r.cv_f1_macro is not none else 'no supervisado' }}</td>
+                <td>{{ '%.1f' | format(r.accuracy * 100) }}%</td><td>{{ '%.1f' | format(r.recall_critico * 100) }}%</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p class="muted">Por qué se eligió, K-Means y Q-Learning: fase <a href="{{ url_for('crisp_fase4') }}">4 · Evaluación del Modelo</a>.</p>
+    {% endif %}
+    {% endif %}
+    <h3>Limitaciones conocidas</h3>
+    <ul>
+        <li>Los datos de entrenamiento son sintéticos, generados con reglas de negocio; el desempeño real se confirmará con tickets reales.</li>
+        <li>La detección de críticos está cerca de la meta del 95%; por eso los casos dudosos pasan por revisión humana.</li>
+        <li>Sistemas o términos nuevos no se reconocen hasta reentrenar; el monitoreo los detecta y avisa.</li>
+        <li>Las recompensas de Q-Learning son supuestos de negocio: su política se usa como recomendación, no como regla.</li>
+    </ul>
+</section>
+
+<section id="objetivos" class="card">
+    <h2><span class="n">4</span>Objetivos del proyecto</h2>
+    <h3>Objetivo general</h3>
+    <p>{{ objetivo_general }}</p>
+    <h3>Objetivos específicos</h3>
+    <ol>{% for o in objetivos_especificos %}<li>{{ o }}</li>{% endfor %}</ol>
+</section>
+
+<section id="marco" class="card">
+    <h2><span class="n">5</span>Marco referencial</h2>
+    <h3>Antecedentes</h3>
+    <table class="t">{% for a, d in antecedentes %}<tr><th style="width: 200px;">{{ a }}</th><td>{{ d }}</td></tr>{% endfor %}</table>
+    <h3>Marco teórico</h3>
+    <table class="t">{% for a, d in marco_teorico %}<tr><th style="width: 200px;">{{ a }}</th><td>{{ d }}</td></tr>{% endfor %}</table>
+    <h3>Glosario</h3>
+    <table class="t">{% for a, d in glosario %}<tr><th style="width: 200px;">{{ a }}</th><td>{{ d }}</td></tr>{% endfor %}</table>
+</section>
+
+<section id="metodologia" class="card">
+    <h2><span class="n">6</span>Metodología y cronograma de desarrollo</h2>
+    <p>{{ metodologia }}</p>
+    <table class="t">
+        <thead><tr><th>Fase</th><th>Actividades</th><th>Ver</th></tr></thead>
+        <tbody>
+        {% for f in fases %}
+            <tr><td><strong>{{ f.n }}. {{ f.nombre }}</strong></td><td>{{ f.actividades }}</td>
+                <td style="white-space: nowrap;"><a href="{{ url_for(f.ruta) }}">Abrir fase</a></td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <h3>Cronograma (semanas del periodo académico)</h3>
+    <table class="gantt" style="border-collapse: collapse; width: 100%;">
+        <tr><th>Fase</th>{% for s in semanas %}<th>S{{ s }}</th>{% endfor %}</tr>
+        {% for f in fases %}
+        <tr><td class="fase"><a href="{{ url_for(f.ruta) }}">{{ f.n }}. {{ f.nombre }}</a></td>
+            {% for s in semanas %}<td class="{{ 'on' if s in f.semanas else '' }}"></td>{% endfor %}</tr>
+        {% endfor %}
+        {% for s, h in hitos.items() %}
+        <tr><td class="fase"><strong>{{ h }}</strong></td>
+            {% for x in semanas %}<td class="{{ 'hito' if x == s else '' }}"></td>{% endfor %}</tr>
+        {% endfor %}
+    </table>
+</section>
+
+<section id="productos" class="card">
+    <h2><span class="n">7</span>Productos esperados</h2>
+    <div class="products">
+        {% for p, marcado in productos %}<div><span class="mark">{{ 'X' if marcado else '' }}</span>{{ p }}</div>{% endfor %}
+    </div>
+</section>
+
+<section id="referencias" class="card">
+    <h2><span class="n">8</span>Referencias bibliográficas</h2>
+    <ol class="refs">{% for r in referencias %}<li>{{ r }}</li>{% endfor %}</ol>
+</section>
+{% endblock %}

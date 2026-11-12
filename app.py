@@ -16,6 +16,7 @@ from crisp_fase3 import build_context as crisp_fase3_context
 from crisp_fase4 import build_context as crisp_fase4_context
 from evaluation import load_evaluation
 from monitoring import build_context as crisp_fase6_context
+from project_info import build_context as project_context
 from deployment import (deployment_checklist, feedback_stats, export_feedback,
                         TRAINING_GUIDE, INCIDENT_PROTOCOL)
 
@@ -46,7 +47,7 @@ def load_user(user_id):
 
 
 def admin_required(view):
-    """Only Admin can open CRISP-ML pages || Solo el Admin puede abrir las hojas CRISP-ML"""
+    """Admin-only actions || Acciones solo para el Admin"""
     @wraps(view)
     @login_required
     def wrapper(*args, **kwargs):
@@ -63,6 +64,8 @@ def can_manage(ticket):
 # Login Route || Ruta de Inicio de Sesión
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('dashboard'))
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
@@ -77,8 +80,12 @@ def login():
 
     return render_template('login.html')
 
-# Dashboard Route with ticket list || Ruta del Tablero con listado de tickets
+# Public project presentation (no login) || Presentación pública del proyecto (sin login)
 @app.route('/')
+def index():
+    return render_template('index.html', **project_context())
+
+# Dashboard Route with ticket list || Ruta del Tablero con listado de tickets
 @app.route('/dashboard')
 @login_required
 def dashboard():
@@ -177,27 +184,24 @@ def admin_users():
     users = User.query.all()
     return render_template('admin_users.html', users=users)
 
+# CRISP-ML phase pages are public (no login) || Las hojas CRISP-ML son públicas (sin login)
 # CRISP-ML Phase 1 page || Hoja Fase 1 CRISP-ML
 @app.route('/crisp/fase1')
-@admin_required
 def crisp_fase1():
     return render_template('crisp_fase1.html', **crisp_fase1_context(Ticket))
 
 # CRISP-ML Phase 2 page || Hoja Fase 2 CRISP-ML
 @app.route('/crisp/fase2')
-@admin_required
 def crisp_fase2():
     return render_template('crisp_fase2.html', **crisp_fase2_context())
 
 # CRISP-ML Phase 3 page || Hoja Fase 3 CRISP-ML
 @app.route('/crisp/fase3')
-@admin_required
 def crisp_fase3():
     return render_template('crisp_fase3.html', **crisp_fase3_context())
 
 # CRISP-ML Phase 4 page || Hoja Fase 4 CRISP-ML
 @app.route('/crisp/fase4')
-@admin_required
 def crisp_fase4():
     return render_template('crisp_fase4.html', **crisp_fase4_context(ExpertReview))
 
@@ -223,7 +227,6 @@ def crisp_fase4_review():
 
 # CRISP-ML Phase 5 page || Hoja Fase 5 CRISP-ML
 @app.route('/crisp/fase5')
-@admin_required
 def crisp_fase5():
     admin = User.query.filter_by(username='admin').first()
     return render_template(
@@ -244,7 +247,6 @@ def crisp_fase5_export():
 
 # CRISP-ML Phase 6 page || Hoja Fase 6 CRISP-ML
 @app.route('/crisp/fase6')
-@admin_required
 def crisp_fase6():
     return render_template('crisp_fase6.html', **crisp_fase6_context(Ticket, User, triage_model, MODEL_VERSION))
 
@@ -266,7 +268,7 @@ def health():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('login'))
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     # Development server only; production uses run_production.py || Solo desarrollo; producción usa run_production.py

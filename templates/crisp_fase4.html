@@ -1,7 +1,8 @@
 <!-- CRISP-ML Phase 4: Model Evaluation || Fase 4 CRISP-ML: Evaluación del Modelo -->
-{% extends "base.html" %}
+{% extends "base_public.html" %}
 
 {% block content %}
+{% set is_admin = current_user.is_authenticated and current_user.role == 'Admin' %}
 <style>
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
     .stat { background: #f9f9f9; border-radius: 6px; padding: 12px; text-align: center; }
@@ -272,6 +273,7 @@
                 <td class="{{ 'ko' if e.gravedad > 0 else 'warn' }}">{{ e.predicho }}</td>
                 <td>{{ '%.0f' | format(e.confianza * 100) }}%</td>
                 <td>
+                    {% if is_admin %}
                     <form method="POST" action="{{ url_for('crisp_fase4_review') }}">
                         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="key" value="{{ e.key }}">
@@ -285,6 +287,7 @@
                         <input type="text" name="comment" placeholder="Comentario (opcional)" style="width: 95%; margin: 4px 0;">
                         <button class="btn" type="submit">Guardar</button>
                     </form>
+                    {% else %}<span class="muted">Lo registra un experto desde la cuenta de administrador.</span>{% endif %}
                 </td></tr>
         {% endfor %}
         </tbody>
@@ -293,7 +296,7 @@
         <p class="ok">No hay errores pendientes de revisión.</p>
     {% endif %}
 
-    {% if reviews %}
+    {% if reviews and is_admin %}
     <h4>Últimas revisiones</h4>
     <table class="t">
         <thead><tr><th>Fecha</th><th>Experto</th><th>Ticket</th><th>Real → Modelo</th><th>Veredicto</th><th>Correcta</th><th>Comentario</th></tr></thead>

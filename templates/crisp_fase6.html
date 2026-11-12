@@ -1,5 +1,5 @@
 <!-- CRISP-ML Phase 6: Monitoring and Maintenance || Fase 6 CRISP-ML: Monitoreo y Mantenimiento -->
-{% extends "base.html" %}
+{% extends "base_public.html" %}
 
 {% macro val(v, fmt) -%}
     {%- if v is none -%}—{%- elif fmt == '%' -%}{{ '%.1f' | format(v * 100) }}%{%- else -%}{{ v }}{%- endif -%}
@@ -33,7 +33,7 @@
 <div class="card">
     <h2>Fase 6 · Monitoreo y Mantenimiento</h2>
     <p>Fase continua: vigilar que el modelo mantenga su desempeño en producción, detectar a tiempo la degradación
-       por cambios en los datos o en el negocio, y decidir cuándo reentrenar (Schmid et al., 2020).
+       por cambios en los datos o en el negocio, y decidir cuándo reentrenar (Studer et al., 2021).
        Se compara la operación de los últimos {{ window_days }} días contra la línea base medida en la Evaluación (Fase 4).</p>
     {% if not has_baseline %}
         <p class="st st-alerta">No hay línea base: ejecuta <code>py train_models.py</code> para generarla.</p>

@@ -10,6 +10,15 @@ con menor carga. El proyecto sigue la metodología **CRISP-ML** y cada fase tien
 - Dependencias con versiones fijas en `requirements.txt`. Los modelos `.pkl` deben cargarse con las
   mismas versiones de pandas y scikit-learn con que se entrenaron.
 
+## Estructura del sitio
+
+- **Sitio público (sin login):** `/` presenta el proyecto con los campos del formato de propuesta PGC
+  (datos generales, entendimiento del problema, problema y justificación, solución, objetivos, marco referencial,
+  metodología y cronograma, productos y referencias) y `/crisp/fase1` a `/crisp/fase6` muestran cada fase CRISP-ML.
+  El contenido se edita en `project_info.py`.
+- **Aplicación (con login):** `/login`, `/dashboard`, `/create_ticket` y `/admin/users`. Las acciones que modifican
+  datos en las hojas CRISP-ML (revisión de expertos, exportar retroalimentación) solo las ve el Admin.
+
 ## Modelo elegido
 
 La prioridad se predice con **Linear Regression ordinal**: la prioridad se trata como un puntaje
@@ -28,7 +37,7 @@ py generate_dataset.py      # 3000 tickets sintéticos
 py train_models.py          # Fases 2, 3 y 4: limpia, entrena, evalúa y compara modelos (2-4 min)
 py create_admin.py          # usuario admin / admin123 (cambiarla luego)
 py seed_users.py            # consultores y cliente de prueba (clave 123456)
-py app.py                   # desarrollo: http://127.0.0.1:5000
+py app.py                   # desarrollo: http://127.0.0.1:5000 (sitio público) y /login (app)
 ```
 
 Para que la app se recargue sola al editar código en desarrollo: `$env:FLASK_DEBUG = "1"` antes de `py app.py`.
@@ -83,6 +92,7 @@ Rutina: **semanal** revisar Monitoreo y los tickets ⚠ · **mensual** `py retra
 | `config.py`, `deployment.py`, `run_production.py`, `export_feedback.py` | 5. Despliegue | Configuración, verificación, retroalimentación |
 | `monitoring.py`, `retrain.py`, `simulate_production.py` | 6. Monitoreo y mantenimiento | Supervisión, drift, reentrenamiento seguro, simulación |
 | `app.py`, `triage_service.py`, `models.py` | App | Rutas, predicción + asignación, base de datos |
+| `project_info.py` | Sitio público | Contenido de la presentación del proyecto (formato de propuesta PGC) |
 
 Reportes generados en `ml_models/`: `data_report.json`, `model_report.json`, `evaluation_report.json`, `model_history.json`.
 
