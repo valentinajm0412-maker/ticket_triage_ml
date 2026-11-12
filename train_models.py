@@ -83,3 +83,9 @@ with open(MODEL_REPORT_PATH, 'w', encoding='utf-8') as f:
     json.dump(model_report, f, ensure_ascii=False, indent=2)
 
 print(f'\nModelos guardados en {ML_DIR}/. Reportes: {REPORT_PATH} y {MODEL_REPORT_PATH}')
+
+# Fase 4: evaluación sobre el test reservado
+from evaluation import EVALUATION_REPORT_PATH, run_evaluation  # noqa: E402
+
+evaluation = run_evaluation()
+print(f"Evaluación (Fase 4): {evaluation['decision']}. Reporte: {EVALUATION_REPORT_PATH}")

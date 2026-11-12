@@ -4,7 +4,9 @@
 {% block content %}
 <div class="card" style="max-width: 600px; margin: auto;">
     <h2>Crear Nuevo Ticket</h2>
+    {% with messages = get_flashed_messages() %}{% for m in messages %}<p style="color: #c0392b;">{{ m }}</p>{% endfor %}{% endwith %}
     <form method="POST" action="{{ url_for('create_ticket') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <div style="margin-bottom: 15px;">
             <label><strong>Título del caso:</strong></label>
             <input type="text" name="title" required style="width: 100%; padding: 10px; margin-top: 5px; box-sizing: border-box;">

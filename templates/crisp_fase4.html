@@ -1,0 +1,206 @@
+<!-- CRISP-ML Phase 4: Model Evaluation || Fase 4 CRISP-ML: Evaluación del Modelo -->
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+    .stat { background: #f9f9f9; border-radius: 6px; padding: 12px; text-align: center; }
+    .stat b { display: block; font-size: 1.5em; color: #2c3e50; }
+    table.t { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    table.t th, table.t td { padding: 8px 10px; border-bottom: 1px solid #eee; text-align: left; vertical-align: top; }
+    table.t th { background: #f9f9f9; border-bottom: 2px solid #ddd; }
+    .ok { color: #27ae60; font-weight: bold; }
+    .ko { color: #c0392b; font-weight: bold; }
+    .warn { color: #d68910; font-weight: bold; }
+    .badge { padding: 2px 8px; border-radius: 10px; font-size: .85em; background: #ecf0f1; }
+    .step { color: #1abc9c; font-weight: bold; margin-right: 6px; }
+    code { background: #f4f4f4; padding: 1px 5px; border-radius: 3px; }
+    .muted { color: #777; }
+    .decision { padding: 14px 18px; border-radius: 6px; font-weight: bold; font-size: 1.1em; }
+    .decision.apto { background: #eafaf1; color: #1e8449; }
+    .decision.condiciones { background: #fef5e7; color: #b9770e; }
+    .decision.noapto { background: #fdedec; color: #c0392b; }
+    table.cm td, table.cm th { text-align: center; padding: 10px; border: 1px solid #fff; }
+    table.cm th { background: #f9f9f9; }
+    .flash { color: #27ae60; }
+    select, input[type=text] { padding: 5px; }
+    .btn { background: #2c3e50; color: #fff; border: none; padding: 6px 12px; border-radius: 3px; cursor: pointer; }
+</style>
+
+<div class="card">
+    <h2>Fase 4 · Evaluación del Modelo</h2>
+    <p>Medir el modelo con datos que nunca vio (test reservado en la Fase 3), revisar riesgos y validar
+       los errores con expertos del dominio antes de decidir si se despliega (KDnuggets, 2025).
+       Fuente: <code>{{ path }}</code>.</p>
+    {% with messages = get_flashed_messages() %}{% for m in messages %}<p class="flash">{{ m }}</p>{% endfor %}{% endwith %}
+</div>
+
+{% if not ev %}
+<div class="card"><p class="ko">Aún no existe el reporte de evaluación.</p>
+    <p>Ejecuta <code>py train_models.py</code> o <code>py evaluate_model.py</code>.</p></div>
+{% else %}
+{% set m = ev.metricas_test %}
+
+<div class="card">
+    {% set cls = 'apto' if ev.decision.startswith('Apto para') else ('condiciones' if ev.decision.startswith('Apto') else 'noapto') %}
+    <div class="decision {{ cls }}">Decisión: {{ ev.decision }}</div>
+    <div class="grid" style="margin-top: 14px;">
+        <div class="stat"><b>{{ '%.1f' | format(m.accuracy * 100) }}%</b>exactitud (test)</div>
+        <div class="stat"><b>{{ '%.1f' | format(m.recall_critico * 100) }}%</b>críticos detectados</div>
+        <div class="stat"><b>{{ '%.1f' | format(m.f1_macro * 100) }}%</b>F1 macro</div>
+        <div class="stat"><b>{{ '%.1f' | format(ev.categoria.accuracy * 100) }}%</b>exactitud categoría</div>
+        <div class="stat"><b>{{ ev.test_filas }}</b>tickets de test</div>
+    </div>
+</div>
+
+<div class="card">
+    <h3><span class="step">1</span>Métricas de desempeño</h3>
+    <h4>Criterios de aceptación (KPI de la Fase 1)</h4>
+    <table class="t">
+        <thead><tr><th>Criterio</th><th>Mínimo</th><th>Resultado</th><th>Estado</th><th>Origen</th></tr></thead>
+        <tbody>
+        {% for c in ev.criterios %}
+            <tr><td>{{ c.nombre }}</td><td>{{ (c.minimo * 100) | int }}%</td>
+                <td>{{ '%.1f' | format(c.valor * 100) }}%</td>
+                <td class="{{ 'ok' if c.cumple else 'ko' }}">{{ 'Cumple' if c.cumple else 'No cumple' }}</td>
+                <td class="muted">{{ c.kpi }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h4>Desempeño por prioridad</h4>
+    <table class="t">
+        <thead><tr><th>Prioridad</th><th>Precisión</th><th>Recall</th><th>F1</th><th>Tickets</th></tr></thead>
+        <tbody>
+        {% for r in ev.por_clase %}
+            <tr><td>{{ r.clase }}</td><td>{{ '%.1f' | format(r.precision * 100) }}%</td>
+                <td>{{ '%.1f' | format(r.recall * 100) }}%</td><td>{{ '%.1f' | format(r.f1 * 100) }}%</td>
+                <td>{{ r.soporte }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p class="muted">Precisión: de los que el modelo marcó con esa prioridad, cuántos lo eran. Recall: de los que lo eran, cuántos encontró.</p>
+
+    <h4>Matriz de confusión (filas = real, columnas = predicho)</h4>
+    <table class="cm">
+        <tr><th></th>{% for l in cm_labels %}<th>{{ l }}</th>{% endfor %}</tr>
+        {% for label, row in cm_rows %}
+        <tr><th>{{ label }}</th>
+            {% for v in row %}
+                {% set alpha = (v / max_cell * 0.85 + 0.05) | round(2) %}
+                <td style="background: {{ 'rgba(26,188,156,' ~ alpha ~ ')' if cm_labels[loop.index0] == label else 'rgba(192,57,43,' ~ alpha ~ ')' }}; color: {{ '#fff' if alpha > 0.5 else '#333' }}">{{ v }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    <p class="muted">Verde = aciertos. Rojo = errores; la fila "Alto" columna "Crítico" son falsas alarmas causadas por el umbral de la Fase 3.</p>
+</div>
+
+<div class="card">
+    {% set cmp = ev.comparacion %}
+    <h3><span class="step">2</span>Validación cruzada vs. test</h3>
+    <table class="t">
+        <thead><tr><th>Conjunto</th><th>F1 macro</th><th>Recall Crítico</th><th>Exactitud</th></tr></thead>
+        <tbody>
+            <tr><td>Entrenamiento (datos vistos)</td><td>{{ '%.1f' | format(cmp.train.f1_macro * 100) }}%</td>
+                <td>{{ '%.1f' | format(cmp.train.recall_critico * 100) }}%</td><td>{{ '%.1f' | format(cmp.train.accuracy * 100) }}%</td></tr>
+            <tr><td>Validación cruzada (Fase 3)</td><td>{{ '%.1f' | format(cmp.validacion_cruzada.f1_macro * 100) }}%
+                <span class="muted">±{{ '%.1f' | format(cmp.validacion_cruzada.f1_macro_std * 100) }}</span></td>
+                <td>{{ '%.1f' | format(cmp.validacion_cruzada.recall_critico * 100) }}%</td><td>—</td></tr>
+            <tr style="font-weight: bold;"><td>Test (datos nuevos)</td><td>{{ '%.1f' | format(cmp.test.f1_macro * 100) }}%</td>
+                <td>{{ '%.1f' | format(cmp.test.recall_critico * 100) }}%</td><td>{{ '%.1f' | format(cmp.test.accuracy * 100) }}%</td></tr>
+        </tbody>
+    </table>
+    <p class="muted">Si validación cruzada y test se parecen, el modelo generaliza: el resultado no fue suerte de una partición.</p>
+</div>
+
+<div class="card">
+    <h3><span class="step">3</span>Análisis de riesgos</h3>
+    <table class="t">
+        <thead><tr><th>Riesgo</th><th>Nivel</th><th>Evidencia</th><th>Mitigación</th></tr></thead>
+        <tbody>
+        {% for r in ev.riesgos %}
+            <tr><td>{{ r.riesgo }}</td>
+                <td class="{{ 'ko' if r.nivel == 'Alto' else ('warn' if r.nivel == 'Medio' else 'ok') }}">{{ r.nivel }}</td>
+                <td>{{ r.evidencia }}</td><td class="muted">{{ r.mitigacion }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h4>Sesgos: desempeño por subgrupo</h4>
+    <table class="t">
+        <thead><tr><th>Variable</th><th>Grupo</th><th>Tickets</th><th>Exactitud</th><th>Recall Crítico</th></tr></thead>
+        <tbody>
+        {% for b in ev.sesgo %}
+            {% for g in b.grupos %}
+            <tr><td>{% if loop.first %}{{ b.variable }}{% if b.alerta %} <span class="warn">⚠ {{ '%.0f' | format(b.diferencia * 100) }} pts</span>{% endif %}{% endif %}</td>
+                <td>{{ g.grupo }}</td><td>{{ g.n }}</td><td>{{ '%.1f' | format(g.accuracy * 100) }}%</td>
+                <td>{{ '%.1f' | format(g.recall_critico * 100) }}%</td></tr>
+            {% endfor %}
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="card">
+    <h3><span class="step">4</span>Revisión con expertos</h3>
+    <p>Los consultores revisan los errores del modelo en el test, empezando por los más graves
+       (un crítico que el modelo bajó a Bajo). Su veredicto dice si el error es del modelo o de la etiqueta.</p>
+    <div class="grid">
+        <div class="stat"><b>{{ total_reviewed }} / {{ errors_total }}</b>errores revisados</div>
+        <div class="stat"><b>{{ counts.modelo }}</b>error del modelo</div>
+        <div class="stat"><b>{{ counts.etiqueta }}</b>error de la etiqueta</div>
+        <div class="stat"><b>{{ counts.ambiguo }}</b>ambiguos</div>
+        <div class="stat"><b>{{ '%.1f' | format(adjusted_accuracy * 100) }}%</b>exactitud ajustada</div>
+    </div>
+    <p class="muted">Exactitud ajustada: cuenta como acierto los casos donde el experto dijo que la etiqueta del dataset estaba mal.</p>
+
+    {% if pending %}
+    <h4>Pendientes de revisión (mostrando {{ pending | length }} de {{ pending_total }})</h4>
+    <table class="t">
+        <thead><tr><th>Ticket</th><th>Real</th><th>Modelo</th><th>Confianza</th><th>Veredicto</th></tr></thead>
+        <tbody>
+        {% for e in pending %}
+            <tr><td>{{ e.texto }}</td>
+                <td><strong>{{ e.real }}</strong></td>
+                <td class="{{ 'ko' if e.gravedad > 0 else 'warn' }}">{{ e.predicho }}</td>
+                <td>{{ '%.0f' | format(e.confianza * 100) }}%</td>
+                <td>
+                    <form method="POST" action="{{ url_for('crisp_fase4_review') }}">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="key" value="{{ e.key }}">
+                        <select name="verdict" required>
+                            {% for k, v in verdicts.items() %}<option value="{{ k }}">{{ v }}</option>{% endfor %}
+                        </select><br>
+                        <label class="muted">Prioridad correcta:
+                            <select name="correct_priority">
+                                {% for p in priorities %}<option value="{{ p }}" {{ 'selected' if p == e.real }}>{{ p }}</option>{% endfor %}
+                            </select></label><br>
+                        <input type="text" name="comment" placeholder="Comentario (opcional)" style="width: 95%; margin: 4px 0;">
+                        <button class="btn" type="submit">Guardar</button>
+                    </form>
+                </td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p class="ok">No hay errores pendientes de revisión.</p>
+    {% endif %}
+
+    {% if reviews %}
+    <h4>Últimas revisiones</h4>
+    <table class="t">
+        <thead><tr><th>Fecha</th><th>Experto</th><th>Ticket</th><th>Real → Modelo</th><th>Veredicto</th><th>Correcta</th><th>Comentario</th></tr></thead>
+        <tbody>
+        {% for r in reviews %}
+            <tr><td class="muted">{{ r.created_at.strftime('%Y-%m-%d %H:%M') }}</td><td>{{ r.reviewer.username }}</td>
+                <td>{{ r.text[:90] }}{{ '…' if r.text | length > 90 }}</td>
+                <td>{{ r.label_true }} → {{ r.label_predicted }}</td><td>{{ r.verdict }}</td>
+                <td>{{ r.correct_priority or '-' }}</td><td class="muted">{{ r.comment or '' }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock %}

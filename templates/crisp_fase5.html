@@ -1,0 +1,109 @@
+<!-- CRISP-ML Phase 5: Model Deployment || Fase 5 CRISP-ML: Despliegue del Modelo -->
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+    .stat { background: #f9f9f9; border-radius: 6px; padding: 12px; text-align: center; }
+    .stat b { display: block; font-size: 1.5em; color: #2c3e50; }
+    table.t { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    table.t th, table.t td { padding: 8px 10px; border-bottom: 1px solid #eee; text-align: left; vertical-align: top; }
+    table.t th { background: #f9f9f9; border-bottom: 2px solid #ddd; }
+    .ok { color: #27ae60; font-weight: bold; }
+    .ko { color: #c0392b; font-weight: bold; }
+    .step { color: #1abc9c; font-weight: bold; margin-right: 6px; }
+    code, pre { background: #f4f4f4; padding: 1px 5px; border-radius: 3px; }
+    pre { padding: 12px; overflow-x: auto; }
+    .muted { color: #777; }
+    .flash { color: #27ae60; }
+    .btn { background: #2c3e50; color: #fff; border: none; padding: 8px 14px; border-radius: 4px; cursor: pointer; }
+    .roles { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+    .role { background: #f9f9f9; border-radius: 6px; padding: 12px 16px; }
+</style>
+
+<div class="card">
+    <h2>Fase 5 · Despliegue del Modelo</h2>
+    <p>Integrar el modelo validado en la operación real, documentar su uso, capacitar a los usuarios y
+       definir cómo se recoge la retroalimentación y se gestionan las incidencias (ML-Ops.org).</p>
+    {% if evaluation %}<p>Decisión de la Fase 4: <strong>{{ evaluation.decision }}</strong></p>{% endif %}
+    {% with messages = get_flashed_messages() %}{% for m in messages %}<p class="flash">{{ m }}</p>{% endfor %}{% endwith %}
+</div>
+
+<div class="card">
+    {% set passed = checklist | selectattr('ok') | list | length %}
+    <h3><span class="step">1</span>Implementación en producción</h3>
+    <p>Entorno actual: <strong>{{ app_env }}</strong> · Modelo en uso: <code>{{ model_version or 'no cargado' }}</code>
+       · Lista de verificación: <strong>{{ passed }} / {{ checklist | length }}</strong></p>
+    <table class="t">
+        <thead><tr><th>Verificación</th><th>Estado</th><th>Detalle / cómo corregir</th></tr></thead>
+        <tbody>
+        {% for c in checklist %}
+            <tr><td>{{ c.item }}</td><td class="{{ 'ok' if c.ok else 'ko' }}">{{ 'OK' if c.ok else 'Pendiente' }}</td>
+                <td class="muted">{{ c.detalle }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <h4>Arranque en producción (PowerShell)</h4>
+<pre>$env:SECRET_KEY = "una-clave-larga-y-aleatoria"
+$env:APP_ENV = "production"
+py run_production.py</pre>
+    <p class="muted">Monitoreo técnico: <a href="{{ url_for('health') }}" target="_blank"><code>/health</code></a>
+       responde si la base de datos y el modelo están disponibles. Cada predicción queda registrada en <code>logs/predictions.log</code>.</p>
+</div>
+
+<div class="card">
+    <h3><span class="step">2</span>Documentación y capacitación</h3>
+    <p>Manual técnico: <code>README.md</code> (instalación, entrenamiento, despliegue y estructura del proyecto).
+       Guía rápida por rol para las sesiones de formación:</p>
+    <div class="roles">
+        {% for g in guide %}
+        <div class="role"><h4 style="margin-top: 4px;">{{ g.rol }}</h4>
+            <ol>{% for t in g.tareas %}<li>{{ t }}</li>{% endfor %}</ol></div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="card">
+    <h3><span class="step">3</span>Protocolos: monitoreo, retroalimentación e incidencias</h3>
+    <h4>Retroalimentación de los consultores</h4>
+    <div class="grid">
+        <div class="stat"><b>{{ stats.predichos }}</b>tickets clasificados</div>
+        <div class="stat"><b>{{ stats.revisados }}</b>revisados por consultores</div>
+        <div class="stat"><b>{{ '%.0f' | format(stats.acuerdo * 100) ~ '%' if stats.acuerdo is not none else '—' }}</b>acuerdo modelo-consultor</div>
+        <div class="stat"><b>{{ stats.pendientes_revision }}</b>pendientes ⚠ (confianza &lt; {{ '%.0f' | format(low_confidence * 100) }}%)</div>
+        <div class="stat"><b>{{ stats.sin_clasificar }}</b>sin clasificar</div>
+    </div>
+
+    <p style="margin-top: 16px;">Los tickets confirmados o corregidos se convierten en datos reales de entrenamiento
+       (<code>ml_models/real_tickets.csv</code>, fuente "real" de la Fase 2).</p>
+    <form method="POST" action="{{ url_for('crisp_fase5_export') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button class="btn" type="submit">Exportar {{ stats.exportables }} tickets revisados</button>
+        <span class="muted">Luego ejecuta <code>py train_models.py</code> para reentrenar.</span>
+    </form>
+
+    {% if stats.correcciones %}
+    <h4>Últimas correcciones</h4>
+    <table class="t">
+        <thead><tr><th>Ticket</th><th>Modelo</th><th>Consultor</th><th>Revisó</th><th>Fecha</th></tr></thead>
+        <tbody>
+        {% for t in stats.correcciones %}
+            <tr><td>#{{ t.id }} {{ t.title }}</td><td>{{ t.priority_predicted }}</td>
+                <td><strong>{{ t.priority }}</strong></td><td>{{ t.reviewer.username }}</td>
+                <td class="muted">{{ t.priority_reviewed_at.strftime('%Y-%m-%d %H:%M') }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+    <h4>Gestión de incidencias</h4>
+    <table class="t">
+        <thead><tr><th>Situación</th><th>Cómo se detecta</th><th>Qué hacer</th></tr></thead>
+        <tbody>
+        {% for p in protocol %}
+            <tr><td>{{ p.situacion }}</td><td class="muted">{{ p.senal }}</td><td>{{ p.accion }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

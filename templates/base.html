@@ -12,6 +12,14 @@
         .navbar a:hover { color: #1abc9c; }
         .container { padding: 20px; max-width: 1200px; margin: auto; }
         .card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        /* CRISP-ML dropdown menu || Menú desplegable CRISP-ML */
+        .dropdown { position: relative; display: inline-block; margin-left: 15px; }
+        .dropdown > span { font-weight: bold; cursor: pointer; }
+        .dropdown-menu { display: none; position: absolute; right: 0; top: 100%; padding-top: 10px; z-index: 10; }
+        .dropdown-menu div { background: #2c3e50; border-radius: 0 0 6px 6px; box-shadow: 0 4px 10px rgba(0,0,0,.2); min-width: 340px; white-space: nowrap; }
+        .dropdown-menu a { display: block; margin: 0; padding: 10px 16px; border-top: 1px solid #3d566e; }
+        .dropdown-menu a small { color: #95a5a6; margin-right: 6px; }
+        .dropdown:hover .dropdown-menu { display: block; }
     </style>
 </head>
 <body>
@@ -23,9 +31,16 @@
             <a href="{{ url_for('dashboard') }}">Dashboard</a>
             {% if current_user.role == 'Admin' %}
                 <a href="{{ url_for('admin_users') }}">Gestionar Usuarios</a>
-                <a href="{{ url_for('crisp_fase1') }}">Entendimiento del Negocio y los Datos</a>
-                <a href="{{ url_for('crisp_fase2') }}">Ingeniería de Datos</a>
-                <a href="{{ url_for('crisp_fase3') }}">Ingeniería del Modelo</a>
+                <div class="dropdown">
+                    <span>CRISP-ML ▾</span>
+                    <div class="dropdown-menu"><div>
+                        <a href="{{ url_for('crisp_fase1') }}"><small>1</small>Entendimiento del Negocio y los Datos</a>
+                        <a href="{{ url_for('crisp_fase2') }}"><small>2</small>Ingeniería de Datos</a>
+                        <a href="{{ url_for('crisp_fase3') }}"><small>3</small>Ingeniería del Modelo</a>
+                        <a href="{{ url_for('crisp_fase4') }}"><small>4</small>Evaluación del Modelo</a>
+                        <a href="{{ url_for('crisp_fase5') }}"><small>5</small>Despliegue del Modelo</a>
+                    </div></div>
+                </div>
             {% endif %}
             {% if current_user.role in ['Cliente', 'Admin'] %}
                 <a href="{{ url_for('create_ticket') }}">Crear Ticket</a>
@@ -33,7 +48,7 @@
             <a href="{{ url_for('logout') }}">Salir</a>
         </div>
     </div>
-    
+
     <!-- Main Content || Contenido Principal -->
     <div class="container">
         {% block content %}{% endblock %}

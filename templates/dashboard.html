@@ -2,46 +2,93 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+    .tt { width: 100%; border-collapse: collapse; text-align: left; margin-top: 15px; }
+    .tt th, .tt td { padding: 10px; vertical-align: top; }
+    .tt thead tr { border-bottom: 2px solid #ddd; background-color: #f9f9f9; }
+    .tt tbody tr { border-bottom: 1px solid #eee; }
+    .p-Critico { color: #c0392b; } .p-Alto { color: #d35400; } .p-Medio { color: #2980b9; } .p-Bajo { color: #7f8c8d; }
+    .muted { color: #888; font-size: .85em; }
+    .warn { color: #d68910; font-weight: bold; }
+    .linkbtn { background: none; border: none; padding: 0; font-weight: bold; cursor: pointer; font-size: 1em; font-family: inherit; }
+    .mini select { padding: 3px; } .mini button { padding: 3px 8px; background: #2c3e50; color: #fff; border: none; border-radius: 3px; cursor: pointer; }
+</style>
+
 <div class="card">
     <h2>Panel Principal</h2>
     <p>Rol activo: <strong>{{ current_user.role }}</strong></p>
     {% if current_user.role in ['Consultor Tecnico', 'Consultor Funcional'] %}
         <p>Tickets asignados activos: <strong>{{ current_user.workload }}</strong></p>
     {% endif %}
+    {% with messages = get_flashed_messages() %}{% for m in messages %}<p style="color: #27ae60;">{{ m }}</p>{% endfor %}{% endwith %}
 </div>
 
 <div class="card">
     <h3>Listado de Tickets</h3>
+    {% if current_user.role != 'Cliente' %}
+        <p class="muted">⚠ = el modelo tiene baja confianza: confirma o corrige la prioridad. Cada revisión se usa para reentrenar el modelo.</p>
+    {% endif %}
     {% if tickets %}
-        <table style="width: 100%; border-collapse: collapse; text-align: left; margin-top: 15px;">
+        <table class="tt">
             <thead>
-                <tr style="border-bottom: 2px solid #ddd; background-color: #f9f9f9;">
-                    <th style="padding: 10px;">ID</th>
-                    <th style="padding: 10px;">Título</th>
-                    <th style="padding: 10px;">Categoría</th>
-                    <th style="padding: 10px;">Prioridad (ML)</th>
-                    <th style="padding: 10px;">Asignado A</th>
-                    <th style="padding: 10px;">Estado</th>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Categoría</th>
+                    <th>Prioridad (ML)</th>
+                    <th>Asignado A</th>
+                    <th>Estado</th>
                     {% if current_user.role != 'Cliente' %}
-                        <th style="padding: 10px;">Acción</th>
+                        <th>Revisar prioridad</th>
+                        <th>Acción</th>
                     {% endif %}
                 </tr>
             </thead>
             <tbody>
                 {% for t in tickets %}
-                <tr style="border-bottom: 1px solid #eee;">
-                    <td style="padding: 10px;">#{{ t.id }}</td>
-                    <td style="padding: 10px;">{{ t.title }}</td>
-                    <td style="padding: 10px;">{{ t.category }}</td>
-                    <td style="padding: 10px;"><strong>{{ t.priority }}</strong></td>
-                    <td style="padding: 10px;">{{ t.assignee.username if t.assignee else 'Sin asignar' }}</td>
-                    <td style="padding: 10px;">{{ t.status }}</td>
+                <tr>
+                    <td>#{{ t.id }}</td>
+                    <td>{{ t.title }}</td>
+                    <td>{{ t.category }}</td>
+                    <td>
+                        <strong class="p-{{ t.priority }}">{{ t.priority or 'Sin clasificar' }}</strong>
+                        {% if t.needs_review and not t.priority_reviewed_by %}<span class="warn" title="Requiere revisión">⚠</span>{% endif %}
+                        {% if current_user.role != 'Cliente' %}
+                            <div class="muted">
+                                {% if t.priority_confidence is not none %}confianza {{ '%.0f' | format(t.priority_confidence * 100) }}%{% endif %}
+                                {% if t.priority_reviewed_by %}
+                                    · {{ 'confirmada' if t.priority == t.priority_predicted else 'corregida (modelo: ' ~ (t.priority_predicted or '-') ~ ')' }}
+                                    por {{ t.reviewer.username }}
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    </td>
+                    <td>{{ t.assignee.username if t.assignee else 'Sin asignar' }}</td>
+                    <td>{{ t.status }}</td>
                     {% if current_user.role != 'Cliente' %}
-                    <td style="padding: 10px;">
-                        {% if t.status == 'Abierto' %}
-                            <a href="{{ url_for('update_ticket', ticket_id=t.id, new_status='En Proceso') }}" style="color: #2980b9; font-weight: bold; text-decoration: none;">[Tomar caso]</a>
-                        {% elif t.status == 'En Proceso' %}
-                            <a href="{{ url_for('update_ticket', ticket_id=t.id, new_status='Resuelto') }}" style="color: #27ae60; font-weight: bold; text-decoration: none;">[Resolver]</a>
+                    <td>
+                        {% if current_user.role == 'Admin' or t.assigned_to == current_user.id %}
+                        <form class="mini" method="POST" action="{{ url_for('review_priority', ticket_id=t.id) }}">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <select name="priority">
+                                {% for p in priorities %}<option value="{{ p }}" {{ 'selected' if p == t.priority }}>{{ p }}</option>{% endfor %}
+                            </select>
+                            <button type="submit">{{ 'Actualizar' if t.priority_reviewed_by else 'Confirmar' }}</button>
+                        </form>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if t.status != 'Resuelto' %}
+                        <form method="POST" action="{{ url_for('update_ticket', ticket_id=t.id) }}">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            {% if t.status == 'Abierto' %}
+                                <input type="hidden" name="status" value="En Proceso">
+                                <button class="linkbtn" style="color: #2980b9;" type="submit">[Tomar caso]</button>
+                            {% else %}
+                                <input type="hidden" name="status" value="Resuelto">
+                                <button class="linkbtn" style="color: #27ae60;" type="submit">[Resolver]</button>
+                            {% endif %}
+                        </form>
                         {% else %}
                             <span style="color: gray;">Completado</span>
                         {% endif %}

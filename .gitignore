@@ -11,3 +11,6 @@ instance/
 # OS generated files || Archivos generados por el sistema operativo
 .DS_Store
 Thumbs.db
+
+# Prediction logs || Bitácora de predicciones
+logs/

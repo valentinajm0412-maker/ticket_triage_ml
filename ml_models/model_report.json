@@ -1,5 +1,5 @@
 {
-  "fecha": "2026-11-11T21:38:08",
+  "fecha": "2026-11-11T21:54:23",
   "entorno": {
     "python": "3.14.7",
     "pandas": "3.0.5",
@@ -20,7 +20,7 @@
         "f1_macro": 0.5489,
         "f1_macro_std": 0.0135,
         "accuracy": 0.592,
-        "segundos": 5.5,
+        "segundos": 5.0,
         "soporta_probabilidad": true,
         "recall_critico": 0.9602
       },
@@ -34,7 +34,7 @@
         "f1_macro": 0.8077,
         "f1_macro_std": 0.0136,
         "accuracy": 0.8107,
-        "segundos": 5.8,
+        "segundos": 5.2,
         "soporta_probabilidad": true,
         "recall_critico": 0.8893
       },
@@ -48,7 +48,7 @@
         "f1_macro": 0.7534,
         "f1_macro_std": 0.0252,
         "accuracy": 0.7601,
-        "segundos": 3.6,
+        "segundos": 3.4,
         "soporta_probabilidad": false,
         "recall_critico": 0.9225
       },
@@ -62,7 +62,7 @@
         "f1_macro": 0.8544,
         "f1_macro_std": 0.0322,
         "accuracy": 0.8653,
-        "segundos": 12.9,
+        "segundos": 22.2,
         "soporta_probabilidad": true,
         "recall_critico": 0.8873
       }
@@ -197,7 +197,7 @@
         "f1_macro": 0.9636,
         "f1_macro_std": 0.0073,
         "accuracy": 0.9657,
-        "segundos": 1.4,
+        "segundos": 4.0,
         "soporta_probabilidad": true
       },
       {
@@ -210,7 +210,7 @@
         "f1_macro": 0.9636,
         "f1_macro_std": 0.0073,
         "accuracy": 0.9657,
-        "segundos": 2.3,
+        "segundos": 2.5,
         "soporta_probabilidad": true
       },
       {
@@ -223,7 +223,7 @@
         "f1_macro": 0.9636,
         "f1_macro_std": 0.0073,
         "accuracy": 0.9657,
-        "segundos": 2.2,
+        "segundos": 2.7,
         "soporta_probabilidad": false
       },
       {
@@ -236,7 +236,7 @@
         "f1_macro": 0.9636,
         "f1_macro_std": 0.0073,
         "accuracy": 0.9657,
-        "segundos": 6.9,
+        "segundos": 7.7,
         "soporta_probabilidad": true
       }
     ],
