@@ -5,6 +5,7 @@ from models import db, User, Ticket
 from triage_service import classify_and_assign_ticket
 from crisp_fase1 import build_context as crisp_fase1_context
 from crisp_fase2 import build_context as crisp_fase2_context
+from crisp_fase3 import build_context as crisp_fase3_context
 
 app = Flask(__name__)
 
@@ -137,6 +138,14 @@ def crisp_fase2():
     if current_user.role != 'Admin':
         return redirect(url_for('dashboard'))
     return render_template('crisp_fase2.html', **crisp_fase2_context())
+
+# CRISP-ML Phase 3 page (Admin only) || Hoja Fase 3 CRISP-ML (solo Admin)
+@app.route('/crisp/fase3')
+@login_required
+def crisp_fase3():
+    if current_user.role != 'Admin':
+        return redirect(url_for('dashboard'))
+    return render_template('crisp_fase3.html', **crisp_fase3_context())
 
 # Logout Route || Ruta de Cerrar Sesión
 @app.route('/logout')

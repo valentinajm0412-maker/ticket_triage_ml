@@ -1,5 +1,5 @@
 {
-  "fecha": "2026-11-11T21:24:31",
+  "fecha": "2026-11-11T21:38:08",
   "entorno": {
     "python": "3.14.7",
     "pandas": "3.0.5",
@@ -136,22 +136,12 @@
   },
   "modelos": {
     "prioridad": {
-      "mejor": "Random Forest",
-      "accuracy": 0.8647,
-      "candidatos": {
-        "Naive Bayes": 0.6134,
-        "Random Forest": 0.8647,
-        "Logistic Regression": 0.7856
-      }
+      "mejor": "Random Forest + umbral Critico 0.27",
+      "accuracy": 0.8366
     },
     "categoria": {
       "mejor": "Naive Bayes",
-      "accuracy": 0.9684,
-      "candidatos": {
-        "Naive Bayes": 0.9684,
-        "Random Forest": 0.9666,
-        "Logistic Regression": 0.9684
-      }
+      "accuracy": 0.9684
     },
     "archivos": [
       "ml_models\\best_ticket_model.pkl",

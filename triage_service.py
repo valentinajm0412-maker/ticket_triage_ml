@@ -2,6 +2,7 @@ import joblib
 from models import db, User, Ticket
 
 import data_pipeline  # noqa: F401  (needed to unpickle TextCleaner || necesario para cargar TextCleaner)
+import model_engineering  # noqa: F401  (needed to unpickle CriticalThresholdClassifier)
 
 # Load the full pipeline: cleaning + features + model || Cargar el pipeline completo: limpieza + características + modelo
 model = joblib.load('ml_models/best_ticket_model.pkl')

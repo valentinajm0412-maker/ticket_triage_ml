@@ -1,80 +1,85 @@
 """
 Entrenamiento de modelos || Model training
 
-Usa data_pipeline.py (Fase 2: Ingeniería de Datos) y guarda cada modelo como un
-Pipeline completo: limpieza de texto -> características TF-IDF -> clasificador.
-Así la app transforma el texto exactamente igual que en el entrenamiento.
+Fase 2 (data_pipeline.py): selección, limpieza y transformación de datos.
+Fase 3 (model_engineering.py): selección de algoritmo con validación cruzada,
+ajuste de hiperparámetros y umbral de decisión para tickets críticos.
+
+El test (20%) se separa al inicio y NO participa en ninguna decisión.
 """
+import json
 import os
 
 import joblib
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import accuracy_score, f1_score
 from sklearn.model_selection import train_test_split
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.pipeline import Pipeline
 
-from data_pipeline import ML_DIR, REPORT_PATH, TextCleaner, build_features, prepare_dataset, save_report
+from data_pipeline import ML_DIR, REPORT_PATH, environment_info, prepare_dataset, save_report
+from model_engineering import CRITICAL_LABEL, CV_FOLDS, SEED, _critical_recall, select_and_train
 
-SEED = 42
 PRIORITY_MODEL_PATH = os.path.join(ML_DIR, 'best_ticket_model.pkl')
 CATEGORY_MODEL_PATH = os.path.join(ML_DIR, 'best_category_model.pkl')
+MODEL_REPORT_PATH = os.path.join(ML_DIR, 'model_report.json')
+TEST_SPLIT_PATH = os.path.join(ML_DIR, 'test_split.csv')  # para la Fase 4
 
-# 1-2. Selección y limpieza (Fase 2)
+# Fase 2: datos limpios
 df, report = prepare_dataset()
 X = df['texto']  # titulo + ". " + descripcion (el Pipeline lo limpia)
 
-# 3. Dividir ANTES de ajustar cualquier transformación (evita data leakage)
+# Separar test ANTES de cualquier ajuste (evita data leakage)
 X_train, X_test, yp_train, yp_test, yc_train, yc_test = train_test_split(
     X, df['prioridad'], df['categoria'], test_size=0.2, random_state=SEED, stratify=df['prioridad'])
 
+# Fase 3: ingeniería del modelo (todo dentro de train)
+priority_model, priority_summary = select_and_train('Prioridad', X_train, yp_train, business_rule=True)
+category_model, category_summary = select_and_train('Categoría', X_train, yc_train)
 
-def train_best_classifier(target_name, y_train, y_test):
-    candidates = {
-        'Naive Bayes': MultinomialNB(),
-        'Random Forest': RandomForestClassifier(random_state=SEED, n_jobs=-1),
-        'Logistic Regression': LogisticRegression(random_state=SEED, max_iter=2000),
-    }
-    results, best = {}, (None, -1, '')
-    print(f'=== Entrenando modelos para: {target_name.upper()} ===\n')
+joblib.dump(priority_model, PRIORITY_MODEL_PATH)
+joblib.dump(category_model, CATEGORY_MODEL_PATH)
 
-    for name, clf in candidates.items():
-        pipe = Pipeline([('limpieza', TextCleaner()), ('caracteristicas', build_features()),
-                         ('modelo', clf)])
-        pipe.fit(X_train, y_train)
-        acc = accuracy_score(y_test, pipe.predict(X_test))
-        results[name] = round(acc, 4)
-        print(f'{name} Accuracy: {acc:.4f}')
-        if acc > best[1]:
-            best = (pipe, acc, name)
-
-    pipe, acc, name = best
-    print(f'\nMejor modelo para {target_name}: {name} ({acc:.4f})')
-    print(classification_report(y_test, pipe.predict(X_test)))
-    return pipe, {'mejor': name, 'accuracy': round(acc, 4), 'candidatos': results}
-
-
-# 4. Entrenar y guardar Pipelines completos
-priority_pipe, priority_info = train_best_classifier('Prioridad', yp_train, yp_test)
-category_pipe, category_info = train_best_classifier('Categoría', yc_train, yc_test)
-
-joblib.dump(priority_pipe, PRIORITY_MODEL_PATH)
-joblib.dump(category_pipe, CATEGORY_MODEL_PATH)
-
-# El vectorizador ya va dentro del Pipeline; se elimina el archivo antiguo si existe
 old_vectorizer = os.path.join(ML_DIR, 'tfidf_vectorizer.pkl')
 if os.path.exists(old_vectorizer):
     os.remove(old_vectorizer)
 
-# 5. Documentación: completar y guardar el reporte
-feats = priority_pipe.named_steps['caracteristicas']
-report['transformacion']['vocabulario'] = {
-    name: len(vec.vocabulary_) for name, vec in feats.transformer_list}
+# Guardar el test intacto para la Fase 4 (Evaluación)
+df.loc[X_test.index, ['titulo', 'descripcion', 'texto', 'categoria', 'prioridad']].to_csv(
+    TEST_SPLIT_PATH, index=False)
+
+# Referencia rápida en test (la evaluación completa es la Fase 4)
+yp_pred = priority_model.predict(X_test)
+priority_summary['test_referencia'] = {
+    'accuracy': round(accuracy_score(yp_test, yp_pred), 4),
+    'f1_macro': round(f1_score(yp_test, yp_pred, average='macro'), 4),
+    'recall_critico': round(_critical_recall(yp_test, yp_pred), 4)}
+yc_pred = category_model.predict(X_test)
+category_summary['test_referencia'] = {
+    'accuracy': round(accuracy_score(yc_test, yc_pred), 4),
+    'f1_macro': round(f1_score(yc_test, yc_pred, average='macro'), 4)}
+
+# Documentación Fase 2
+pipe = priority_model.pipeline if hasattr(priority_model, 'pipeline') else priority_model
+feats = pipe.named_steps['caracteristicas']
+report['transformacion']['vocabulario'] = {name: len(vec.vocabulary_) for name, vec in feats.transformer_list}
 report['particion'] = {'semilla': SEED, 'test_size': 0.2, 'estratificado_por': 'prioridad',
                        'train': len(X_train), 'test': len(X_test)}
-report['modelos'] = {'prioridad': priority_info, 'categoria': category_info,
-                     'archivos': [PRIORITY_MODEL_PATH, CATEGORY_MODEL_PATH]}
+report['modelos'] = {
+    'prioridad': {'mejor': priority_summary['seleccionado'],
+                  'accuracy': priority_summary['test_referencia']['accuracy']},
+    'categoria': {'mejor': category_summary['seleccionado'],
+                  'accuracy': category_summary['test_referencia']['accuracy']},
+    'archivos': [PRIORITY_MODEL_PATH, CATEGORY_MODEL_PATH]}
 save_report(report)
 
-print(f'Pipelines guardados en {ML_DIR}/ y reporte en {REPORT_PATH}')
+# Documentación Fase 3
+model_report = {
+    'fecha': report['fecha'], 'entorno': environment_info(), 'semilla': SEED,
+    'validacion': f'StratifiedKFold {CV_FOLDS} folds sobre train ({len(X_train)} filas)',
+    'test_reservado': f'{len(X_test)} filas en {TEST_SPLIT_PATH}',
+    'etiqueta_critica': CRITICAL_LABEL,
+    'prioridad': priority_summary, 'categoria': category_summary,
+    'archivos': [PRIORITY_MODEL_PATH, CATEGORY_MODEL_PATH],
+}
+with open(MODEL_REPORT_PATH, 'w', encoding='utf-8') as f:
+    json.dump(model_report, f, ensure_ascii=False, indent=2)
+
+print(f'\nModelos guardados en {ML_DIR}/. Reportes: {REPORT_PATH} y {MODEL_REPORT_PATH}')

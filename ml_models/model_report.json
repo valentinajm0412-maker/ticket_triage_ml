@@ -1,0 +1,254 @@
+{
+  "fecha": "2026-11-11T21:38:08",
+  "entorno": {
+    "python": "3.14.7",
+    "pandas": "3.0.5",
+    "scikit-learn": "1.9.1"
+  },
+  "semilla": 42,
+  "validacion": "StratifiedKFold 5 folds sobre train (2272 filas)",
+  "test_reservado": "569 filas en ml_models\\test_split.csv",
+  "etiqueta_critica": "Critico",
+  "prioridad": {
+    "candidatos": [
+      {
+        "algoritmo": "Naive Bayes",
+        "mejores_parametros": {
+          "alpha": "0.1"
+        },
+        "combinaciones_probadas": 3,
+        "f1_macro": 0.5489,
+        "f1_macro_std": 0.0135,
+        "accuracy": 0.592,
+        "segundos": 5.5,
+        "soporta_probabilidad": true,
+        "recall_critico": 0.9602
+      },
+      {
+        "algoritmo": "Logistic Regression",
+        "mejores_parametros": {
+          "C": "10",
+          "class_weight": "balanced"
+        },
+        "combinaciones_probadas": 6,
+        "f1_macro": 0.8077,
+        "f1_macro_std": 0.0136,
+        "accuracy": 0.8107,
+        "segundos": 5.8,
+        "soporta_probabilidad": true,
+        "recall_critico": 0.8893
+      },
+      {
+        "algoritmo": "Linear SVM",
+        "mejores_parametros": {
+          "C": "0.5",
+          "class_weight": "balanced"
+        },
+        "combinaciones_probadas": 6,
+        "f1_macro": 0.7534,
+        "f1_macro_std": 0.0252,
+        "accuracy": 0.7601,
+        "segundos": 3.6,
+        "soporta_probabilidad": false,
+        "recall_critico": 0.9225
+      },
+      {
+        "algoritmo": "Random Forest",
+        "mejores_parametros": {
+          "class_weight": "balanced_subsample",
+          "min_samples_leaf": "1"
+        },
+        "combinaciones_probadas": 4,
+        "f1_macro": 0.8544,
+        "f1_macro_std": 0.0322,
+        "accuracy": 0.8653,
+        "segundos": 12.9,
+        "soporta_probabilidad": true,
+        "recall_critico": 0.8873
+      }
+    ],
+    "seleccionado": "Random Forest + umbral Critico 0.27",
+    "criterio": "Cumplir recall en Critico ≥ 95% (KPI Fase 1) con el mejor F1 macro posible, medido en validación cruzada",
+    "umbral": {
+      "algoritmo": "Random Forest",
+      "objetivo_recall": 0.95,
+      "umbral": 0.27,
+      "cumple": true,
+      "antes": {
+        "recall_critico": 0.8872,
+        "f1_macro": 0.8544
+      },
+      "despues": {
+        "recall_critico": 0.9513,
+        "f1_macro": 0.8301
+      },
+      "curva": [
+        {
+          "umbral": 0.05,
+          "recall_critico": 0.969,
+          "f1_macro": 0.6222
+        },
+        {
+          "umbral": 0.1,
+          "recall_critico": 0.9668,
+          "f1_macro": 0.702
+        },
+        {
+          "umbral": 0.15,
+          "recall_critico": 0.9668,
+          "f1_macro": 0.7492
+        },
+        {
+          "umbral": 0.2,
+          "recall_critico": 0.9624,
+          "f1_macro": 0.7947
+        },
+        {
+          "umbral": 0.25,
+          "recall_critico": 0.9558,
+          "f1_macro": 0.8211
+        },
+        {
+          "umbral": 0.3,
+          "recall_critico": 0.9381,
+          "f1_macro": 0.8392
+        },
+        {
+          "umbral": 0.35,
+          "recall_critico": 0.9204,
+          "f1_macro": 0.8541
+        },
+        {
+          "umbral": 0.4,
+          "recall_critico": 0.8894,
+          "f1_macro": 0.861
+        },
+        {
+          "umbral": 0.45,
+          "recall_critico": 0.854,
+          "f1_macro": 0.862
+        },
+        {
+          "umbral": 0.5,
+          "recall_critico": 0.8075,
+          "f1_macro": 0.8582
+        },
+        {
+          "umbral": 0.55,
+          "recall_critico": 0.7434,
+          "f1_macro": 0.847
+        },
+        {
+          "umbral": 0.6,
+          "recall_critico": 0.635,
+          "f1_macro": 0.821
+        },
+        {
+          "umbral": 0.65,
+          "recall_critico": 0.5487,
+          "f1_macro": 0.7991
+        },
+        {
+          "umbral": 0.7,
+          "recall_critico": 0.458,
+          "f1_macro": 0.7738
+        },
+        {
+          "umbral": 0.75,
+          "recall_critico": 0.3407,
+          "f1_macro": 0.7364
+        },
+        {
+          "umbral": 0.8,
+          "recall_critico": 0.219,
+          "f1_macro": 0.6919
+        },
+        {
+          "umbral": 0.85,
+          "recall_critico": 0.1305,
+          "f1_macro": 0.6552
+        },
+        {
+          "umbral": 0.9,
+          "recall_critico": 0.0487,
+          "f1_macro": 0.617
+        },
+        {
+          "umbral": 0.95,
+          "recall_critico": 0.0022,
+          "f1_macro": 0.5921
+        }
+      ]
+    },
+    "test_referencia": {
+      "accuracy": 0.8366,
+      "f1_macro": 0.8169,
+      "recall_critico": 0.9469
+    }
+  },
+  "categoria": {
+    "candidatos": [
+      {
+        "algoritmo": "Naive Bayes",
+        "mejores_parametros": {
+          "alpha": "0.1"
+        },
+        "combinaciones_probadas": 3,
+        "f1_macro": 0.9636,
+        "f1_macro_std": 0.0073,
+        "accuracy": 0.9657,
+        "segundos": 1.4,
+        "soporta_probabilidad": true
+      },
+      {
+        "algoritmo": "Logistic Regression",
+        "mejores_parametros": {
+          "C": "1",
+          "class_weight": "None"
+        },
+        "combinaciones_probadas": 6,
+        "f1_macro": 0.9636,
+        "f1_macro_std": 0.0073,
+        "accuracy": 0.9657,
+        "segundos": 2.3,
+        "soporta_probabilidad": true
+      },
+      {
+        "algoritmo": "Linear SVM",
+        "mejores_parametros": {
+          "C": "0.1",
+          "class_weight": "None"
+        },
+        "combinaciones_probadas": 6,
+        "f1_macro": 0.9636,
+        "f1_macro_std": 0.0073,
+        "accuracy": 0.9657,
+        "segundos": 2.2,
+        "soporta_probabilidad": false
+      },
+      {
+        "algoritmo": "Random Forest",
+        "mejores_parametros": {
+          "class_weight": "None",
+          "min_samples_leaf": "2"
+        },
+        "combinaciones_probadas": 4,
+        "f1_macro": 0.9636,
+        "f1_macro_std": 0.0073,
+        "accuracy": 0.9657,
+        "segundos": 6.9,
+        "soporta_probabilidad": true
+      }
+    ],
+    "seleccionado": "Naive Bayes",
+    "criterio": "Mayor F1 macro promedio en validación cruzada (no se usa el test)",
+    "test_referencia": {
+      "accuracy": 0.9684,
+      "f1_macro": 0.9662
+    }
+  },
+  "archivos": [
+    "ml_models\\best_ticket_model.pkl",
+    "ml_models\\best_category_model.pkl"
+  ]
+}

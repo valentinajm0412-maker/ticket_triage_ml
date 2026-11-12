@@ -1,0 +1,163 @@
+<!-- CRISP-ML Phase 3: Model Engineering || Fase 3 CRISP-ML: Ingeniería del Modelo -->
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+    .stat { background: #f9f9f9; border-radius: 6px; padding: 12px; text-align: center; }
+    .stat b { display: block; font-size: 1.5em; color: #2c3e50; }
+    table.t { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    table.t th, table.t td { padding: 8px 10px; border-bottom: 1px solid #eee; text-align: left; vertical-align: top; }
+    table.t th { background: #f9f9f9; border-bottom: 2px solid #ddd; }
+    tr.best td { background: #eafaf1; font-weight: bold; }
+    .ok { color: #27ae60; font-weight: bold; }
+    .ko { color: #c0392b; font-weight: bold; }
+    .badge { padding: 2px 8px; border-radius: 10px; font-size: .85em; background: #ecf0f1; }
+    .step { color: #1abc9c; font-weight: bold; margin-right: 6px; }
+    code { background: #f4f4f4; padding: 1px 5px; border-radius: 3px; }
+    .muted { color: #777; }
+    .bar { background: #ecf0f1; border-radius: 3px; height: 10px; width: 120px; display: inline-block; vertical-align: middle; }
+    .bar span { background: #1abc9c; display: block; height: 10px; border-radius: 3px; }
+</style>
+
+<div class="card">
+    <h2>Fase 3 · Ingeniería del Modelo</h2>
+    <p>Seleccionar el algoritmo más adecuado, entrenarlo, validarlo y ajustar sus hiperparámetros.
+       Todas las decisiones se toman con <strong>validación cruzada dentro de train</strong>; el test queda
+       reservado para la Fase 4 (Evaluación). Fuente: <code>{{ path }}</code>.</p>
+</div>
+
+{% if not mr %}
+<div class="card">
+    <p class="ko">Aún no existe el reporte de modelos.</p>
+    <p>Ejecuta <code>py train_models.py</code>.</p>
+</div>
+{% else %}
+{% set p = mr.prioridad %}
+{% set c = mr.categoria %}
+
+<div class="card">
+    <div class="grid">
+        <div class="stat"><b>{{ p.seleccionado }}</b>modelo de prioridad</div>
+        <div class="stat"><b>{{ c.seleccionado }}</b>modelo de categoría</div>
+        <div class="stat"><b>{{ mr.validacion.split(' ')[1] }} folds</b>validación cruzada</div>
+        <div class="stat"><b>{{ mr.fecha[:10] }}</b>último entrenamiento</div>
+    </div>
+</div>
+
+<div class="card">
+    <h3><span class="step">1</span>Selección de algoritmos</h3>
+    <p>Se compararon {{ p.candidatos | length }} familias de algoritmos de clasificación de texto:</p>
+    <table class="t">
+        <thead><tr><th>Algoritmo</th><th>Por qué se incluye</th><th>Entrega probabilidad</th></tr></thead>
+        <tbody>
+        {% for r in p.candidatos %}
+            <tr><td>{{ r.algoritmo }}</td><td class="muted">{{ notes.get(r.algoritmo, '') }}</td>
+                <td>{{ 'Sí' if r.soporta_probabilidad else 'No' }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="card">
+    <h3><span class="step">2</span>Entrenamiento</h3>
+    <ul>
+        <li>Cada algoritmo se entrena dentro del mismo Pipeline de la Fase 2: limpieza → TF-IDF palabras + caracteres → modelo.</li>
+        <li>{{ mr.validacion }}. Test reservado: {{ mr.test_reservado }}.</li>
+        <li>Semilla fija {{ mr.semilla }} para que los resultados sean reproducibles.</li>
+        <li>Entorno: {% for k, v in mr.entorno.items() %}<span class="badge">{{ k }} {{ v }}</span> {% endfor %}</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h3><span class="step">3</span>Validación (promedio de {{ mr.validacion.split(' ')[1] }} folds)</h3>
+    <h4>Prioridad</h4>
+    <table class="t">
+        <thead><tr><th>Algoritmo</th><th>F1 macro</th><th>Exactitud</th><th>Recall Crítico</th><th>Tiempo</th></tr></thead>
+        <tbody>
+        {% for r in p.candidatos | sort(attribute='f1_macro', reverse=True) %}
+            <tr class="{{ 'best' if p.seleccionado.startswith(r.algoritmo) else '' }}">
+                <td>{{ r.algoritmo }}</td>
+                <td><span class="bar"><span style="width: {{ (r.f1_macro * 100) | int }}%"></span></span>
+                    {{ '%.1f' | format(r.f1_macro * 100) }}% <span class="muted">±{{ '%.1f' | format(r.f1_macro_std * 100) }}</span></td>
+                <td>{{ '%.1f' | format(r.accuracy * 100) }}%</td>
+                <td class="{{ 'ok' if r.recall_critico >= p.umbral.objetivo_recall else 'ko' }}">{{ '%.1f' | format(r.recall_critico * 100) }}%</td>
+                <td class="muted">{{ r.segundos }} s</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p class="muted">F1 macro promedia el desempeño de las 4 prioridades por igual, así una clase pequeña no queda escondida.</p>
+
+    <h4>Categoría</h4>
+    <table class="t">
+        <thead><tr><th>Algoritmo</th><th>F1 macro</th><th>Exactitud</th></tr></thead>
+        <tbody>
+        {% for r in c.candidatos | sort(attribute='f1_macro', reverse=True) %}
+            <tr class="{{ 'best' if c.seleccionado == r.algoritmo else '' }}">
+                <td>{{ r.algoritmo }}</td>
+                <td>{{ '%.1f' | format(r.f1_macro * 100) }}% <span class="muted">±{{ '%.1f' | format(r.f1_macro_std * 100) }}</span></td>
+                <td>{{ '%.1f' | format(r.accuracy * 100) }}%</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p class="muted">Si todos empatan, el límite lo pone el ruido de las etiquetas (clientes que escogen mal la categoría), no el algoritmo.</p>
+</div>
+
+<div class="card">
+    <h3><span class="step">4</span>Ajuste de hiperparámetros</h3>
+    <h4>Búsqueda en rejilla (GridSearchCV)</h4>
+    <table class="t">
+        <thead><tr><th>Algoritmo</th><th>Combinaciones probadas</th><th>Mejores parámetros (prioridad)</th></tr></thead>
+        <tbody>
+        {% for r in p.candidatos %}
+            <tr><td>{{ r.algoritmo }}</td><td>{{ r.combinaciones_probadas }}</td>
+                <td>{% for k, v in r.mejores_parametros.items() %}<span class="badge">{{ k }} = {{ v }}</span> {% endfor %}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% set u = p.umbral %}
+    <h4>Umbral de decisión para "Crítico" (regla de negocio)</h4>
+    <p>Meta de la Fase 1: detectar al menos el <strong>{{ (u.objetivo_recall * 100) | int }}%</strong> de los tickets críticos.
+       Se bajó el umbral de probabilidad de <strong>{{ u.algoritmo }}</strong> para marcar un ticket como Crítico:</p>
+    <table class="t">
+        <thead><tr><th></th><th>Umbral</th><th>Recall Crítico</th><th>F1 macro</th></tr></thead>
+        <tbody>
+            <tr><td>Sin ajuste</td><td>clase más probable</td><td>{{ '%.1f' | format(u.antes.recall_critico * 100) }}%</td>
+                <td>{{ '%.1f' | format(u.antes.f1_macro * 100) }}%</td></tr>
+            <tr class="best"><td>Con ajuste</td><td>{{ u.umbral }}</td>
+                <td class="{{ 'ok' if u.cumple else 'ko' }}">{{ '%.1f' | format(u.despues.recall_critico * 100) }}%</td>
+                <td>{{ '%.1f' | format(u.despues.f1_macro * 100) }}%</td></tr>
+        </tbody>
+    </table>
+    <p class="muted">Compromiso: se aceptan algunas falsas alarmas (tickets marcados como críticos que no lo eran)
+       a cambio de no dejar pasar críticos reales, que es el error más costoso para el negocio.</p>
+
+    <details>
+        <summary>Ver curva umbral vs. desempeño</summary>
+        <table class="t">
+            <thead><tr><th>Umbral</th><th>Recall Crítico</th><th>F1 macro</th></tr></thead>
+            <tbody>
+            {% for pt in u.curva %}
+                <tr><td>{{ pt.umbral }}</td><td>{{ '%.1f' | format(pt.recall_critico * 100) }}%</td>
+                    <td>{{ '%.1f' | format(pt.f1_macro * 100) }}%</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </details>
+</div>
+
+<div class="card">
+    <h3>Decisión y siguiente paso</h3>
+    <p><strong>Prioridad:</strong> {{ p.seleccionado }}. <span class="muted">{{ p.criterio }}.</span></p>
+    <p><strong>Categoría:</strong> {{ c.seleccionado }}. <span class="muted">{{ c.criterio }}.</span></p>
+    <p class="muted">Referencia en test (una sola medición, sin usarse para decidir):
+       prioridad exactitud {{ '%.1f' | format(p.test_referencia.accuracy * 100) }}%,
+       recall Crítico {{ '%.1f' | format(p.test_referencia.recall_critico * 100) }}% ·
+       categoría exactitud {{ '%.1f' | format(c.test_referencia.accuracy * 100) }}%.
+       La evaluación completa (matriz de confusión, riesgos y revisión con expertos) es la Fase 4.</p>
+</div>
+{% endif %}
+{% endblock %}
